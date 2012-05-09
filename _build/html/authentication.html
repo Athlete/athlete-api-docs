@@ -1,0 +1,180 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Authentication &mdash; Athlete.com API 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Athlete.com API 0.1.0 documentation" href="index.html" />
+    <link rel="prev" title="Welcome to Athlete.com API’s documentation!" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to Athlete.com API’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="authentication">
+<h1>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h1>
+<p>There are two levels of authentication involved in every API call.</p>
+<ol class="arabic simple">
+<li>User</li>
+<li>Client</li>
+</ol>
+<p>Let&#8217;s say you are making a mobile app. Your app is the Client. The user who is using your app is the User.</p>
+<div class="section" id="client-authentication">
+<h2>Client Authentication<a class="headerlink" href="#client-authentication" title="Permalink to this headline">¶</a></h2>
+<p>For client authentication, you will need a public/private key pair which you will get from us (the Athlete.com
+developers). We don&#8217;t have an automated way to get this yet. You will use these keys in every request. The
+public key will be included in the request as a query parameter. The private key will be used to create a signature.
+The signature will also be added to the request as a query parameter. The private key is not included (intentionally).
+You need to keep this one secret.</p>
+<p>Over time we will hopefully provide libraries in various languages that take care of the request signing for you, but
+for now you&#8217;ll need to implement it yourself. I will document here exactly how that request signing must work.</p>
+<ol class="arabic">
+<li><p class="first">Add a timestamp parameter to the query string. This should be UTC time in ISO 8601 format.</p>
+</li>
+<li><p class="first">Add the public key to the query string. (e.g. public_key=...)</p>
+</li>
+<li><dl class="first docutils">
+<dt>Create a string with the following contents separated by unix style newlines (n)</dt>
+<dd><ol class="first last arabic simple">
+<li>Request Method (e.g. GET, POST, PUT). Not case sensitive.</li>
+<li>URI or Path. The URL minus the protocol, domain and port. (e.g. /api/v1/users/)</li>
+<li>All GET and POST parameters, sorted by key and serialized in querystring format (e.g. a=b&amp;c=d). Each key/value
+must be urlencoded consistent with python&#8217;s urllib.quote.</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p class="first">Create a SHA256 HMAC digest using the private key and the above string as the message.</p>
+</li>
+<li><p class="first">Base64 encode that digest and add it to the querystring parameters as the &#8216;signature&#8217; parameter (e.g. ...&amp;signature=...)</p>
+</li>
+</ol>
+<p>The signed request will become invalid in any of the following circumstances:</p>
+<ul>
+<li><p class="first">If the timestamp is too old or too new (a signed request is only valid for about 5 minutes)</p>
+</li>
+<li><p class="first">If any of the parameters are changed without creating a new signature</p>
+</li>
+<li><p class="first">If the request method or URI are changed without creating a new signature</p>
+</li>
+<li><dl class="first docutils">
+<dt>If the private key is changed on our servers.</dt>
+<dd><ul class="first last simple">
+<li>This is useful in the case that your private key is compromised. Just ask us to create a new one for
+you and your old one will stop working.</li>
+<li>If you are abusing our service, we may also change your key to revoke your access to the API.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="user-authentication">
+<h2>User Authentication<a class="headerlink" href="#user-authentication" title="Permalink to this headline">¶</a></h2>
+<p>Client authentication gets you access to the API generally, but you are generally accessing data on behalf of a user
+and therefore you need permission to do so. We do this using a username and an api key.</p>
+<p>Before you can do any requests on the user&#8217;s behalf, you need to collect the user&#8217;s email and password. You&#8217;ll
+send that to our login API method and will receive the users&#8217;s username and api key which you will then send in the
+Authorization header of every API request.</p>
+<p>As I just stated, you will collect the user&#8217;s username and password. But you must not store it. You will use it to
+obtain the user&#8217;s username and api key and then you will no longer need it.</p>
+<p>The authorization header is formatted like this:</p>
+<blockquote>
+<div>Authorization: ApiKey &lt;username&gt;:&lt;api_key&gt;</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Authentication</a><ul>
+<li><a class="reference internal" href="#client-authentication">Client Authentication</a></li>
+<li><a class="reference internal" href="#user-authentication">User Authentication</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to Athlete.com API&#8217;s documentation!</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/authentication.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to Athlete.com API’s documentation!"
+             >previous</a> |</li>
+        <li><a href="index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Athlete.com.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
