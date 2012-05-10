@@ -56,10 +56,50 @@
 <p>Our API is built using TastyPie. We will explain pretty much everything you need to know in our
 docs, but you might find it useful to know a little bit more under the hood how things work.</p>
 <p><a class="reference external" href="http://django-tastypie.readthedocs.org/en/latest/">http://django-tastypie.readthedocs.org/en/latest/</a></p>
+<div class="section" id="documentation-format">
+<h2>Documentation Format<a class="headerlink" href="#documentation-format" title="Permalink to this headline">¶</a></h2>
+<p>Each API method you can call is in the following format:</p>
+<blockquote>
+<div><p>[METHOD] [PATH]</p>
+<p>Arguments</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">[ARG1]:</th><td class="field-body">[DESCRIPTION] (required)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">[ARG2]:</th><td class="field-body">[DESCRIPTION]</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Response</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">[ARG1]:</th><td class="field-body">[DESCRIPTION]</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div></blockquote>
+<p>Where METHOD is POST/GET/PUT...
+and PATH is the path relative to the endpoint.</p>
+<ul class="simple">
+<li>For production, the endpoint is <a class="reference external" href="http://beta.athlete.com/api/v1">http://beta.athlete.com/api/v1</a></li>
+<li>For testing, the endpoint is <a class="reference external" href="http://staging.athlete.com/api/v1">http://staging.athlete.com/api/v1</a></li>
+</ul>
+<p>So if PATH is /user/1/, the full URL for testing would be
+<a class="reference external" href="http://staging.athlete.com/api/v1/user/1/">http://staging.athlete.com/api/v1/user/1/</a></p>
+</div>
 <div class="section" id="response-format">
 <h2>Response Format<a class="headerlink" href="#response-format" title="Permalink to this headline">¶</a></h2>
 <p>Response format can be dictated by the Accepts header or by putting format=[xml|json|...] in the query
-string.</p>
+string. See <a class="reference external" href="http://django-tastypie.readthedocs.org/en/latest/interacting.html#front-matter">tastypie docs</a>
+for more information.</p>
 <p>Status codes are used properly. If you get a 200 repsonse, you can expect the normal response body as
 documented. Otherwise the response body will contain a plain text error message, or sometiemes no message.</p>
 <p>For example, if you don&#8217;t include the Authorization header, you will get a 401 UNAUTHORIZED status
@@ -76,6 +116,7 @@ code and no response body.</p>
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Overview</a><ul>
+<li><a class="reference internal" href="#documentation-format">Documentation Format</a></li>
 <li><a class="reference internal" href="#response-format">Response Format</a></li>
 </ul>
 </li>
