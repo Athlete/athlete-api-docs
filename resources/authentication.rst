@@ -11,7 +11,8 @@ POST http://api.athlete.com/login
 :email: The user's email address (required)
 :password: The user's password (required)
 
-**Response**
+Response
+++++++++
 
 :username: The user's username. This is different from their email.
 :api_key: The api key for this user.
