@@ -8,8 +8,8 @@ Login
 
 POST http://api.athlete.com/login
 
-:email: The user's email address (required)
-:password: The user's password (required)
+    :email: The user's email address (required)
+    :password: The user's password (required)
 
 Response
 ++++++++
