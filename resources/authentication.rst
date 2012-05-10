@@ -6,7 +6,7 @@ Authentication
 Login
 -----
 
-**POST http://api.athlete.com/login**
+**POST /login**
 
 Arguments
 
@@ -26,7 +26,7 @@ Login with Facebook
 
 *Not implemented yet*
 
-**POST http://api.athlete.com/login_facebook**
+**POST /login_facebook**
 
 Arguments
 
@@ -47,7 +47,7 @@ Register
 
 *Not implemented yet*
 
-**POST http://api.athlete.com/register**
+**POST /register**
 
 Arguments
 
@@ -69,7 +69,7 @@ Register with Facebook
 
 *Not implemented yet*
 
-**POST http://api.athlete.com/register_facebook**
+**POST /register_facebook**
 
 Arguments
 

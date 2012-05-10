@@ -49,6 +49,60 @@
             
   <div class="section" id="feed">
 <h1>Feed<a class="headerlink" href="#feed" title="Permalink to this headline">¶</a></h1>
+<p><strong>GET /feed/</strong></p>
+<p>Arguments</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">limit:</th><td class="field-body">Max feed items to return (default=20)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">offset:</th><td class="field-body">Feed item index to start with (default=0)</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Example Response</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">&quot;meta&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s">&quot;limit&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s">&quot;next&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s">&quot;offset&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">&quot;previous&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s">&quot;total_count&quot;</span><span class="p">:</span> <span class="mi">36</span>
+  <span class="p">},</span>
+  <span class="s">&quot;objects&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s">&quot;body&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+      <span class="s">&quot;comment_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s">&quot;created_date&quot;</span><span class="p">:</span> <span class="s">&quot;2012-05-10T10:09:10&quot;</span><span class="p">,</span>
+      <span class="s">&quot;distance&quot;</span><span class="p">:</span> <span class="mf">32186.8800122938</span><span class="p">,</span>
+      <span class="s">&quot;duration&quot;</span><span class="p">:</span> <span class="mi">1200</span><span class="p">,</span>
+      <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">98</span><span class="p">,</span>
+      <span class="s">&quot;like_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+      <span class="s">&quot;run_date&quot;</span><span class="p">:</span> <span class="s">&quot;2012-05-10T10:09:10&quot;</span><span class="p">,</span>
+      <span class="s">&quot;run_title&quot;</span><span class="p">:</span> <span class="s">&quot;Running&quot;</span><span class="p">,</span>
+      <span class="s">&quot;run_type&quot;</span><span class="p">:</span> <span class="s">&quot;Endurance&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s">&quot;body&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+      <span class="s">&quot;comment_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s">&quot;created_date&quot;</span><span class="p">:</span> <span class="s">&quot;2012-05-10T06:30:39&quot;</span><span class="p">,</span>
+      <span class="s">&quot;distance&quot;</span><span class="p">:</span> <span class="mf">8046.72000307346</span><span class="p">,</span>
+      <span class="s">&quot;duration&quot;</span><span class="p">:</span> <span class="mi">600</span><span class="p">,</span>
+      <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">97</span><span class="p">,</span>
+      <span class="s">&quot;like_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+      <span class="s">&quot;run_date&quot;</span><span class="p">:</span> <span class="s">&quot;2012-05-10T06:30:39&quot;</span><span class="p">,</span>
+      <span class="s">&quot;run_title&quot;</span><span class="p">:</span> <span class="s">&quot;R&quot;</span><span class="p">,</span>
+      <span class="s">&quot;run_type&quot;</span><span class="p">:</span> <span class="s">&quot;Endurance&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 
 
