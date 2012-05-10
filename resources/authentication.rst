@@ -6,12 +6,14 @@ Authentication
 Login
 -----
 
-POST http://api.athlete.com/login
+**POST http://api.athlete.com/login**
+
+Arguments
 
     :email: The user's email address (required)
     :password: The user's password (required)
 
-**Response**
+Response
 
     :username: The user's username. This is different from their email.
     :api_key: The api key for this user.
@@ -24,13 +26,15 @@ Login with Facebook
 
 *Not implemented yet*
 
-POST http://api.athlete.com/login_facebook
+**POST http://api.athlete.com/login_facebook**
+
+Arguments
 
     :token:
         The token received from Facebook. Must have been acquired using athlete.com's
         FB developer account. (required)
 
-**Response**
+Response
 
     :username: The user's username. This is different from their email.
     :api_key: The api key for this user.
@@ -43,14 +47,16 @@ Register
 
 *Not implemented yet*
 
-POST http://api.athlete.com/register
+**POST http://api.athlete.com/register**
+
+Arguments
 
     :first_name: The user's first name (required)
     :last_name: The user's last name (required)
     :email: The user's email address (required)
     :password: The user's password (required)
 
-**Response**
+Response
 
     :username: The user's username. This is different from their email.
     :api_key: The api key for this user.
@@ -63,13 +69,15 @@ Register with Facebook
 
 *Not implemented yet*
 
-POST http://api.athlete.com/register_facebook
+**POST http://api.athlete.com/register_facebook**
+
+Arguments
 
     :token:
         The token received from Facebook. Must have been acquired using athlete.com's
         FB developer account. (required)
 
-**Response**
+Response
 
     :username: The user's username. This is different from their email.
     :api_key: The api key for this user.
