@@ -21,14 +21,14 @@ Over time we will hopefully provide libraries in various languages that take car
 for now you'll need to implement it yourself. I will document here exactly how that request signing must work.
 
 #. Add a timestamp parameter to the query string. This should be UTC time in ISO 8601 format.
-#. Add the public key to the query string. (e.g. public_key=...)
-#. Create a string with the following contents separated by unix style newlines (\n)
-    #. Request Method (e.g. GET, POST, PUT). Not case sensitive.
-    #. URI or Path. The URL minus the protocol, domain and port. (e.g. /api/v1/users/)
+#. Add the public key to the query string.
+#. Create a string with the following contents separated by unix style newlines:
+    #. Request Method (e.g. GET, POST, PUT). Must be uppercase.
+    #. Path. This is the URL minus the protocol, domain and port. (e.g. /api/v1/users/)
     #. All GET and POST parameters, sorted by key and serialized in querystring format (e.g. a=b&c=d). Each key/value
-       must be urlencoded consistent with python's urllib.quote.
+       must be urlencoded consistent with `python's urllib.quote <http://docs.python.org/library/urllib.html#urllib.quote>`_.
 #. Create a SHA256 HMAC digest using the private key and the above string as the message.
-#. Base64 encode that digest and add it to the querystring parameters as the 'signature' parameter (e.g. ...&signature=...)
+#. Base64 encode that digest and add it to the query string parameters as the 'signature' parameter.
 
 The signed request will become invalid in any of the following circumstances:
 
@@ -58,3 +58,4 @@ Once you have the username and api key, you'll put it in the Authorization heade
 
     Authorization: ApiKey <username>:<api_key>
 
+Read the `Tastypie ApiKey Authentication docs <http://django-tastypie.readthedocs.org/en/latest/authentication_authorization.html#apikeyauthentication>`_ for more information.
