@@ -48,11 +48,13 @@ Client authentication gets you access to the API generally, but you are generall
 and therefore you need permission to do so. We do this using a username and an api key.
 
 You can obtain a username and api key for a new or existing user with one of the following:
-- Login
-- Facebook Login
-- Register
-- Facebook Register
+
+- :ref:`resource_login`
+- :ref:`resource_login_facebook`
+- :ref:`resource_register`
+- :ref:`resource_register_facebook`
 
 Once you have the username and api key, you'll put it in the Authorization header of every request. It should look like this:
 
     Authorization: ApiKey <username>:<api_key>
+

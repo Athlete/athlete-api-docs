@@ -47,13 +47,14 @@ User Authentication
 Client authentication gets you access to the API generally, but you are generally accessing data on behalf of a user
 and therefore you need permission to do so. We do this using a username and an api key.
 
-Before you can do any requests on the user's behalf, you need to collect the user's email and password. You'll
-send that to our login API method and will receive the users's username and api key which you will then send in the
-Authorization header of every API request.
+You can obtain a username and api key for a new or existing user with one of the following:
 
-As I just stated, you will collect the user's username and password. But you must not store it. You will use it to
-obtain the user's username and api key and then you will no longer need it.
+- :ref:`resource_login`
+- :ref:`resource_login_facebook`
+- :ref:`resource_register`
+- :ref:`resource_register_facebook`
 
-The authorization header is formatted like this:
+Once you have the username and api key, you'll put it in the Authorization header of every request. It should look like this:
 
     Authorization: ApiKey <username>:<api_key>
+

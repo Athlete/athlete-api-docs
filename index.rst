@@ -6,12 +6,26 @@
 Welcome to Athlete.com API's documentation!
 ===========================================
 
-Contents:
+Getting Started
+---------------
 
 .. toctree::
    :maxdepth: 2
 
-   authentication
+   getting_started/overview
+   getting_started/authentication
+   getting_started/testing
+
+
+Resources
+---------
+
+.. toctree::
+   :maxdepth: 2
+
+   resources/authentication
+   resources/user
+   resources/feed
 
 
 

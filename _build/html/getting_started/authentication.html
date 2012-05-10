@@ -10,35 +10,39 @@
     
     <title>Authentication &mdash; Athlete.com API 0.1.0 documentation</title>
     
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
+        URL_ROOT:    '../',
         VERSION:     '0.1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Athlete.com API 0.1.0 documentation" href="index.html" />
-    <link rel="prev" title="Welcome to Athlete.com API’s documentation!" href="index.html" /> 
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Athlete.com API 0.1.0 documentation" href="../index.html" />
+    <link rel="next" title="Authentication Resources" href="../resources/authentication.html" />
+    <link rel="prev" title="Overview" href="overview.html" /> 
   </head>
   <body>
     <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
+          <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="index.html" title="Welcome to Athlete.com API’s documentation!"
+          <a href="../resources/authentication.html" title="Authentication Resources"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="overview.html" title="Overview"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -109,11 +113,13 @@ you and your old one will stop working.</li>
 <h2>User Authentication<a class="headerlink" href="#user-authentication" title="Permalink to this headline">¶</a></h2>
 <p>Client authentication gets you access to the API generally, but you are generally accessing data on behalf of a user
 and therefore you need permission to do so. We do this using a username and an api key.</p>
-<p>You can obtain a username and api key for a new or existing user with one of the following:
-- Login
-- Facebook Login
-- Register
-- Facebook Register</p>
+<p>You can obtain a username and api key for a new or existing user with one of the following:</p>
+<ul class="simple">
+<li><a class="reference internal" href="../resources/authentication.html#resource-login"><em>Login</em></a></li>
+<li><a class="reference internal" href="../resources/authentication.html#resource-login-facebook"><em>Login with Facebook</em></a></li>
+<li><a class="reference internal" href="../resources/authentication.html#resource-register"><em>Register</em></a></li>
+<li><a class="reference internal" href="../resources/authentication.html#resource-register-facebook"><em>Register with Facebook</em></a></li>
+</ul>
 <p>Once you have the username and api key, you&#8217;ll put it in the Authorization header of every request. It should look like this:</p>
 <blockquote>
 <div>Authorization: ApiKey &lt;username&gt;:&lt;api_key&gt;</div></blockquote>
@@ -126,7 +132,7 @@ and therefore you need permission to do so. We do this using a username and an a
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Authentication</a><ul>
 <li><a class="reference internal" href="#client-authentication">Client Authentication</a></li>
@@ -136,16 +142,19 @@ and therefore you need permission to do so. We do this using a username and an a
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">Welcome to Athlete.com API&#8217;s documentation!</a></p>
+  <p class="topless"><a href="overview.html"
+                        title="previous chapter">Overview</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../resources/authentication.html"
+                        title="next chapter">Authentication Resources</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/authentication.txt"
+    <li><a href="../_sources/getting_started/authentication.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
+    <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
@@ -164,12 +173,15 @@ and therefore you need permission to do so. We do this using a username and an a
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
+          <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="index.html" title="Welcome to Athlete.com API’s documentation!"
+          <a href="../resources/authentication.html" title="Authentication Resources"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="overview.html" title="Overview"
              >previous</a> |</li>
-        <li><a href="index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
