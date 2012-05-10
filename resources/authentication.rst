@@ -14,8 +14,8 @@ POST http://api.athlete.com/login
 Response
 ++++++++
 
-:username: The user's username. This is different from their email.
-:api_key: The api key for this user.
+    :username: The user's username. This is different from their email.
+    :api_key: The api key for this user.
 
 
 .. _resource_login_facebook:
