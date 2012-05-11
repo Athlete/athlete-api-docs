@@ -53,6 +53,32 @@
             
   <div class="section" id="users">
 <h1>Users<a class="headerlink" href="#users" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="fetch-a-single-user">
+<h2>Fetch a single user<a class="headerlink" href="#fetch-a-single-user" title="Permalink to this headline">¶</a></h2>
+<p><strong>GET /user/1/</strong></p>
+<p>Arguments - None</p>
+<p>Example Response</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">&quot;date_joined&quot;</span><span class="p">:</span> <span class="s">&quot;2012-04-09T13:12:24&quot;</span><span class="p">,</span>
+  <span class="s">&quot;first_name&quot;</span><span class="p">:</span> <span class="s">&quot;Brian&quot;</span><span class="p">,</span>
+  <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="s">&quot;last_login&quot;</span><span class="p">:</span> <span class="s">&quot;2012-04-09T13:12:25&quot;</span><span class="p">,</span>
+  <span class="s">&quot;last_name&quot;</span><span class="p">:</span> <span class="s">&quot;Partridge&quot;</span><span class="p">,</span>
+  <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+  <span class="s">&quot;username&quot;</span><span class="p">:</span> <span class="s">&quot;bpartridge&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The following fields will be added to this response. It&#8217;s on my To Do list.</p>
+<ul class="simple">
+<li>gender</li>
+<li>birday</li>
+<li>distance preference</li>
+<li>weight preference</li>
+<li>weight</li>
+<li>image urls</li>
+</ul>
+</div>
 </div>
 
 
@@ -61,6 +87,14 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Users</a><ul>
+<li><a class="reference internal" href="#fetch-a-single-user">Fetch a single user</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="authentication.html"
                         title="previous chapter">Authentication</a></p>
