@@ -49,3 +49,14 @@ Note that workouts (and posts) can also have attached images. Those must be post
         :lng: The longitude
         :timestamp: The date/time that this data point was recorded in ISO 8601 format
         :elevation: The elevation at this data point (if available). Synonymous with altitude.
+
+
+Delete a workout
+----------------
+
+**DELETE /workout/[workout_id]/**
+
+Response
+
+    Not sure. Nothing of importance.
+    You will get a 401 UNAUTHORIZED response if the current logged in user does not own the workout.

@@ -6,7 +6,7 @@ Authentication
 Login
 -----
 
-**POST /login**
+**POST /accounts/login**
 
 Arguments
 
@@ -24,15 +24,12 @@ Response
 Login with Facebook
 -------------------
 
-*Not implemented yet*
-
-**POST /login_facebook**
+**POST /accounts/facebook/login**
 
 Arguments
 
-    :token:
-        The token received from Facebook. Must have been acquired using athlete.com's
-        FB developer account. (required)
+    :fb_user_id:
+        The Facebook user ID provided by facebook.
 
 Response
 

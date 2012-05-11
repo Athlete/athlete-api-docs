@@ -29,6 +29,10 @@ Resources
    resources/workout
    resources/photo_album
    resources/photo
+   resources/comment
+   resources/friendship
+   resources/like
+   resources/post
 
 
 

@@ -55,7 +55,7 @@
 <h1>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="login">
 <span id="resource-login"></span><h2>Login<a class="headerlink" href="#login" title="Permalink to this headline">¶</a></h2>
-<p><strong>POST /login</strong></p>
+<p><strong>POST /accounts/login</strong></p>
 <p>Arguments</p>
 <blockquote>
 <div><table class="docutils field-list" frame="void" rules="none">
@@ -85,16 +85,14 @@
 </div>
 <div class="section" id="login-with-facebook">
 <span id="resource-login-facebook"></span><h2>Login with Facebook<a class="headerlink" href="#login-with-facebook" title="Permalink to this headline">¶</a></h2>
-<p><em>Not implemented yet</em></p>
-<p><strong>POST /login_facebook</strong></p>
+<p><strong>POST /accounts/facebook/login</strong></p>
 <p>Arguments</p>
 <blockquote>
 <div><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">token:</th><td class="field-body">The token received from Facebook. Must have been acquired using athlete.com&#8217;s
-FB developer account. (required)</td>
+<tr class="field-odd field"><th class="field-name">fb_user_id:</th><td class="field-body">The Facebook user ID provided by facebook.</td>
 </tr>
 </tbody>
 </table>

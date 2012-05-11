@@ -1,0 +1,172 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Friendships &mdash; Athlete.com API 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Athlete.com API 0.1.0 documentation" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="friendships">
+<h1>Friendships<a class="headerlink" href="#friendships" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="get-friends-for-user">
+<h2>Get friends for user<a class="headerlink" href="#get-friends-for-user" title="Permalink to this headline">¶</a></h2>
+<p><strong>GET /user/[user_id]/friends/</strong></p>
+<p>Arguments</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">status:</th><td class="field-body">Pending, Accepted or ALL. (optional, default=Accepted)</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Returns</p>
+<blockquote>
+<div><p>An list of the user&#8217;s friends. Each friend object will contain:</p>
+<ul class="simple">
+<li>Profile image URL</li>
+<li>Full Name</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="request-friendship">
+<h2>Request friendship<a class="headerlink" href="#request-friendship" title="Permalink to this headline">¶</a></h2>
+<p><strong>POST /friendship/</strong></p>
+<p>Arguments</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">user:</th><td class="field-body">The id of the user who&#8217;s frienship is being requested. The requester is always the logged in user.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Returns</p>
+<blockquote>
+<div>The friendship object if it was created. If the object already existed, you&#8217;ll get an error response.</div></blockquote>
+</div>
+<div class="section" id="cancel-friendship-request-remove-friend">
+<h2>Cancel friendship request, Remove friend<a class="headerlink" href="#cancel-friendship-request-remove-friend" title="Permalink to this headline">¶</a></h2>
+<p>In either case you are essentially deleting any record of association between these two users.</p>
+<p><strong>DELETE /friendship/[user_id]/[user_id]/</strong></p>
+<p>The leftmost user_id in the url should be the alphanumerically lowest id. However, it will work either way.</p>
+<p>Response</p>
+<blockquote>
+<div>Not sure yet. Nothing important to return.</div></blockquote>
+</div>
+<div class="section" id="accept-or-deny-a-friend-request">
+<h2>Accept or deny a friend request<a class="headerlink" href="#accept-or-deny-a-friend-request" title="Permalink to this headline">¶</a></h2>
+<p><strong>PATCH /friendship/[user_id]/[user_id]/</strong></p>
+<p>If the requestee is not the current logged in user, you&#8217;ll get a 401 UNAUTHORIZED response.</p>
+<p>Arguments</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">status:</th><td class="field-body">Pending or Accepted</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Response</p>
+<blockquote>
+<div>An object representing the details of the friendship.</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Friendships</a><ul>
+<li><a class="reference internal" href="#get-friends-for-user">Get friends for user</a></li>
+<li><a class="reference internal" href="#request-friendship">Request friendship</a></li>
+<li><a class="reference internal" href="#cancel-friendship-request-remove-friend">Cancel friendship request, Remove friend</a></li>
+<li><a class="reference internal" href="#accept-or-deny-a-friend-request">Accept or deny a friend request</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/resources/friendships.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Athlete.com.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
