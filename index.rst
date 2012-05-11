@@ -26,6 +26,9 @@ Resources
    resources/authentication
    resources/user
    resources/feed
+   resources/workout
+   resources/photo_album
+   resources/photo
 
 
 

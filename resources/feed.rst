@@ -1,7 +1,13 @@
 Feed
 ====
 
-**GET /feed/**
+Friends' Feed
+-------------
+
+This feed shows all activity/posts for all of the authenticated user's friends.
+It also includes activity/posts for the current logged in user.
+
+**GET /feed/friends/**
 
 Arguments
 
@@ -9,6 +15,16 @@ Arguments
     :offset: Feed item index to start with (default=0)
 
 Example Response
+
+*Note:* The following data is missing from this response and will be added:
+
+- Author name
+- Author profile image URL
+- Workout (if there is an associated workout) with the following data:
+    - Distance in meters (can be null)
+    - Duration in meters (can be null)
+    - Pace (can be null)
+    - Run Type
 
 ::
 
@@ -49,3 +65,34 @@ Example Response
         }
       ]
     }
+
+
+Profile Feed
+------------
+
+Shows only activity/posts for the specified user.
+
+**GET /feed/profile/[user_id]/**
+
+Arguments and example response are the same as `Friends' Feed`_.
+
+
+Local Feed
+----------
+
+Shows activity/posts for all users within 200 miles of the current logged in user. This is done
+according to the location that the user specified in their settings.
+
+**GET /feed/local/**
+
+Arguments and example response are the same as `Friends' Feed`_.
+
+
+Featured Feed
+-------------
+
+Shows activity/posts for featured users.
+
+**GET /feed/featured/**
+
+Arguments and example response are the same as `Friends' Feed`_.

@@ -49,7 +49,11 @@
             
   <div class="section" id="feed">
 <h1>Feed<a class="headerlink" href="#feed" title="Permalink to this headline">¶</a></h1>
-<p><strong>GET /feed/</strong></p>
+<div class="section" id="friends-feed">
+<h2>Friends&#8217; Feed<a class="headerlink" href="#friends-feed" title="Permalink to this headline">¶</a></h2>
+<p>This feed shows all activity/posts for all of the authenticated user&#8217;s friends.
+It also includes activity/posts for the current logged in user.</p>
+<p><strong>GET /feed/friends/</strong></p>
 <p>Arguments</p>
 <blockquote>
 <div><table class="docutils field-list" frame="void" rules="none">
@@ -64,6 +68,24 @@
 </table>
 </div></blockquote>
 <p>Example Response</p>
+<p><em>Note:</em> The following data is missing from this response and will be added:</p>
+<ul>
+<li><p class="first">Author name</p>
+</li>
+<li><p class="first">Author profile image URL</p>
+</li>
+<li><dl class="first docutils">
+<dt>Workout (if there is an associated workout) with the following data:</dt>
+<dd><ul class="first last simple">
+<li>Distance in meters (can be null)</li>
+<li>Duration in meters (can be null)</li>
+<li>Pace (can be null)</li>
+<li>Run Type</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
   <span class="s">&quot;meta&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="s">&quot;limit&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
@@ -104,6 +126,26 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="profile-feed">
+<h2>Profile Feed<a class="headerlink" href="#profile-feed" title="Permalink to this headline">¶</a></h2>
+<p>Shows only activity/posts for the specified user.</p>
+<p><strong>GET /feed/profile/[user_id]/</strong></p>
+<p>Arguments and example response are the same as <a class="reference internal" href="#friends-feed">Friends&#8217; Feed</a>.</p>
+</div>
+<div class="section" id="local-feed">
+<h2>Local Feed<a class="headerlink" href="#local-feed" title="Permalink to this headline">¶</a></h2>
+<p>Shows activity/posts for all users within 200 miles of the current logged in user. This is done
+according to the location that the user specified in their settings.</p>
+<p><strong>GET /feed/local/</strong></p>
+<p>Arguments and example response are the same as <a class="reference internal" href="#friends-feed">Friends&#8217; Feed</a>.</p>
+</div>
+<div class="section" id="featured-feed">
+<h2>Featured Feed<a class="headerlink" href="#featured-feed" title="Permalink to this headline">¶</a></h2>
+<p>Shows activity/posts for featured users.</p>
+<p><strong>GET /feed/featured/</strong></p>
+<p>Arguments and example response are the same as <a class="reference internal" href="#friends-feed">Friends&#8217; Feed</a>.</p>
+</div>
+</div>
 
 
           </div>
@@ -111,6 +153,17 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Feed</a><ul>
+<li><a class="reference internal" href="#friends-feed">Friends&#8217; Feed</a></li>
+<li><a class="reference internal" href="#profile-feed">Profile Feed</a></li>
+<li><a class="reference internal" href="#local-feed">Local Feed</a></li>
+<li><a class="reference internal" href="#featured-feed">Featured Feed</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="user.html"
                         title="previous chapter">Users</a></p>
