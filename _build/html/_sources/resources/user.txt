@@ -13,13 +13,13 @@ Example Response
 ::
 
     {
-      "date_joined": "2012-04-09T13:12:24",
-      "first_name": "Brian",
-      "id": 5,
-      "last_login": "2012-04-09T13:12:25",
-      "last_name": "Partridge",
-      "resource_uri": "",
-      "username": "bpartridge"
+      "date_joined": "2012-05-01T11:37:52.467275",
+      "first_name": "Dustin",
+      "id": 1,
+      "last_name": "McQuay",
+      "preferences": "/api/v1/preferences/1/",
+      "profile": "/api/v1/profile/1/",
+      "resource_uri": "/api/v1/user/1/"
     }
 
 The following fields will be added to this response. It's on my To Do list.

@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Users &mdash; Athlete.com API 0.1.0 documentation</title>
+    <title>Profiles &mdash; Athlete.com API 0.1.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -25,9 +25,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Athlete.com API 0.1.0 documentation" href="../index.html" />
-    <link rel="next" title="Feed" href="feed.html" />
-    <link rel="prev" title="Authentication" href="authentication.html" /> 
+    <link rel="top" title="Athlete.com API 0.1.0 documentation" href="../index.html" /> 
   </head>
   <body>
     <div class="related">
@@ -36,12 +34,6 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="feed.html" title="Feed"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="authentication.html" title="Authentication"
-             accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
@@ -51,33 +43,23 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="users">
-<h1>Users<a class="headerlink" href="#users" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="fetch-a-single-user">
-<h2>Fetch a single user<a class="headerlink" href="#fetch-a-single-user" title="Permalink to this headline">¶</a></h2>
-<p><strong>GET /user/1/</strong></p>
-<p>Arguments - None</p>
+  <div class="section" id="profiles">
+<h1>Profiles<a class="headerlink" href="#profiles" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="get-a-profile">
+<h2>Get a profile<a class="headerlink" href="#get-a-profile" title="Permalink to this headline">¶</a></h2>
+<p><strong>GET /profile/[profile_id]</strong></p>
 <p>Example Response</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-  <span class="s">&quot;date_joined&quot;</span><span class="p">:</span> <span class="s">&quot;2012-05-01T11:37:52.467275&quot;</span><span class="p">,</span>
-  <span class="s">&quot;first_name&quot;</span><span class="p">:</span> <span class="s">&quot;Dustin&quot;</span><span class="p">,</span>
+  <span class="s">&quot;birth_date&quot;</span><span class="p">:</span> <span class="s">&quot;1983-05-17&quot;</span><span class="p">,</span>
+  <span class="s">&quot;gender&quot;</span><span class="p">:</span> <span class="s">&quot;M&quot;</span><span class="p">,</span>
   <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="s">&quot;last_name&quot;</span><span class="p">:</span> <span class="s">&quot;McQuay&quot;</span><span class="p">,</span>
-  <span class="s">&quot;preferences&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/preferences/1/&quot;</span><span class="p">,</span>
-  <span class="s">&quot;profile&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/profile/1/&quot;</span><span class="p">,</span>
-  <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/user/1/&quot;</span>
+  <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/profile/1/&quot;</span><span class="p">,</span>
+  <span class="s">&quot;user&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/user/1/&quot;</span><span class="p">,</span>
+  <span class="s">&quot;weight&quot;</span><span class="p">:</span> <span class="s">&quot;155&quot;</span><span class="p">,</span>
+  <span class="s">&quot;weight_unit&quot;</span><span class="p">:</span> <span class="s">&quot;pounds&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The following fields will be added to this response. It&#8217;s on my To Do list.</p>
-<ul class="simple">
-<li>gender</li>
-<li>birday</li>
-<li>distance preference</li>
-<li>weight preference</li>
-<li>weight</li>
-<li>image urls</li>
-</ul>
 </div>
 </div>
 
@@ -89,21 +71,15 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Users</a><ul>
-<li><a class="reference internal" href="#fetch-a-single-user">Fetch a single user</a></li>
+<li><a class="reference internal" href="#">Profiles</a><ul>
+<li><a class="reference internal" href="#get-a-profile">Get a profile</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="authentication.html"
-                        title="previous chapter">Authentication</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="feed.html"
-                        title="next chapter">Feed</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../_sources/resources/user.txt"
+    <li><a href="../_sources/resources/profile.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -129,12 +105,6 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="feed.html" title="Feed"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="authentication.html" title="Authentication"
-             >previous</a> |</li>
         <li><a href="../index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>

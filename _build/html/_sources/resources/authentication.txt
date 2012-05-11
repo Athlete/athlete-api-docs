@@ -6,7 +6,7 @@ Authentication
 Login
 -----
 
-**POST /accounts/login**
+**POST /account/login**
 
 Arguments
 
@@ -24,7 +24,7 @@ Response
 Login with Facebook
 -------------------
 
-**POST /accounts/facebook/login**
+**POST /account/facebook/login**
 
 Arguments
 
@@ -44,7 +44,7 @@ Register
 
 *Not implemented yet*
 
-**POST /register**
+**POST /account/register**
 
 Arguments
 
@@ -66,7 +66,7 @@ Register with Facebook
 
 *Not implemented yet*
 
-**POST /register_facebook**
+**POST /account/register/facebook**
 
 Arguments
 
