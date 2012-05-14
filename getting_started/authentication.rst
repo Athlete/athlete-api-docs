@@ -20,15 +20,26 @@ You need to keep this one secret.
 Over time we will hopefully provide libraries in various languages that take care of the request signing for you, but
 for now you'll need to implement it yourself. I will document here exactly how that request signing must work.
 
-#. Add a timestamp parameter to the query string. This should be UTC time in ISO 8601 format.
-#. Add the public key to the query string.
-#. Create a string with the following contents separated by unix style newlines:
+Basically you need to do the following
+
+#. Add the following parameters to the query string:
+    #. The current UTC time in ISO 8601 format (e.g. 'timestamp=2012-05-14T17:54:16.521019')
+    #. The public key (e.g. 'public_key=abcdefg12345')
+#. Create a string that represents the entire request. It should contain the following, in order, separated by a unix-style newline character.
     #. Request Method (e.g. GET, POST, PUT). Must be uppercase.
     #. Path. This is the URL minus the protocol, domain and port. (e.g. /api/v1/users/)
-    #. All GET and POST parameters, sorted by key and serialized in querystring format (e.g. a=b&c=d). Each key/value
+    #. All GET parameters, sorted by key and serialized in querystring format (e.g. a=b&c=d). Each key/value
        must be urlencoded consistent with `python's urllib.quote <http://docs.python.org/library/urllib.html#urllib.quote>`_.
-#. Create a SHA256 HMAC digest using the private key and the above string as the message.
-#. Base64 encode that digest and add it to the query string parameters as the 'signature' parameter.
+       This includes the two you just added above (timestamp and public_key).
+    
+    *Note: We may add the body of the request to this at some point in the future. We haven't figured out exactly how
+    we want to handle that yet. For now it is NOT included.*
+#. Sign that string and add that signature to the query string.
+    The string that you are signing should now look something like this:
+    ``GET\n/api/v1/user/\npublic_key=123&timestamp=2012-05-14T18%3A20%3A38.610086``
+    
+    #. Create a SHA256 HMAC digest using the private key and the above string as the message.
+    #. Base64 encode that digest and add it to the query string parameters (e.g. 'signature=n3UG0g6xwaFVy8qtk4AUnXGEHocWOlQkkmFzTVJlXbk%3D')
 
 The signed request will become invalid in any of the following circumstances:
 

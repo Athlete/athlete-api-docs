@@ -68,25 +68,41 @@ The signature will also be added to the request as a query parameter. The privat
 You need to keep this one secret.</p>
 <p>Over time we will hopefully provide libraries in various languages that take care of the request signing for you, but
 for now you&#8217;ll need to implement it yourself. I will document here exactly how that request signing must work.</p>
+<p>Basically you need to do the following</p>
 <ol class="arabic">
-<li><p class="first">Add a timestamp parameter to the query string. This should be UTC time in ISO 8601 format.</p>
-</li>
-<li><p class="first">Add the public key to the query string.</p>
-</li>
 <li><dl class="first docutils">
-<dt>Create a string with the following contents separated by unix style newlines:</dt>
+<dt>Add the following parameters to the query string:</dt>
 <dd><ol class="first last arabic simple">
-<li>Request Method (e.g. GET, POST, PUT). Must be uppercase.</li>
-<li>Path. This is the URL minus the protocol, domain and port. (e.g. /api/v1/users/)</li>
-<li>All GET and POST parameters, sorted by key and serialized in querystring format (e.g. a=b&amp;c=d). Each key/value
-must be urlencoded consistent with <a class="reference external" href="http://docs.python.org/library/urllib.html#urllib.quote">python&#8217;s urllib.quote</a>.</li>
+<li>The current UTC time in ISO 8601 format (e.g. &#8216;timestamp=2012-05-14T17:54:16.521019&#8217;)</li>
+<li>The public key (e.g. &#8216;public_key=abcdefg12345&#8217;)</li>
 </ol>
 </dd>
 </dl>
 </li>
-<li><p class="first">Create a SHA256 HMAC digest using the private key and the above string as the message.</p>
+<li><dl class="first docutils">
+<dt>Create a string that represents the entire request. It should contain the following, in order, separated by a unix-style newline character.</dt>
+<dd><ol class="first arabic simple">
+<li>Request Method (e.g. GET, POST, PUT). Must be uppercase.</li>
+<li>Path. This is the URL minus the protocol, domain and port. (e.g. /api/v1/users/)</li>
+<li>All GET parameters, sorted by key and serialized in querystring format (e.g. a=b&amp;c=d). Each key/value
+must be urlencoded consistent with <a class="reference external" href="http://docs.python.org/library/urllib.html#urllib.quote">python&#8217;s urllib.quote</a>.
+This includes the two you just added above (timestamp and public_key).</li>
+</ol>
+<p class="last"><em>Note: We may add the body of the request to this at some point in the future. We haven&#8217;t figured out exactly how
+we want to handle that yet. For now it is NOT included.</em></p>
+</dd>
+</dl>
 </li>
-<li><p class="first">Base64 encode that digest and add it to the query string parameters as the &#8216;signature&#8217; parameter.</p>
+<li><dl class="first docutils">
+<dt>Sign that string and add that signature to the query string.</dt>
+<dd><p class="first">The string that you are signing should now look something like this:
+<tt class="docutils literal"><span class="pre">GET\n/api/v1/user/\npublic_key=123&amp;timestamp=2012-05-14T18%3A20%3A38.610086</span></tt></p>
+<ol class="last arabic simple">
+<li>Create a SHA256 HMAC digest using the private key and the above string as the message.</li>
+<li>Base64 encode that digest and add it to the query string parameters (e.g. &#8216;signature=n3UG0g6xwaFVy8qtk4AUnXGEHocWOlQkkmFzTVJlXbk%3D&#8217;)</li>
+</ol>
+</dd>
+</dl>
 </li>
 </ol>
 <p>The signed request will become invalid in any of the following circumstances:</p>
