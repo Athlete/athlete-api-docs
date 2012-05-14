@@ -28,8 +28,11 @@ Login with Facebook
 
 Arguments
 
-    :fb_user_id:
-        The Facebook user ID provided by facebook.
+    :token:
+        The token received from Facebook. Must have been acquired using athlete.com's
+        FB developer account. (required)
+        **IMPORTANT: The token granted from facebook must have the "email", "user_birthday" and
+        "user_photos" privileges.**
 
 Response
 
@@ -56,6 +59,9 @@ Response
     :username: The user's username. This is different from their email.
     :api_key: The api key for this user.
 
+If a user already exists with the provided email address, the response will have a 400
+status code and the body will say ``The email address already exists``.
+
 
 .. _resource_register_facebook:
 
@@ -69,10 +75,13 @@ Arguments
     :token:
         The token received from Facebook. Must have been acquired using athlete.com's
         FB developer account. (required)
-**IMPORTANT: The token granted from facebook must have the "email", "user_birthday" and "user_photos" privileges.**
+        **IMPORTANT: The token granted from facebook must have the "email", "user_birthday" and
+        "user_photos" privileges.**
 
 Response
 
     :username: The user's username. This is different from their email.
     :api_key: The api key for this user.
 
+If an account already exists with the email address we receive from Facebook, the accounts will
+be automatically merged without an error.

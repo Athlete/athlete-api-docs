@@ -1,6 +1,8 @@
 Preferences
 ===========
 
+.. _resource_preferences_get:
+
 Get preferences
 ---------------
 

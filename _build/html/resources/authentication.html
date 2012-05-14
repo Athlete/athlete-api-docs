@@ -92,7 +92,10 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">fb_user_id:</th><td class="field-body">The Facebook user ID provided by facebook.</td>
+<tr class="field-odd field"><th class="field-name">token:</th><td class="field-body">The token received from Facebook. Must have been acquired using athlete.com&#8217;s
+FB developer account. (required)
+<strong>IMPORTANT: The token granted from facebook must have the &#8220;email&#8221;, &#8220;user_birthday&#8221; and
+&#8220;user_photos&#8221; privileges.</strong></td>
 </tr>
 </tbody>
 </table>
@@ -144,6 +147,8 @@
 </tbody>
 </table>
 </div></blockquote>
+<p>If a user already exists with the provided email address, the response will have a 400
+status code and the body will say <tt class="docutils literal"><span class="pre">The</span> <span class="pre">email</span> <span class="pre">address</span> <span class="pre">already</span> <span class="pre">exists</span></tt>.</p>
 </div>
 <div class="section" id="register-with-facebook">
 <span id="resource-register-facebook"></span><h2>Register with Facebook<a class="headerlink" href="#register-with-facebook" title="Permalink to this headline">¶</a></h2>
@@ -155,12 +160,13 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">token:</th><td class="field-body">The token received from Facebook. Must have been acquired using athlete.com&#8217;s
-FB developer account. (required)</td>
+FB developer account. (required)
+<strong>IMPORTANT: The token granted from facebook must have the &#8220;email&#8221;, &#8220;user_birthday&#8221; and
+&#8220;user_photos&#8221; privileges.</strong></td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
-<p><strong>IMPORTANT: The token granted from facebook must have the &#8220;email&#8221;, &#8220;user_birthday&#8221; and &#8220;user_photos&#8221; privileges.</strong></p>
 <p>Response</p>
 <blockquote>
 <div><table class="docutils field-list" frame="void" rules="none">
@@ -174,6 +180,8 @@ FB developer account. (required)</td>
 </tbody>
 </table>
 </div></blockquote>
+<p>If an account already exists with the email address we receive from Facebook, the accounts will
+be automatically merged without an error.</p>
 </div>
 </div>
 

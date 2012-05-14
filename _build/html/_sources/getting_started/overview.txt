@@ -44,3 +44,14 @@ documented. Otherwise the response body will contain a plain text error message,
 
 For example, if you don't include the Authorization header, you will get a 401 UNAUTHORIZED status
 code and no response body.
+
+
+Units
+-----
+
+- Distances and elevations will always be in meters.
+- Weights will always be in kilograms, except the user's weight can either be in lbs or kgs, as specified by the weight_unit attribute.
+- Durations will always be in seconds.
+- Timestamps will always be in ISO 8601 format (e.g. '2012-05-14T17:54:16.521019')
+
+Use :ref:`resource_preferences_get` to get the user's distance and elevation unit preference.

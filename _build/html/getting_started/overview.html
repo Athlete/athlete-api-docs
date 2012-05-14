@@ -105,6 +105,16 @@ documented. Otherwise the response body will contain a plain text error message,
 <p>For example, if you don&#8217;t include the Authorization header, you will get a 401 UNAUTHORIZED status
 code and no response body.</p>
 </div>
+<div class="section" id="units">
+<h2>Units<a class="headerlink" href="#units" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Distances and elevations will always be in meters.</li>
+<li>Weights will always be in kilograms, except the user&#8217;s weight can either be in lbs or kgs, as specified by the weight_unit attribute.</li>
+<li>Durations will always be in seconds.</li>
+<li>Timestamps will always be in ISO 8601 format (e.g. &#8216;2012-05-14T17:54:16.521019&#8217;)</li>
+</ul>
+<p>Use <a class="reference internal" href="../resources/preferences.html#resource-preferences-get"><em>Get preferences</em></a> to get the user&#8217;s distance and elevation unit preference.</p>
+</div>
 </div>
 
 
@@ -118,6 +128,7 @@ code and no response body.</p>
 <li><a class="reference internal" href="#">Overview</a><ul>
 <li><a class="reference internal" href="#documentation-format">Documentation Format</a></li>
 <li><a class="reference internal" href="#response-format">Response Format</a></li>
+<li><a class="reference internal" href="#units">Units</a></li>
 </ul>
 </li>
 </ul>
