@@ -46,6 +46,15 @@ For example, if you don't include the Authorization header, you will get a 401 U
 code and no response body.
 
 
+Standard Response Fields
+------------------------
+
+All or nearly all objects returned in some response will have a resource URI. This is the URI you can use
+to fetch details for this object. For example, if you fetch a user object, it will have an attribute
+called preferences which is a resource URI for the preferences for that user. The user object itself will
+also have an attribute call resource_uri.
+
+
 Units
 -----
 

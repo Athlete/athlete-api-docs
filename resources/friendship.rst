@@ -16,6 +16,8 @@ Returns
 
     - Profile image URL
     - Full Name
+    - User ID
+    - User Resource URL
 
 
 Request friendship
