@@ -64,8 +64,6 @@ Response
 Register with Facebook
 ----------------------
 
-*Not implemented yet*
-
 **POST /account/register/facebook**
 
 Arguments
@@ -73,6 +71,7 @@ Arguments
     :token:
         The token received from Facebook. Must have been acquired using athlete.com's
         FB developer account. (required)
+**IMPORTANT: The token granted from facebook must have the "email", "user_birthday" and "user_photos" privileges.**
 
 Response
 
