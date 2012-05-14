@@ -30,3 +30,17 @@ The following fields will be added to this response. It's on my To Do list.
 - weight preference
 - weight
 - image urls
+
+
+Search users by name
+--------------------
+
+**GET /user/**
+
+Arguments
+
+    :name: The name to match against in the search
+
+Response
+
+    TBD - Must include profile pic URL, name and location.
