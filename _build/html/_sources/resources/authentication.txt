@@ -85,3 +85,18 @@ Response
 
 If an account already exists with the email address we receive from Facebook, the accounts will
 be automatically merged without an error.
+
+Forgot password
+---------------
+
+**POST /account/forgot_password**
+
+Arguments
+
+    :email: The email address of the account for which the password should be reset (required)
+
+Response
+
+    An email will be sent to the email address specified providing further instructions for changing the
+    password. The response will be a 200 response if successful. You will get a non 200 response and possibly
+    and error message in the reponse body if the email failed to send or there is no user found with that email.

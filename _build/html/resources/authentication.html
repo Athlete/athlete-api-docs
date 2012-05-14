@@ -183,6 +183,26 @@ FB developer account. (required)
 <p>If an account already exists with the email address we receive from Facebook, the accounts will
 be automatically merged without an error.</p>
 </div>
+<div class="section" id="forgot-password">
+<h2>Forgot password<a class="headerlink" href="#forgot-password" title="Permalink to this headline">¶</a></h2>
+<p><strong>POST /account/forgot_password</strong></p>
+<p>Arguments</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">email:</th><td class="field-body">The email address of the account for which the password should be reset (required)</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Response</p>
+<blockquote>
+<div>An email will be sent to the email address specified providing further instructions for changing the
+password. The response will be a 200 response if successful. You will get a non 200 response and possibly
+and error message in the reponse body if the email failed to send or there is no user found with that email.</div></blockquote>
+</div>
 </div>
 
 
@@ -198,6 +218,7 @@ be automatically merged without an error.</p>
 <li><a class="reference internal" href="#login-with-facebook">Login with Facebook</a></li>
 <li><a class="reference internal" href="#register">Register</a></li>
 <li><a class="reference internal" href="#register-with-facebook">Register with Facebook</a></li>
+<li><a class="reference internal" href="#forgot-password">Forgot password</a></li>
 </ul>
 </li>
 </ul>
