@@ -42,8 +42,6 @@ Response
 Register
 --------
 
-*Not implemented yet*
-
 **POST /account/register**
 
 Arguments
