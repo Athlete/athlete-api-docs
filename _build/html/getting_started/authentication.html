@@ -72,9 +72,20 @@ for now you&#8217;ll need to implement it yourself. I will document here exactly
 <ol class="arabic">
 <li><dl class="first docutils">
 <dt>Add the following parameters to the query string:</dt>
-<dd><ol class="first last arabic simple">
-<li>The current UTC time in ISO 8601 format (e.g. &#8216;timestamp=2012-05-14T17:54:16.521019&#8217;)</li>
-<li>The public key (e.g. &#8216;public_key=abcdefg12345&#8217;)</li>
+<dd><ol class="first last arabic">
+<li><dl class="first docutils">
+<dt>The current UTC time in ISO 8601 format</dt>
+<dd><ul class="first last simple">
+<li>Must look just like this: &#8216;timestamp=2012-05-14T17:54:16Z&#8217;</li>
+<li>No milliseconds</li>
+<li>Must be UTC</li>
+<li>Must end in &#8220;Z&#8221;, not &#8220;+00:00&#8221;</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">The public key (e.g. &#8216;public_key=abcdefg12345&#8217;)</p>
+</li>
 </ol>
 </dd>
 </dl>

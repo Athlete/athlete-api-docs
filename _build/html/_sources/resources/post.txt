@@ -1,13 +1,126 @@
-Posts
-=====
+Posts (a.k.a. Feed)
+===================
 
-Get Post
---------
+Get One Post
+------------
 
 **GET /post/[id]/**
 
 Arguments - None
 
-Response
+Example Response
 
-    Not implemented. Waiting on mock to know what data is needed for this.
+::
+
+    {
+      "author": {
+        "first_name": "Dustin",
+        "id": 1,
+        "last_name": "McQuay",
+        "preferences": "/api/v1/preferences/1/",
+        "profile": "/api/v1/profile/1/",
+        "resource_uri": "/api/v1/user/1/"
+      },
+      "body": "What a great run!",
+      "comment_count": 0,
+      "created_date": "2012-05-17T11:31:22.492757",
+      "id": 3,
+      "likers": [1, 2],
+      "resource_uri": "/api/v1/post/3/",
+      "workout": {
+        "distance_in_meters": "3862.43",
+        "duration_in_seconds": 1380,
+        "id": 2,
+        "resource_uri": "/api/v1/workout/2/",
+        "run_date": "2012-05-17T00:00:00",
+        "run_type": "Interval",
+        "title": "Running"
+      }
+    }
+
+
+Get List of Posts
+-----------------
+
+This feed shows all activity/posts for all of the authenticated user's friends.
+It also includes activity/posts for the current logged in user.
+
+**GET /post/**
+
+Arguments
+
+    :for: [dashboard|local|featured] A special feature to get posts for a user's dashboard, local posts or featured posts
+    :profile: Show posts that were written on the profile with this id
+    :limit: Max feed items to return (default=20)
+    :offset: Feed item index to start with (default=0)
+
+Example Response
+
+::
+
+    {
+      "meta": {
+        "limit": 20,
+        "next": null,
+        "offset": 0,
+        "previous": null,
+        "total_count": 3
+      },
+      "objects": [
+        {
+          "author": {
+            "first_name": "Dustin",
+            "id": 1,
+            "last_name": "McQuay",
+            "preferences": "/api/v1/preferences/1/",
+            "profile": "/api/v1/profile/1/",
+            "resource_uri": "/api/v1/user/1/"
+          },
+          "body": "What a great run!",
+          "comment_count": 0,
+          "created_date": "2012-05-17T11:31:22.492757",
+          "id": 3,
+          "likers": [
+            1
+          ],
+          "resource_uri": "/api/v1/post/3/",
+          "workout": {
+            "distance_in_meters": "3862.43",
+            "duration_in_seconds": 1380,
+            "id": 2,
+            "resource_uri": "/api/v1/workout/2/",
+            "run_date": "2012-05-17T00:00:00",
+            "run_type": "Interval",
+            "title": "Running"
+          }
+        },
+        {
+          "author": {
+            "first_name": "Dustin",
+            "id": 1,
+            "last_name": "McQuay",
+            "preferences": "/api/v1/preferences/1/",
+            "profile": "/api/v1/profile/1/",
+            "resource_uri": "/api/v1/user/1/"
+          },
+          "body": "",
+          "comment_count": 0,
+          "created_date": "2012-05-17T11:30:35.241416",
+          "id": 2,
+          "likers": [
+            1
+          ],
+          "resource_uri": "/api/v1/post/2/",
+          "workout": {
+            "distance_in_meters": null,
+            "duration_in_seconds": 3600,
+            "id": 1,
+            "resource_uri": "/api/v1/workout/1/",
+            "run_date": "2012-05-17T00:00:00",
+            "run_type": "Endurance",
+            "title": "Running"
+          }
+        }
+      ]
+    }
+
