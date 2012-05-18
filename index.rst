@@ -27,7 +27,7 @@ Resources
    resources/user
    resources/profile
    resources/preferences
-   resources/feed
+   resources/post
    resources/workout
    resources/photo_album
    resources/photo

@@ -23,7 +23,11 @@ for now you'll need to implement it yourself. I will document here exactly how t
 Basically you need to do the following
 
 #. Add the following parameters to the query string:
-    #. The current UTC time in ISO 8601 format (e.g. 'timestamp=2012-05-14T17:54:16.521019')
+    #. The current UTC time in ISO 8601 format
+        - Must look just like this: 'timestamp=2012-05-14T17:54:16Z'
+        - No milliseconds
+        - Must be UTC
+        - Must end in "Z", not "+00:00"
     #. The public key (e.g. 'public_key=abcdefg12345')
 #. Create a string that represents the entire request. It should contain the following, in order, separated by a unix-style newline character.
     #. Request Method (e.g. GET, POST, PUT). Must be uppercase.
