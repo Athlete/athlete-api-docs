@@ -1,21 +1,19 @@
 Likes
 =====
 
-Create a like
+Toggle a like
 ----------------
 
-Note: only one like per object per user is allowed.
-
-**POST /like/**
+**POST /like/toggle/**
 
 Arguments
 
-    :object_type: The type of object being liked (e.g. comment, post)
+    :object_type: The type of object being liked lowercase (e.g. comment, post)
     :object_id: The id of the object this comment belongs to (e.g. post_id)
 
 Response
 
-    Not implemented. Will probably be an updated like count for the object.
+    Returns 200 OK with a document containing the current status of the object (liked by user, not liked by user) and the like count (total for that object).
 
 
 Remove a like
@@ -29,4 +27,4 @@ Arguments - None
 
 Response
 
-    Not implemented. Nothing of importance to be returned though.
+    Nothing.
