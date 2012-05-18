@@ -42,15 +42,13 @@ Example Response
 Get List of Posts
 -----------------
 
-This feed shows all activity/posts for all of the authenticated user's friends.
-It also includes activity/posts for the current logged in user.
-
 **GET /post/**
 
 Arguments
 
-    :for: [dashboard|local|featured] A special feature to get posts for a user's dashboard, local posts or featured posts
-    :profile: Show posts that were written on the profile with this id
+    :type: [dashboard|local|featured] A special filter to get posts for a user's dashboard, local posts or featured posts.
+    :user: Only valid when type is dashboard. Specifies the id of the user who's dashboard posts should be returned.
+    :profile: Show posts that were written on the profile with this id.
     :limit: Max feed items to return (default=20)
     :offset: Feed item index to start with (default=0)
 
