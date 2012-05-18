@@ -32,6 +32,16 @@ So if PATH is /user/1/, the full URL for testing would be
 http://staging.athlete.com/api/v1/user/1/
 
 
+Request Format
+---------------
+
+You MUST specify the content type in your requests (eg: Content-Type: application/json). Currently, we support several formats (json, xml, yaml, formdata) but the prefered one is json. There are simple
+methods that doesn't need much data, like the login method. In that case you can use formdata format (param1=data1&param2=data2). Example:
+
+    POST /account/login
+    Content-Type: application/x-www-form-urlencoded
+    email=test@athlete.com&password=123
+
 Response Format
 ---------------
 
