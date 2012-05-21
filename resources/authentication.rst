@@ -6,7 +6,7 @@ Authentication
 Login
 -----
 
-**POST /account/login**
+**POST /account/login/**
 
 Arguments
 
@@ -24,7 +24,7 @@ Response
 Login with Facebook
 -------------------
 
-**POST /account/facebook/login**
+**POST /account/facebook/login/**
 
 Arguments
 
@@ -45,7 +45,7 @@ Response
 Register
 --------
 
-**POST /account/register**
+**POST /account/register/**
 
 Arguments
 
@@ -68,7 +68,7 @@ status code and the body will say ``The email address already exists``.
 Register with Facebook
 ----------------------
 
-**POST /account/register/facebook**
+**POST /account/facebook/register/**
 
 Arguments
 
