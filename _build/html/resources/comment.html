@@ -25,7 +25,9 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Athlete.com API 0.1.0 documentation" href="../index.html" /> 
+    <link rel="top" title="Athlete.com API 0.1.0 documentation" href="../index.html" />
+    <link rel="next" title="Friendships" href="friendship.html" />
+    <link rel="prev" title="Photos" href="photo.html" /> 
   </head>
   <body>
     <div class="related">
@@ -34,6 +36,12 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="friendship.html" title="Friendships"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="photo.html" title="Photos"
+             accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
@@ -45,6 +53,7 @@
             
   <div class="section" id="comments">
 <h1>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h1>
+<p>All posts in Athlete.com can have comments. This is the intention of this resource.</p>
 <div class="section" id="create-a-comment">
 <h2>Create a comment<a class="headerlink" href="#create-a-comment" title="Permalink to this headline">¶</a></h2>
 <p><strong>POST /comment/</strong></p>
@@ -54,18 +63,16 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">object_type:</th><td class="field-body">The type of object this comment belongs to. Only valid option is &#8216;post&#8217;. (optional, default=&#8217;post&#8217;)</td>
+<tr class="field-odd field"><th class="field-name">object_id:</th><td class="field-body">The id of the object this comment belongs to (e.g. post_id)</td>
 </tr>
-<tr class="field-even field"><th class="field-name">object_id:</th><td class="field-body">The id of the object this comment belongs to (e.g. post_id)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">comment:</th><td class="field-body">The body of the comment.</td>
+<tr class="field-even field"><th class="field-name">comment:</th><td class="field-body">The body of the comment.</td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
 <p>Response</p>
 <blockquote>
-<div>Not implemented. Will be an object representing the comment.</div></blockquote>
+<div>201 CREATED. With a Location header indicating the URI of the resource.</div></blockquote>
 </div>
 </div>
 
@@ -83,6 +90,12 @@
 </li>
 </ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="photo.html"
+                        title="previous chapter">Photos</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="friendship.html"
+                        title="next chapter">Friendships</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/resources/comment.txt"
@@ -111,6 +124,12 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="friendship.html" title="Friendships"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="photo.html" title="Photos"
+             >previous</a> |</li>
         <li><a href="../index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>

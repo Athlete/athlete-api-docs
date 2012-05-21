@@ -1,33 +1,31 @@
 Friendships
 ===========
 
-Get friends for user
---------------------
+Get friends for the currently logged user
+-----------------------------------------
 
-**GET /user/[user_id]/friends/**
+**GET /friendship/**
 
 Arguments
 
-    :status: Pending, Accepted or ALL. (optional, default=Accepted)
+    :status: Pending, Accepted (optional, default=All friendships)
 
 Returns
 
-    An list of the user's friends. Each friend object will contain:
+    An list of the user's friendships. Each friendship resource will contain:
 
-    - Profile image URL
-    - Full Name
-    - User ID
-    - User Resource URL
+    - Information about the users involved
+    - Information about the friendship (who's the requester, when the friendship was requested, etc.)
 
 
 Request friendship
 ------------------
 
-**POST /friendship/**
+**POST /friendship/request/**
 
 Arguments
 
-    :user: The id of the user who's frienship is being requested. The requester is always the logged in user.
+    :user_id: The id of the user who's frienship is being requested. The requester is always the logged in user.
 
 Returns
 
@@ -39,25 +37,23 @@ Cancel friendship request, Remove friend
 
 In either case you are essentially deleting any record of association between these two users.
 
-**DELETE /friendship/[user_id]/[user_id]/**
-
-The leftmost user_id in the url should be the alphanumerically lowest id. However, it will work either way.
+**DELETE /friendship/[friendship_id]/**
 
 Response
 
-    Not sure yet. Nothing important to return.
+    No content.
 
 
-Accept or deny a friend request
+Accept a friend request
 -------------------------------
 
-**PATCH /friendship/[user_id]/[user_id]/**
+**POST /friendship/accept/**
 
-If the requestee is not the current logged in user, you'll get a 401 UNAUTHORIZED response.
+If the logged in user is not the requester of that friendship, you'll get a 401 UNAUTHORIZED response.
 
 Arguments
 
-    :status: Pending or Accepted
+    :friendship_id: The id of the friendship to accept
 
 Response
 

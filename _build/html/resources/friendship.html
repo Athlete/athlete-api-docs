@@ -53,41 +53,39 @@
             
   <div class="section" id="friendships">
 <h1>Friendships<a class="headerlink" href="#friendships" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="get-friends-for-user">
-<h2>Get friends for user<a class="headerlink" href="#get-friends-for-user" title="Permalink to this headline">¶</a></h2>
-<p><strong>GET /user/[user_id]/friends/</strong></p>
+<div class="section" id="get-friends-for-the-currently-logged-user">
+<h2>Get friends for the currently logged user<a class="headerlink" href="#get-friends-for-the-currently-logged-user" title="Permalink to this headline">¶</a></h2>
+<p><strong>GET /friendship/</strong></p>
 <p>Arguments</p>
 <blockquote>
 <div><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">status:</th><td class="field-body">Pending, Accepted or ALL. (optional, default=Accepted)</td>
+<tr class="field-odd field"><th class="field-name">status:</th><td class="field-body">Pending, Accepted (optional, default=All friendships)</td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
 <p>Returns</p>
 <blockquote>
-<div><p>An list of the user&#8217;s friends. Each friend object will contain:</p>
+<div><p>An list of the user&#8217;s friendships. Each friendship resource will contain:</p>
 <ul class="simple">
-<li>Profile image URL</li>
-<li>Full Name</li>
-<li>User ID</li>
-<li>User Resource URL</li>
+<li>Information about the users involved</li>
+<li>Information about the friendship (who&#8217;s the requester, when the friendship was requested, etc.)</li>
 </ul>
 </div></blockquote>
 </div>
 <div class="section" id="request-friendship">
 <h2>Request friendship<a class="headerlink" href="#request-friendship" title="Permalink to this headline">¶</a></h2>
-<p><strong>POST /friendship/</strong></p>
+<p><strong>POST /friendship/request/</strong></p>
 <p>Arguments</p>
 <blockquote>
 <div><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">user:</th><td class="field-body">The id of the user who&#8217;s frienship is being requested. The requester is always the logged in user.</td>
+<tr class="field-odd field"><th class="field-name">user_id:</th><td class="field-body">The id of the user who&#8217;s frienship is being requested. The requester is always the logged in user.</td>
 </tr>
 </tbody>
 </table>
@@ -99,23 +97,22 @@
 <div class="section" id="cancel-friendship-request-remove-friend">
 <h2>Cancel friendship request, Remove friend<a class="headerlink" href="#cancel-friendship-request-remove-friend" title="Permalink to this headline">¶</a></h2>
 <p>In either case you are essentially deleting any record of association between these two users.</p>
-<p><strong>DELETE /friendship/[user_id]/[user_id]/</strong></p>
-<p>The leftmost user_id in the url should be the alphanumerically lowest id. However, it will work either way.</p>
+<p><strong>DELETE /friendship/[friendship_id]/</strong></p>
 <p>Response</p>
 <blockquote>
-<div>Not sure yet. Nothing important to return.</div></blockquote>
+<div>No content.</div></blockquote>
 </div>
-<div class="section" id="accept-or-deny-a-friend-request">
-<h2>Accept or deny a friend request<a class="headerlink" href="#accept-or-deny-a-friend-request" title="Permalink to this headline">¶</a></h2>
-<p><strong>PATCH /friendship/[user_id]/[user_id]/</strong></p>
-<p>If the requestee is not the current logged in user, you&#8217;ll get a 401 UNAUTHORIZED response.</p>
+<div class="section" id="accept-a-friend-request">
+<h2>Accept a friend request<a class="headerlink" href="#accept-a-friend-request" title="Permalink to this headline">¶</a></h2>
+<p><strong>POST /friendship/accept/</strong></p>
+<p>If the logged in user is not the requester of that friendship, you&#8217;ll get a 401 UNAUTHORIZED response.</p>
 <p>Arguments</p>
 <blockquote>
 <div><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">status:</th><td class="field-body">Pending or Accepted</td>
+<tr class="field-odd field"><th class="field-name">friendship_id:</th><td class="field-body">The id of the friendship to accept</td>
 </tr>
 </tbody>
 </table>
@@ -135,10 +132,10 @@
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Friendships</a><ul>
-<li><a class="reference internal" href="#get-friends-for-user">Get friends for user</a></li>
+<li><a class="reference internal" href="#get-friends-for-the-currently-logged-user">Get friends for the currently logged user</a></li>
 <li><a class="reference internal" href="#request-friendship">Request friendship</a></li>
 <li><a class="reference internal" href="#cancel-friendship-request-remove-friend">Cancel friendship request, Remove friend</a></li>
-<li><a class="reference internal" href="#accept-or-deny-a-friend-request">Accept or deny a friend request</a></li>
+<li><a class="reference internal" href="#accept-a-friend-request">Accept a friend request</a></li>
 </ul>
 </li>
 </ul>

@@ -95,6 +95,15 @@ and PATH is the path relative to the endpoint.</p>
 <p>So if PATH is /user/1/, the full URL for testing would be
 <a class="reference external" href="http://staging.athlete.com/api/v1/user/1/">http://staging.athlete.com/api/v1/user/1/</a></p>
 </div>
+<div class="section" id="request-format">
+<h2>Request Format<a class="headerlink" href="#request-format" title="Permalink to this headline">¶</a></h2>
+<p>You MUST specify the content type in your requests (eg: Content-Type: application/json). Currently, we support several formats (json, xml, yaml, formdata) but the prefered one is json. There are simple
+methods that doesn&#8217;t need much data, like the login method. In that case you can use formdata format (param1=data1&amp;param2=data2). Example:</p>
+<blockquote>
+<div>POST /account/login
+Content-Type: application/x-www-form-urlencoded
+<a class="reference external" href="mailto:email=test&#37;&#52;&#48;athlete&#46;com&amp;password=123">email=test<span>&#64;</span>athlete<span>&#46;</span>com&amp;password=123</a></div></blockquote>
+</div>
 <div class="section" id="response-format">
 <h2>Response Format<a class="headerlink" href="#response-format" title="Permalink to this headline">¶</a></h2>
 <p>Response format can be dictated by the Accepts header or by putting format=[xml|json|...] in the query
@@ -135,6 +144,7 @@ not the web standard.</li>
   <ul>
 <li><a class="reference internal" href="#">Overview</a><ul>
 <li><a class="reference internal" href="#documentation-format">Documentation Format</a></li>
+<li><a class="reference internal" href="#request-format">Request Format</a></li>
 <li><a class="reference internal" href="#response-format">Response Format</a></li>
 <li><a class="reference internal" href="#standard-response-fields">Standard Response Fields</a></li>
 <li><a class="reference internal" href="#units">Units</a></li>
