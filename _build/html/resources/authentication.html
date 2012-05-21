@@ -199,9 +199,10 @@ be automatically merged without an error.</p>
 </div></blockquote>
 <p>Response</p>
 <blockquote>
-<div>An email will be sent to the email address specified providing further instructions for changing the
-password. The response will be a 200 response if successful. You will get a non 200 response and possibly
-and error message in the reponse body if the email failed to send or there is no user found with that email.</div></blockquote>
+<div><p>An email will be sent to the email address specified providing further instructions for changing the
+password. The response will be a 200 response if successful.</p>
+<p>If the email address is not found in our system you&#8217;ll get a 400 response with a 109 error code.</p>
+</div></blockquote>
 </div>
 </div>
 
