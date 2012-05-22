@@ -58,7 +58,7 @@ Response
     
     It is very possible that the user specified has provided a location in their settings that we were unable to resolve
     to get a latitude and longitude. Without that, we cannot determine who is "local" to them. In this case you will get
-    a 400 response status code and a 003 error code in the response body.
+    a normal response with 0 results.
 
 Example Response
 

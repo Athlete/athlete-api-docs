@@ -40,7 +40,6 @@ General Errors
 
 - 001 "One or more arguments are missing." - This might happen when you don't provide all the arguments for a given API call. For example, if you don't provide an email and password when you try to log in a user you can get this error.
 - 002 "This method is not yet implemented."
-- 003 "The coordinates cannot be determined for this location."
 
 Errors regarding authentication
 
