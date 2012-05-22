@@ -1,0 +1,62 @@
+Errors
+===================
+
+Being our API based on a REST architecture, all errors that you can get are specified by the HTTP response codes. It means that you'll get mainly six errors:
+
+# 400 Bad Request (You did something wrong)
+# 401 Unauthorized (You did to authenticate your request, or your user doesn't have the privileges to access some resource)*
+# 404 Not Found (Nothing to see here)
+# 405 Method Not Allowed
+# 500 Internal Server Error (We did something wrong, please let us know!)
+# 501 Not Implemented
+
+Now, given the fact that debugging **400 Bad Request** errors is really hard, in some requests we offer more information, in order to make your life easier handing these errors.
+
+The information is contained in the body of the response. It means that you can get a 400 Bad Request error but the information will be contained in the body of that response. You have to parse it, given the content type returned (that depends on the Accept header you sent).
+
+So, assuming you're working with JSON, you can get something like:
+
+HTTP/1.0 400 BAD REQUEST
+
+{
+    "error": {
+        "code": "XXX",
+        "message": "XXX"
+    }
+}
+
+It's your job to parse that request body and identify the error. We provide a error code to make it easier to parse and understand in your application. Next i'll show you the current errors you might get, the format is:
+
+[CODE] [MESSAGE] - [EXPLANATION]
+
+Anyway, most of these errors are self-explanatory.
+
+Athlete Errors
+---------------
+
+General Errors
+
+#. 001 "One or more arguments are missing." - This might happen when you don't provide all the arguments for a given API call. For example, if you don't provide an email and password when you try to log in a user you can get this error.
+#. 002 "This method is not yet implemented."
+
+Errors regarding authentication
+
+#. 100 "Email or password incorrect."
+#. 101 "The email address you provided already exists."
+#. 102 "You must provide a facebook user id."
+#. 103 "The facebook user doesn't exist in our site."
+#. 104 "The facebook token doesn't have the correct scope. It must include email."
+#. 105 "There's a user with that facebook account associated in our database."
+#. 106 "The token you provided is not valid."
+#. 107 "The email address you provided already exists."
+#. 108 "Something wrong happened. The user was successfully registered but couldn't be logged in. Try manually."
+#. 109 "This user does not exist in our system."
+
+Content type related errors
+
+#. 201 "The Content Type you provided is not valid."
+
+* For more details regarding authentication see:
+
+- :ref:`getting_started_authentication`
+
