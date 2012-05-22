@@ -52,6 +52,14 @@ Arguments
     :limit: Max feed items to return (default=20)
     :offset: Feed item index to start with (default=0)
 
+Response
+
+    You'll get a list of post objects. It will be paginated.
+    
+    It is very possible that the user specified has provided a location in their settings that we were unable to resolve
+    to get a latitude and longitude. Without that, we cannot determine who is "local" to them. In this case you will get
+    a 400 response status code and a 003 error code in the response body.
+
 Example Response
 
 ::

@@ -1,18 +1,36 @@
 Friendships
 ===========
 
-Get friends for the currently logged user
+Friendships will always return accepted friendship, except for the current logged user. For the current logged user you can get a list of pending and accepted friendships.
+
+Get friendships
 -----------------------------------------
 
 **GET /friendship/**
 
 Arguments
 
-    :status: Pending, Accepted (optional, default=All friendships)
+    :none: No filters allowed.
 
 Returns
 
     An list of the user's friendships. Each friendship resource will contain:
+
+    - Information about the users involved
+    - Information about the friendship (who's the requester, when the friendship was requested, etc.)
+
+Get friends for particular user
+-----------------------------------------
+
+**GET /friendship/user/{id}**
+
+Arguments
+
+    :status: If you're querying for the currently logged in user you can get a list of Pending or Accepted requests. (status=Accepted | status=Pending)
+
+Returns
+
+    An list of the user's accepted friendships. Each friendship resource will contain:
 
     - Information about the users involved
     - Information about the friendship (who's the requester, when the friendship was requested, etc.)

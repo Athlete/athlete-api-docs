@@ -53,8 +53,9 @@
             
   <div class="section" id="friendships">
 <h1>Friendships<a class="headerlink" href="#friendships" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="get-friends-for-the-currently-logged-user">
-<h2>Get friends for the currently logged user<a class="headerlink" href="#get-friends-for-the-currently-logged-user" title="Permalink to this headline">¶</a></h2>
+<p>Friendships will always return accepted friendship, except for the current logged user. For the current logged user you can get a list of pending and accepted friendships.</p>
+<div class="section" id="get-friendships">
+<h2>Get friendships<a class="headerlink" href="#get-friendships" title="Permalink to this headline">¶</a></h2>
 <p><strong>GET /friendship/</strong></p>
 <p>Arguments</p>
 <blockquote>
@@ -62,7 +63,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">status:</th><td class="field-body">Pending, Accepted (optional, default=All friendships)</td>
+<tr class="field-odd field"><th class="field-name">none:</th><td class="field-body">No filters allowed.</td>
 </tr>
 </tbody>
 </table>
@@ -70,6 +71,29 @@
 <p>Returns</p>
 <blockquote>
 <div><p>An list of the user&#8217;s friendships. Each friendship resource will contain:</p>
+<ul class="simple">
+<li>Information about the users involved</li>
+<li>Information about the friendship (who&#8217;s the requester, when the friendship was requested, etc.)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="get-friends-for-particular-user">
+<h2>Get friends for particular user<a class="headerlink" href="#get-friends-for-particular-user" title="Permalink to this headline">¶</a></h2>
+<p><strong>GET /friendship/user/{id}</strong></p>
+<p>Arguments</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">status:</th><td class="field-body">If you&#8217;re querying for the currently logged in user you can get a list of Pending or Accepted requests. (status=Accepted | status=Pending)</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Returns</p>
+<blockquote>
+<div><p>An list of the user&#8217;s accepted friendships. Each friendship resource will contain:</p>
 <ul class="simple">
 <li>Information about the users involved</li>
 <li>Information about the friendship (who&#8217;s the requester, when the friendship was requested, etc.)</li>
@@ -132,7 +156,8 @@
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Friendships</a><ul>
-<li><a class="reference internal" href="#get-friends-for-the-currently-logged-user">Get friends for the currently logged user</a></li>
+<li><a class="reference internal" href="#get-friendships">Get friendships</a></li>
+<li><a class="reference internal" href="#get-friends-for-particular-user">Get friends for particular user</a></li>
 <li><a class="reference internal" href="#request-friendship">Request friendship</a></li>
 <li><a class="reference internal" href="#cancel-friendship-request-remove-friend">Cancel friendship request, Remove friend</a></li>
 <li><a class="reference internal" href="#accept-a-friend-request">Accept a friend request</a></li>

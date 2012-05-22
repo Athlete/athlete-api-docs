@@ -35,6 +35,7 @@ Resources
    resources/friendship
    resources/like
    resources/post
+   resources/errors
 
 
 

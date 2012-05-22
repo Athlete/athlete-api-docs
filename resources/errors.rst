@@ -16,14 +16,16 @@ The information is contained in the body of the response. It means that you can 
 
 So, assuming you're working with JSON, you can get something like:
 
-HTTP/1.0 400 BAD REQUEST
+::
 
-{
-    "error": {
-        "code": "XXX",
-        "message": "XXX"
+    HTTP/1.0 400 BAD REQUEST
+
+    {
+        "error": {
+            "code": "XXX",
+            "message": "XXX"
+        }
     }
-}
 
 It's your job to parse that request body and identify the error. We provide a error code to make it easier to parse and understand in your application. Next i'll show you the current errors you might get, the format is:
 
