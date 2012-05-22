@@ -15,6 +15,7 @@ Getting Started
    getting_started/overview
    getting_started/authentication
    getting_started/testing
+   getting_started/errors
 
 
 Resources
@@ -35,8 +36,6 @@ Resources
    resources/friendship
    resources/like
    resources/post
-   resources/errors
-
 
 
 Indices and tables
