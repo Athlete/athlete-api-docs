@@ -23,7 +23,7 @@ Returns
 Get friends for particular user
 -----------------------------------------
 
-**GET /friendship/user/{id}**
+**GET /friendship/user/{id}/**
 
 *Note: It may be more convient to get a list of friends (user objects), rather
 than friendship objects. To get that, head on over to* :ref:`user_list`.
