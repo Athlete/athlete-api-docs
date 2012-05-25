@@ -4,7 +4,7 @@ Users
 Fetch a single user
 -------------------
 
-**GET /user/1/**
+**GET /user/[user_id]/**
 
 Arguments - None
 
@@ -44,3 +44,24 @@ Arguments
 Response
 
     TBD - Must include profile pic URL, name and location.
+
+
+Update a user
+-------------
+
+**PATCH /user/[user_id]/**
+
+Arguments - A partial user object, such as...
+
+::
+
+    {
+        "first_name": "John",
+        "last_name": "Doe"
+    }
+
+Response
+
+    202 if successful. No response body.
+    You are only permitted to update data for the current logged in user. If you try
+    to update another user, you'll get a 401 UNAUTHORIZED response.

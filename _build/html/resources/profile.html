@@ -25,7 +25,9 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Athlete.com API 0.1.0 documentation" href="../index.html" /> 
+    <link rel="top" title="Athlete.com API 0.1.0 documentation" href="../index.html" />
+    <link rel="next" title="Preferences" href="preferences.html" />
+    <link rel="prev" title="Users" href="user.html" /> 
   </head>
   <body>
     <div class="related">
@@ -34,6 +36,12 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="preferences.html" title="Preferences"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="user.html" title="Users"
+             accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
@@ -61,6 +69,23 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="update-a-profile">
+<h2>Update a profile<a class="headerlink" href="#update-a-profile" title="Permalink to this headline">¶</a></h2>
+<p><strong>PATCH /profile/[profile_id]/</strong></p>
+<p>Arguments - A partial profile object, such as...</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;gender&quot;</span><span class="p">:</span> <span class="s">&quot;M&quot;</span><span class="p">,</span>
+    <span class="s">&quot;weight&quot;</span><span class="p">:</span> <span class="mi">190</span><span class="p">,</span>
+    <span class="s">&quot;weight_unit&quot;</span><span class="p">:</span> <span class="s">&quot;pounds&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Response</p>
+<blockquote>
+<div>202 if successful. No response body.
+You are only permitted to update data for the current logged in user. If you try
+to update another user&#8217;s profile, you&#8217;ll get a 401 UNAUTHORIZED response.</div></blockquote>
+</div>
 </div>
 
 
@@ -73,10 +98,17 @@
   <ul>
 <li><a class="reference internal" href="#">Profiles</a><ul>
 <li><a class="reference internal" href="#get-a-profile">Get a profile</a></li>
+<li><a class="reference internal" href="#update-a-profile">Update a profile</a></li>
 </ul>
 </li>
 </ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="user.html"
+                        title="previous chapter">Users</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="preferences.html"
+                        title="next chapter">Preferences</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/resources/profile.txt"
@@ -105,6 +137,12 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="preferences.html" title="Preferences"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="user.html" title="Users"
+             >previous</a> |</li>
         <li><a href="../index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>

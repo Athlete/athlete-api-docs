@@ -55,7 +55,7 @@
 <h1>Users<a class="headerlink" href="#users" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="fetch-a-single-user">
 <h2>Fetch a single user<a class="headerlink" href="#fetch-a-single-user" title="Permalink to this headline">¶</a></h2>
-<p><strong>GET /user/1/</strong></p>
+<p><strong>GET /user/[user_id]/</strong></p>
 <p>Arguments - None</p>
 <p>Example Response</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
@@ -97,6 +97,22 @@
 <blockquote>
 <div>TBD - Must include profile pic URL, name and location.</div></blockquote>
 </div>
+<div class="section" id="update-a-user">
+<h2>Update a user<a class="headerlink" href="#update-a-user" title="Permalink to this headline">¶</a></h2>
+<p><strong>PATCH /user/[user_id]/</strong></p>
+<p>Arguments - A partial user object, such as...</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;first_name&quot;</span><span class="p">:</span> <span class="s">&quot;John&quot;</span><span class="p">,</span>
+    <span class="s">&quot;last_name&quot;</span><span class="p">:</span> <span class="s">&quot;Doe&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Response</p>
+<blockquote>
+<div>202 if successful. No response body.
+You are only permitted to update data for the current logged in user. If you try
+to update another user, you&#8217;ll get a 401 UNAUTHORIZED response.</div></blockquote>
+</div>
 </div>
 
 
@@ -110,6 +126,7 @@
 <li><a class="reference internal" href="#">Users</a><ul>
 <li><a class="reference internal" href="#fetch-a-single-user">Fetch a single user</a></li>
 <li><a class="reference internal" href="#search-users-by-name">Search users by name</a></li>
+<li><a class="reference internal" href="#update-a-user">Update a user</a></li>
 </ul>
 </li>
 </ul>

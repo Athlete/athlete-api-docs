@@ -28,18 +28,21 @@ Example Response
 Update Preferences
 ------------------
 
-**PUT /preferences/[preferences_id]/**
-
-Arguments
-
-Same as `Get preferences` response.
-
-
-Partial Update Preferences
---------------------------
-
 **PATCH /preferences/[preferences_id]/**
 
-Arguments
+Arguments - A partial preferences object, such as...
+
+::
+
+    {
+        "distance": "miles",
+        "elevation": "feet"
+    }
+
+Response
+
+    202 if successful. No response body.
+    You are only permitted to update data for the current logged in user. If you try
+    to update another user's preferences, you'll get a 401 UNAUTHORIZED response.
 
 Same as `Get preferences` response, except only the ones you are updating.
