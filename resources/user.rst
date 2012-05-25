@@ -28,8 +28,6 @@ Example Response
       "profile_image_48_url": "https://s3.amazonaws.com/com.athlete.profiles.development/test1/aabe95d7-d127-458f-8205-720eb2a16c35/var/folders/kq/mc4mjdx5797d1cc_g0x7y8n00000gn/T/tmpW_XuLr?Signature=cpGdaEQzyimEFMAq9GWNu%2BxI3m4%3D&Expires=1652635712&AWSAccessKeyId=AKIAIPH52TGT42OHQBPQ"
     }
 
-*Note: we will be adding profile image URLs to this response soon.*
-
 
 Search users by name
 --------------------
