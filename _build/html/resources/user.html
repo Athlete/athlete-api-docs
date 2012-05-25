@@ -74,9 +74,27 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="fetch-multiple-users">
+<span id="user-list"></span><h2>Fetch multiple users<a class="headerlink" href="#fetch-multiple-users" title="Permalink to this headline">¶</a></h2>
+<p><strong>GET /user/</strong></p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">friends_with:</th><td class="field-body">Return only users who are friends with this user (user_id)</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Response</p>
+<blockquote>
+<div>A list of user objects which are formatted just like the Example Response for
+fetching a single user.</div></blockquote>
+</div>
 <div class="section" id="search-users-by-name">
 <h2>Search users by name<a class="headerlink" href="#search-users-by-name" title="Permalink to this headline">¶</a></h2>
-<p><strong>GET /user/</strong></p>
+<p><strong>GET /user/search/</strong></p>
 <p>Arguments</p>
 <blockquote>
 <div><table class="docutils field-list" frame="void" rules="none">
@@ -120,6 +138,7 @@ to update another user, you&#8217;ll get a 401 UNAUTHORIZED response.</div></blo
   <ul>
 <li><a class="reference internal" href="#">Users</a><ul>
 <li><a class="reference internal" href="#fetch-a-single-user">Fetch a single user</a></li>
+<li><a class="reference internal" href="#fetch-multiple-users">Fetch multiple users</a></li>
 <li><a class="reference internal" href="#search-users-by-name">Search users by name</a></li>
 <li><a class="reference internal" href="#update-a-user">Update a user</a></li>
 </ul>
