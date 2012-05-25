@@ -22,14 +22,7 @@ Example Response
       "resource_uri": "/api/v1/user/1/"
     }
 
-The following fields will be added to this response. It's on my To Do list.
-
-- gender
-- birday
-- distance preference
-- weight preference
-- weight
-- image urls
+*Note: we will be adding profile image URLs to this response soon.*
 
 
 Search users by name
