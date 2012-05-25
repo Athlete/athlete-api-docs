@@ -29,10 +29,25 @@ Example Response
     }
 
 
-Search users by name
+.. _user_list:
+
+Fetch multiple users
 --------------------
 
 **GET /user/**
+
+    :friends_with: Return only users who are friends with this user (user_id)
+
+Response
+
+    A list of user objects which are formatted just like the Example Response for
+    fetching a single user.
+
+
+Search users by name
+--------------------
+
+**GET /user/search/**
 
 Arguments
 
@@ -65,7 +80,7 @@ Response
 
 
 Change profile picture
--------------
+----------------------
 
 This resource is exposed in order to change the profile picture of the current logged in user. [PRE PROCESSING NOTES]
 
