@@ -92,5 +92,5 @@ The entire content of the request (i.e. the request body) must contain the conte
 
 There are some **headers** you might need to send. Some are optionals, other are required.:
 
-    Content-MD5 (OPTIONAL): Is the result of aplying MD5 digest on the content you're sending. Based on http://www.ietf.org/rfc/rfc1864.txt It's important to note that this method is highly used in a wide variety of APIs, being a well known one S3 from Amazon. If you have doubt on how implement this, you can browse some opensource library for S3 and you can find a good example.
+    Content-MD5 (OPTIONAL): Is the result of aplying MD5 digest on the content you're sending. Based on http://www.ietf.org/rfc/rfc1864.txt It's important to note that this method is highly used in a wide variety of APIs, being a well known case Amazon S3. If you have doubt on how implement this, you can browse some opensource library for S3 and you can find a good example.
     Content-Type (REQUIRED): This is the content type of the picture you're sending. Right now the only content types supported are: "image/jpeg" and "image/png"

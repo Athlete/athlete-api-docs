@@ -6,6 +6,11 @@
 Welcome to Athlete.com API's documentation!
 ===========================================
 
+Changelog
+---------------
+    changelog
+
+
 Getting Started
 ---------------
 
