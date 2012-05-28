@@ -51,7 +51,7 @@ Search users by name
 
 Arguments
 
-    :name: The name to match against in the search
+    :q: The name to match against in the search
 
 Response
 
