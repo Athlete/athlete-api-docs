@@ -30,6 +30,19 @@ Response
 
     200 OK. Comment on response body.
 
+Get comments por a given post
+------------------------------
+
+**GET /comment/?post=[post_id]**
+
+Arguments
+
+    :post_id: The id of the post. All comments returned will belong to this post.
+
+Response
+
+    200 OK. A list of comments.
+
 Delete a comment
 ----------------
 
