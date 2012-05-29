@@ -5,6 +5,7 @@ ChangeLog
 
 - Added Back to first_name and last_name in User Resource
 - Removed full_name from User Resource
+- Added likers to comment list response
 
 **May 28**
 

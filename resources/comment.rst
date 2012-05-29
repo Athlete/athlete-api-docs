@@ -42,6 +42,8 @@ Arguments
 Response
 
     200 OK. A list of comments.
+    The comments in the response will have a special "likers" attribute which is an array
+    of user ids that have liked this comment.
 
 Delete a comment
 ----------------
