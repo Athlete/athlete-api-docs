@@ -101,7 +101,7 @@ fetching a single user.</div></blockquote>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">name:</th><td class="field-body">The name to match against in the search</td>
+<tr class="field-odd field"><th class="field-name">q:</th><td class="field-body">The name to match against in the search</td>
 </tr>
 </tbody>
 </table>
@@ -134,7 +134,7 @@ to update another user, you&#8217;ll get a 401 UNAUTHORIZED response.</div></blo
 <p>The entire content of the request (i.e. the request body) must contain the content of the image that you want to upload. You just need to open the file, read the contents, and place them in the request body.</p>
 <p>There are some <strong>headers</strong> you might need to send. Some are optionals, other are required.:</p>
 <blockquote>
-<div>Content-MD5 (OPTIONAL): Is the result of aplying MD5 digest on the content you&#8217;re sending. Based on <a class="reference external" href="http://www.ietf.org/rfc/rfc1864.txt">http://www.ietf.org/rfc/rfc1864.txt</a> We&#8217;re still working on this, so we recommend that you don&#8217;t sent it before it&#8217;s polished.
+<div>Content-MD5 (OPTIONAL): Is the result of aplying MD5 digest on the content you&#8217;re sending. Based on <a class="reference external" href="http://www.ietf.org/rfc/rfc1864.txt">http://www.ietf.org/rfc/rfc1864.txt</a> It&#8217;s important to note that this method is highly used in a wide variety of APIs, being a well known case Amazon S3. If you have doubt on how implement this, you can browse some opensource library for S3 and you can find a good example.
 Content-Type (REQUIRED): This is the content type of the picture you&#8217;re sending. Right now the only content types supported are: &#8220;image/jpeg&#8221; and &#8220;image/png&#8221;</div></blockquote>
 </div>
 </div>

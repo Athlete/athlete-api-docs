@@ -30,18 +30,20 @@ Response
 
     200 OK. Comment on response body.
 
-Get comments por a given post
+Get comments for a given post
 ------------------------------
 
-**GET /comment/?post=[post_id]**
+**GET /comment/**
 
 Arguments
 
-    :post_id: The id of the post. All comments returned will belong to this post.
+    :post_id: (required) The id of the post. All comments returned will belong to this post.
 
 Response
 
     200 OK. A list of comments.
+    The comments in the response will have a special "likers" attribute which is an array
+    of user ids that have liked this comment.
 
 Delete a comment
 ----------------

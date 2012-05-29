@@ -6,10 +6,6 @@
 Welcome to Athlete.com API's documentation!
 ===========================================
 
-Changelog
----------------
-    changelog
-
 
 Getting Started
 ---------------
@@ -21,6 +17,7 @@ Getting Started
    getting_started/authentication
    getting_started/testing
    getting_started/errors
+   changelog
 
 
 Resources

@@ -63,7 +63,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">object_id:</th><td class="field-body">The id of the object this comment belongs to (e.g. post_id)</td>
+<tr class="field-odd field"><th class="field-name">post_id:</th><td class="field-body">The id of the post this comment belongs to.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">comment:</th><td class="field-body">The body of the comment.</td>
 </tr>
@@ -73,6 +73,62 @@
 <p>Response</p>
 <blockquote>
 <div>201 CREATED. With a Location header indicating the URI of the resource.</div></blockquote>
+</div>
+<div class="section" id="get-a-comment">
+<h2>Get a comment<a class="headerlink" href="#get-a-comment" title="Permalink to this headline">¶</a></h2>
+<p><strong>GET /comment/[comment_id]/</strong></p>
+<p>Arguments</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">comment_id:</th><td class="field-body">The id of the comment you want to get.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Response</p>
+<blockquote>
+<div>200 OK. Comment on response body.</div></blockquote>
+</div>
+<div class="section" id="get-comments-for-a-given-post">
+<h2>Get comments for a given post<a class="headerlink" href="#get-comments-for-a-given-post" title="Permalink to this headline">¶</a></h2>
+<p><strong>GET /comment/</strong></p>
+<p>Arguments</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">post_id:</th><td class="field-body">(required) The id of the post. All comments returned will belong to this post.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Response</p>
+<blockquote>
+<div>200 OK. A list of comments.
+The comments in the response will have a special &#8220;likers&#8221; attribute which is an array
+of user ids that have liked this comment.</div></blockquote>
+</div>
+<div class="section" id="delete-a-comment">
+<h2>Delete a comment<a class="headerlink" href="#delete-a-comment" title="Permalink to this headline">¶</a></h2>
+<p><strong>DELETE /comment/[comment_id]/</strong></p>
+<p>Arguments</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">comment_id:</th><td class="field-body">The id of the comment you want to get. Is important to note that you user can delete his/her own comments and comments that belong to him or her. If you make an attempt to remove a comment that is beyond you&#8217;re user scope, a 404 will be returned.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Response</p>
+<blockquote>
+<div>204 OK. No content.</div></blockquote>
 </div>
 </div>
 
@@ -86,6 +142,9 @@
   <ul>
 <li><a class="reference internal" href="#">Comments</a><ul>
 <li><a class="reference internal" href="#create-a-comment">Create a comment</a></li>
+<li><a class="reference internal" href="#get-a-comment">Get a comment</a></li>
+<li><a class="reference internal" href="#get-comments-for-a-given-post">Get comments for a given post</a></li>
+<li><a class="reference internal" href="#delete-a-comment">Delete a comment</a></li>
 </ul>
 </li>
 </ul>
