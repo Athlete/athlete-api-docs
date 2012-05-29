@@ -30,7 +30,7 @@ Response
 
     200 OK. Comment on response body.
 
-Get comments por a given post
+Get comments for a given post
 ------------------------------
 
 **GET /comment/?post=[post_id]**
