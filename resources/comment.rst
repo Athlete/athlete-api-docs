@@ -33,11 +33,11 @@ Response
 Get comments for a given post
 ------------------------------
 
-**GET /comment/?post=[post_id]**
+**GET /comment/**
 
 Arguments
 
-    :post_id: The id of the post. All comments returned will belong to this post.
+    :post_id: (required) The id of the post. All comments returned will belong to this post.
 
 Response
 
