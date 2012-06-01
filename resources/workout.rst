@@ -46,9 +46,9 @@ Note that workouts (and posts) can also have attached images. Those must be post
     :distance_in_meters: The distance of the run in meters.
     :points: An optional array of objects, each containing the following attributes:
         :lat: The latitude
-        :lon: The longitude
+        :lng: The longitude
         :time: The date/time that this data point was recorded in ISO 8601 format
-        :ele: The elevation at this data point (if available). Synonymous with altitude.
+        :elev: The elevation at this data point (if available). Synonymous with altitude.
 
 Example of a Workout document to POST
 
@@ -63,16 +63,16 @@ Example of a Workout document to POST
         "post_body": "This is the body, in order to provide a full description of your run",
         "points": [
             {
-                "lon":"-111.5373066",
+                "lng":"-111.5373066",
                 "lat":"40.7231711",
                 "time": "2012-01-01T00:00:04Z",
                 "ele": "1942.1789265256325"
             },
             {
-                "lon":"-111.5372056",
+                "lng":"-111.5372056",
                 "lat":"40.7228762",
                 "time": "2012-01-01T00:00:07Z",
-                "ele": "1942.109892409177"
+                "elev": "1942.109892409177"
             }
         ]
     }
