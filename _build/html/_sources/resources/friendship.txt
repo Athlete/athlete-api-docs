@@ -4,7 +4,7 @@ Friendships
 Friendships will always return accepted friendship, except for the current logged user. For the current logged user you can get a list of pending and accepted friendships.
 
 Get friendships
------------------------------------------
+-------------------
 
 **GET /friendship/**
 
@@ -80,3 +80,8 @@ Arguments
 Response
 
     An object representing the details of the friendship.
+
+Search for friends
+-------------------
+
+Please see :ref:`user` for more information.

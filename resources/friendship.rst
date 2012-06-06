@@ -84,4 +84,4 @@ Response
 Search for friends
 -------------------
 
-Please see :ref:`resources/user` for more information.
+Please see :ref:`user` for more information.

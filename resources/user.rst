@@ -1,6 +1,8 @@
 Users
 =====
 
+.. _user:
+
 Fetch a single user
 -------------------
 

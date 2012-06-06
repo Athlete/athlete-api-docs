@@ -91,15 +91,13 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body">[dashboard|local|featured] A special filter to get posts for a user&#8217;s dashboard, local posts or featured posts.</td>
+<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body">[ dashboard | local | featured | profile ] A special filter to get posts for a user&#8217;s dashboard, local posts, featured posts or the profile feed posts.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">user:</th><td class="field-body">Only valid when type is dashboard. Specifies the id of the user who&#8217;s dashboard posts should be returned.</td>
+<tr class="field-even field"><th class="field-name">user_id:</th><td class="field-body">Only valid when type is dashboard or profile. Specifies the id of the user who&#8217;s dashboard posts should be returned.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">profile:</th><td class="field-body">Show posts that were written on the profile with this id.</td>
+<tr class="field-odd field"><th class="field-name">limit:</th><td class="field-body">Max feed items to return (default=20)</td>
 </tr>
-<tr class="field-even field"><th class="field-name">limit:</th><td class="field-body">Max feed items to return (default=20)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">offset:</th><td class="field-body">Feed item index to start with (default=0)</td>
+<tr class="field-even field"><th class="field-name">offset:</th><td class="field-body">Feed item index to start with (default=0)</td>
 </tr>
 </tbody>
 </table>
