@@ -1,0 +1,228 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Users &mdash; Athlete.com API 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Athlete.com API 0.1.0 documentation" href="../index.html" />
+    <link rel="next" title="Profiles" href="profile.html" />
+    <link rel="prev" title="Authentication" href="authentication.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="profile.html" title="Profiles"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="authentication.html" title="Authentication"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="users">
+<h1>Users<a class="headerlink" href="#users" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="fetch-a-single-user">
+<span id="user"></span><h2>Fetch a single user<a class="headerlink" href="#fetch-a-single-user" title="Permalink to this headline">¶</a></h2>
+<p><strong>GET /user/[user_id]/</strong></p>
+<p>You can also get the current authenticated user with</p>
+<p><strong>GET /me/</strong></p>
+<p>Arguments - None</p>
+<p>Example Response</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">&quot;date_joined&quot;</span><span class="p">:</span> <span class="s">&quot;2012-05-01T11:37:52.467275&quot;</span><span class="p">,</span>
+  <span class="s">&quot;first_name&quot;</span><span class="p">:</span> <span class="s">&quot;Dustin&quot;</span><span class="p">,</span>
+  <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s">&quot;last_name&quot;</span><span class="p">:</span> <span class="s">&quot;McQuay&quot;</span><span class="p">,</span>
+  <span class="s">&quot;preferences&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/preferences/1/&quot;</span><span class="p">,</span>
+  <span class="s">&quot;profile&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/profile/1/&quot;</span><span class="p">,</span>
+  <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/user/1/&quot;</span><span class="p">,</span>
+  <span class="s">&quot;profile_image_225_url&quot;</span><span class="p">:</span> <span class="s">&quot;https://s3.amazonaws.com/com.athlete.profiles.development/test1/a4018714-ac33-4bd8-8ed2-f79286e31a87/var/folders/kq/mc4mjdx5797d1cc_g0x7y8n00000gn/T/tmpmMOvsp?Signature=MP4mYdL40xHb8koO4j04XbYUjNA%3D&amp;Expires=1652635711&amp;AWSAccessKeyId=AKIAIPH52TGT42OHQBPQ&quot;</span><span class="p">,</span>
+  <span class="s">&quot;profile_image_48_url&quot;</span><span class="p">:</span> <span class="s">&quot;https://s3.amazonaws.com/com.athlete.profiles.development/test1/aabe95d7-d127-458f-8205-720eb2a16c35/var/folders/kq/mc4mjdx5797d1cc_g0x7y8n00000gn/T/tmpW_XuLr?Signature=cpGdaEQzyimEFMAq9GWNu%2BxI3m4%3D&amp;Expires=1652635712&amp;AWSAccessKeyId=AKIAIPH52TGT42OHQBPQ&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fetch-multiple-users">
+<span id="user-list"></span><h2>Fetch multiple users<a class="headerlink" href="#fetch-multiple-users" title="Permalink to this headline">¶</a></h2>
+<p><strong>GET /user/</strong></p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">friends_with:</th><td class="field-body">Return only users who are friends with this user (user_id)</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Response</p>
+<blockquote>
+<div>A list of user objects which are formatted just like the Example Response for
+fetching a single user.</div></blockquote>
+</div>
+<div class="section" id="search-users-by-name">
+<h2>Search users by name<a class="headerlink" href="#search-users-by-name" title="Permalink to this headline">¶</a></h2>
+<p><strong>GET /user/search/</strong></p>
+<p>Arguments</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">q:</th><td class="field-body">The name to match against in the search</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Response</p>
+<blockquote>
+<div>TBD - Must include profile pic URL, name and location.</div></blockquote>
+</div>
+<div class="section" id="search-for-friends">
+<h2>Search for friends<a class="headerlink" href="#search-for-friends" title="Permalink to this headline">¶</a></h2>
+<p>This method is similar to <em>Search users by name</em>, but it only searches for friends instead of all users.</p>
+<p><strong>GET /user/search/friends/</strong></p>
+<p>Arguments</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">q:</th><td class="field-body">The name to match against in the search</td>
+</tr>
+<tr class="field-even field"><th class="field-name">user_id:</th><td class="field-body">The user whom friends belongs to. [OPTIONAL]</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>The <em>q</em> argument is mandatory, and you have to include the name or part of the name to search for. The user_id is optional. If you don&#8217;t provide one, the logged in user will be used instead.</p>
+</div>
+<div class="section" id="update-a-user">
+<h2>Update a user<a class="headerlink" href="#update-a-user" title="Permalink to this headline">¶</a></h2>
+<p><strong>PATCH /user/[user_id]/</strong></p>
+<p>Arguments - A partial user object, such as...</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;first_name&quot;</span><span class="p">:</span> <span class="s">&quot;John&quot;</span><span class="p">,</span>
+    <span class="s">&quot;last_name&quot;</span><span class="p">:</span> <span class="s">&quot;Doe&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Response</p>
+<blockquote>
+<div>202 if successful. No response body.
+You are only permitted to update data for the current logged in user. If you try
+to update another user, you&#8217;ll get a 401 UNAUTHORIZED response.</div></blockquote>
+</div>
+<div class="section" id="change-profile-picture">
+<h2>Change profile picture<a class="headerlink" href="#change-profile-picture" title="Permalink to this headline">¶</a></h2>
+<p>This resource is exposed in order to change the profile picture of the current logged in user. [PRE PROCESSING NOTES]</p>
+<p><strong>POST /user/profile/</strong></p>
+<p>Arguments</p>
+<p>The entire content of the request (i.e. the request body) must contain the content of the image that you want to upload. You just need to open the file, read the contents, and place them in the request body.</p>
+<p>There are some <strong>headers</strong> you might need to send. Some are optionals, other are required.:</p>
+<blockquote>
+<div>Content-MD5 (OPTIONAL): Is the result of aplying MD5 digest on the content you&#8217;re sending. Based on <a class="reference external" href="http://www.ietf.org/rfc/rfc1864.txt">http://www.ietf.org/rfc/rfc1864.txt</a> It&#8217;s important to note that this method is highly used in a wide variety of APIs, being a well known case Amazon S3. If you have doubt on how implement this, you can browse some opensource library for S3 and you can find a good example.
+Content-Type (REQUIRED): This is the content type of the picture you&#8217;re sending. Right now the only content types supported are: &#8220;image/jpeg&#8221; and &#8220;image/png&#8221;</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Users</a><ul>
+<li><a class="reference internal" href="#fetch-a-single-user">Fetch a single user</a></li>
+<li><a class="reference internal" href="#fetch-multiple-users">Fetch multiple users</a></li>
+<li><a class="reference internal" href="#search-users-by-name">Search users by name</a></li>
+<li><a class="reference internal" href="#search-for-friends">Search for friends</a></li>
+<li><a class="reference internal" href="#update-a-user">Update a user</a></li>
+<li><a class="reference internal" href="#change-profile-picture">Change profile picture</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="authentication.html"
+                        title="previous chapter">Authentication</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="profile.html"
+                        title="next chapter">Profiles</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/resources/user.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="profile.html" title="Profiles"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="authentication.html" title="Authentication"
+             >previous</a> |</li>
+        <li><a href="../index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Athlete.com.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

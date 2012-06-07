@@ -1,0 +1,260 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Posts (a.k.a. Feed) &mdash; Athlete.com API 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Athlete.com API 0.1.0 documentation" href="../index.html" />
+    <link rel="prev" title="Likes" href="like.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="like.html" title="Likes"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="posts-a-k-a-feed">
+<h1>Posts (a.k.a. Feed)<a class="headerlink" href="#posts-a-k-a-feed" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="get-one-post">
+<h2>Get One Post<a class="headerlink" href="#get-one-post" title="Permalink to this headline">¶</a></h2>
+<p><strong>GET /post/[id]/</strong></p>
+<p>Arguments - None</p>
+<p>Example Response</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s">&quot;first_name&quot;</span><span class="p">:</span> <span class="s">&quot;Dustin&quot;</span><span class="p">,</span>
+    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">&quot;last_name&quot;</span><span class="p">:</span> <span class="s">&quot;McQuay&quot;</span><span class="p">,</span>
+    <span class="s">&quot;preferences&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/preferences/1/&quot;</span><span class="p">,</span>
+    <span class="s">&quot;profile&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/profile/1/&quot;</span><span class="p">,</span>
+    <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/user/1/&quot;</span>
+  <span class="p">},</span>
+  <span class="s">&quot;body&quot;</span><span class="p">:</span> <span class="s">&quot;What a great run!&quot;</span><span class="p">,</span>
+  <span class="s">&quot;comment_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s">&quot;created_date&quot;</span><span class="p">:</span> <span class="s">&quot;2012-05-17T11:31:22.492757&quot;</span><span class="p">,</span>
+  <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+  <span class="s">&quot;likers&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+  <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/post/3/&quot;</span><span class="p">,</span>
+  <span class="s">&quot;workout&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s">&quot;distance_in_meters&quot;</span><span class="p">:</span> <span class="s">&quot;3862.43&quot;</span><span class="p">,</span>
+    <span class="s">&quot;duration_in_seconds&quot;</span><span class="p">:</span> <span class="mi">1380</span><span class="p">,</span>
+    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/workout/2/&quot;</span><span class="p">,</span>
+    <span class="s">&quot;run_date&quot;</span><span class="p">:</span> <span class="s">&quot;2012-05-17T00:00:00&quot;</span><span class="p">,</span>
+    <span class="s">&quot;run_type&quot;</span><span class="p">:</span> <span class="s">&quot;Interval&quot;</span><span class="p">,</span>
+    <span class="s">&quot;title&quot;</span><span class="p">:</span> <span class="s">&quot;Running&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="paginating-posts">
+<h2>Paginating Posts<a class="headerlink" href="#paginating-posts" title="Permalink to this headline">¶</a></h2>
+<p>We&#8217;ve built some custom pagination for browsing posts. The way pagination works is through specifying a temporal ordering of the posts. It means that you can ask for posts &#8220;earlier than&#8221; post n° 1001, or posts later than post n° 289.</p>
+<p>By default you get a list of posts 20 posts. For example, from post id n° 40 to post n° 20. If you want to browse more posts you can ask for posts earlier than 20, or posts later than 40. Here are the parameters you can specify in your URL in order to get pagination working:</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">earlier_than:</th><td class="field-body">A post ID.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">later_than:</th><td class="field-body">A post ID.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">limit:</th><td class="field-body">The amount of posts.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="get-list-of-posts">
+<h2>Get List of Posts<a class="headerlink" href="#get-list-of-posts" title="Permalink to this headline">¶</a></h2>
+<p><strong>GET /post/</strong></p>
+<p>Arguments</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body">[ dashboard | local | featured | profile ] A special filter to get posts for a user&#8217;s dashboard, local posts, featured posts or the profile feed posts.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">user_id:</th><td class="field-body">Only valid when type is dashboard or profile. Specifies the id of the user who&#8217;s dashboard posts should be returned.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">limit:</th><td class="field-body">Max feed items to return (default=20)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">offset:</th><td class="field-body">Feed item index to start with (default=0)</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Response</p>
+<blockquote>
+<div><p>You&#8217;ll get a list of post objects. It will be paginated.</p>
+<p>It is very possible that the user specified has provided a location in their settings that we were unable to resolve
+to get a latitude and longitude. Without that, we cannot determine who is &#8220;local&#8221; to them. In this case you will get
+a normal response with 0 results.</p>
+</div></blockquote>
+<p>Example Response</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">&quot;meta&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s">&quot;limit&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s">&quot;next&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s">&quot;offset&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s">&quot;previous&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s">&quot;total_count&quot;</span><span class="p">:</span> <span class="mi">3</span>
+  <span class="p">},</span>
+  <span class="s">&quot;objects&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;first_name&quot;</span><span class="p">:</span> <span class="s">&quot;Dustin&quot;</span><span class="p">,</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s">&quot;last_name&quot;</span><span class="p">:</span> <span class="s">&quot;McQuay&quot;</span><span class="p">,</span>
+        <span class="s">&quot;preferences&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/preferences/1/&quot;</span><span class="p">,</span>
+        <span class="s">&quot;profile&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/profile/1/&quot;</span><span class="p">,</span>
+        <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/user/1/&quot;</span>
+      <span class="p">},</span>
+      <span class="s">&quot;body&quot;</span><span class="p">:</span> <span class="s">&quot;What a great run!&quot;</span><span class="p">,</span>
+      <span class="s">&quot;comment_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s">&quot;created_date&quot;</span><span class="p">:</span> <span class="s">&quot;2012-05-17T11:31:22.492757&quot;</span><span class="p">,</span>
+      <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+      <span class="s">&quot;likers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="mi">1</span>
+      <span class="p">],</span>
+      <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/post/3/&quot;</span><span class="p">,</span>
+      <span class="s">&quot;workout&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;distance_in_meters&quot;</span><span class="p">:</span> <span class="s">&quot;3862.43&quot;</span><span class="p">,</span>
+        <span class="s">&quot;duration_in_seconds&quot;</span><span class="p">:</span> <span class="mi">1380</span><span class="p">,</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/workout/2/&quot;</span><span class="p">,</span>
+        <span class="s">&quot;run_date&quot;</span><span class="p">:</span> <span class="s">&quot;2012-05-17T00:00:00&quot;</span><span class="p">,</span>
+        <span class="s">&quot;run_type&quot;</span><span class="p">:</span> <span class="s">&quot;Interval&quot;</span><span class="p">,</span>
+        <span class="s">&quot;title&quot;</span><span class="p">:</span> <span class="s">&quot;Running&quot;</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;first_name&quot;</span><span class="p">:</span> <span class="s">&quot;Dustin&quot;</span><span class="p">,</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s">&quot;last_name&quot;</span><span class="p">:</span> <span class="s">&quot;McQuay&quot;</span><span class="p">,</span>
+        <span class="s">&quot;preferences&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/preferences/1/&quot;</span><span class="p">,</span>
+        <span class="s">&quot;profile&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/profile/1/&quot;</span><span class="p">,</span>
+        <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/user/1/&quot;</span>
+      <span class="p">},</span>
+      <span class="s">&quot;body&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+      <span class="s">&quot;comment_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s">&quot;created_date&quot;</span><span class="p">:</span> <span class="s">&quot;2012-05-17T11:30:35.241416&quot;</span><span class="p">,</span>
+      <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="s">&quot;likers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="mi">1</span>
+      <span class="p">],</span>
+      <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/post/2/&quot;</span><span class="p">,</span>
+      <span class="s">&quot;workout&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;distance_in_meters&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">&quot;duration_in_seconds&quot;</span><span class="p">:</span> <span class="mi">3600</span><span class="p">,</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/workout/1/&quot;</span><span class="p">,</span>
+        <span class="s">&quot;run_date&quot;</span><span class="p">:</span> <span class="s">&quot;2012-05-17T00:00:00&quot;</span><span class="p">,</span>
+        <span class="s">&quot;run_type&quot;</span><span class="p">:</span> <span class="s">&quot;Endurance&quot;</span><span class="p">,</span>
+        <span class="s">&quot;title&quot;</span><span class="p">:</span> <span class="s">&quot;Running&quot;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Posts (a.k.a. Feed)</a><ul>
+<li><a class="reference internal" href="#get-one-post">Get One Post</a></li>
+<li><a class="reference internal" href="#paginating-posts">Paginating Posts</a></li>
+<li><a class="reference internal" href="#get-list-of-posts">Get List of Posts</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="like.html"
+                        title="previous chapter">Likes</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/resources/post.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="like.html" title="Likes"
+             >previous</a> |</li>
+        <li><a href="../index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Athlete.com.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
