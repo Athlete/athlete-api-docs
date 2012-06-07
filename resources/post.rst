@@ -38,6 +38,17 @@ Example Response
       }
     }
 
+Paginating Posts
+-----------------
+
+We've built some custom pagination for browsing posts. The way pagination works is through specifying a temporal ordering of the posts. It means that you can ask for posts "earlier than" post n° 1001, or posts later than post n° 289.
+
+By default you get a list of posts 20 posts. For example, from post id n° 40 to post n° 20. If you want to browse more posts you can ask for posts earlier than 20, or posts later than 40. Here are the parameters you can specify in your URL in order to get pagination working:
+
+    :earlier_than: A post ID.
+    :later_than: A post ID.
+    : limit: The amount of posts.
+
 
 Get List of Posts
 -----------------
