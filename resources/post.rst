@@ -57,8 +57,8 @@ Get List of Posts
 
 Arguments
 
-    :type: [dashboard|local|featured|profile] A special filter to get posts for a user's dashboard, local posts, featured posts or the profile feed posts.
-    :user_id: Only valid when type is dashboard. Specifies the id of the user who's dashboard posts should be returned.
+    :type: [ dashboard | local | featured | profile ] A special filter to get posts for a user's dashboard, local posts, featured posts or the profile feed posts.
+    :user_id: Only valid when type is dashboard or profile. Specifies the id of the user who's dashboard posts should be returned.
     :limit: Max feed items to return (default=20)
     :offset: Feed item index to start with (default=0)
 

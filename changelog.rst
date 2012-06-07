@@ -1,6 +1,10 @@
 ChangeLog
 =========
 
+**June 6**
+
+- All times from the API are now in UTC timezone. We previously had some timezone issues.
+
 **May 29**
 
 - **IMPORTANT** Changed parameters on Post resource. The way to specify a user changed, from "user" to "user_id". Take a look at Post resource docs.

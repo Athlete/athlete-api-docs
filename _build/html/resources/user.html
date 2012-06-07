@@ -54,7 +54,7 @@
   <div class="section" id="users">
 <h1>Users<a class="headerlink" href="#users" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="fetch-a-single-user">
-<h2>Fetch a single user<a class="headerlink" href="#fetch-a-single-user" title="Permalink to this headline">¶</a></h2>
+<span id="user"></span><h2>Fetch a single user<a class="headerlink" href="#fetch-a-single-user" title="Permalink to this headline">¶</a></h2>
 <p><strong>GET /user/[user_id]/</strong></p>
 <p>You can also get the current authenticated user with</p>
 <p><strong>GET /me/</strong></p>
@@ -110,6 +110,25 @@ fetching a single user.</div></blockquote>
 <blockquote>
 <div>TBD - Must include profile pic URL, name and location.</div></blockquote>
 </div>
+<div class="section" id="search-for-friends">
+<h2>Search for friends<a class="headerlink" href="#search-for-friends" title="Permalink to this headline">¶</a></h2>
+<p>This method is similar to <em>Search users by name</em>, but it only searches for friends instead of all users.</p>
+<p><strong>GET /user/search/friends/</strong></p>
+<p>Arguments</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">q:</th><td class="field-body">The name to match against in the search</td>
+</tr>
+<tr class="field-even field"><th class="field-name">user_id:</th><td class="field-body">The user whom friends belongs to. [OPTIONAL]</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>The <em>q</em> argument is mandatory, and you have to include the name or part of the name to search for. The user_id is optional. If you don&#8217;t provide one, the logged in user will be used instead.</p>
+</div>
 <div class="section" id="update-a-user">
 <h2>Update a user<a class="headerlink" href="#update-a-user" title="Permalink to this headline">¶</a></h2>
 <p><strong>PATCH /user/[user_id]/</strong></p>
@@ -151,6 +170,7 @@ Content-Type (REQUIRED): This is the content type of the picture you&#8217;re se
 <li><a class="reference internal" href="#fetch-a-single-user">Fetch a single user</a></li>
 <li><a class="reference internal" href="#fetch-multiple-users">Fetch multiple users</a></li>
 <li><a class="reference internal" href="#search-users-by-name">Search users by name</a></li>
+<li><a class="reference internal" href="#search-for-friends">Search for friends</a></li>
 <li><a class="reference internal" href="#update-a-user">Update a user</a></li>
 <li><a class="reference internal" href="#change-profile-picture">Change profile picture</a></li>
 </ul>
