@@ -12,7 +12,9 @@ You can also get the current authenticated user with
 
 **GET /me/**
 
-Arguments - None
+Arguments
+
+    :full: You can provide "full=1" to get also stats information about your users.
 
 Example Response
 

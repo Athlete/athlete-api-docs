@@ -58,7 +58,17 @@
 <p><strong>GET /user/[user_id]/</strong></p>
 <p>You can also get the current authenticated user with</p>
 <p><strong>GET /me/</strong></p>
-<p>Arguments - None</p>
+<p>Arguments</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">full:</th><td class="field-body">You can provide &#8220;full=1&#8221; to get also stats information about your users.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
 <p>Example Response</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
   <span class="s">&quot;date_joined&quot;</span><span class="p">:</span> <span class="s">&quot;2012-05-01T11:37:52.467275&quot;</span><span class="p">,</span>
@@ -123,6 +133,8 @@ fetching a single user.</div></blockquote>
 <tr class="field-odd field"><th class="field-name">q:</th><td class="field-body">The name to match against in the search</td>
 </tr>
 <tr class="field-even field"><th class="field-name">user_id:</th><td class="field-body">The user whom friends belongs to. [OPTIONAL]</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">order_by:</th><td class="field-body">You can order the results by &#8216;most_active&#8217; users.[OPTIONAL]</td>
 </tr>
 </tbody>
 </table>
