@@ -71,6 +71,7 @@ Arguments
 
     :q: The name to match against in the search
     :user_id: The user whom friends belongs to. [OPTIONAL]
+    :order_by: You can order the results by 'most_active' users.[OPTIONAL]
 
 The *q* argument is mandatory, and you have to include the name or part of the name to search for. The user_id is optional. If you don't provide one, the logged in user will be used instead.
 
