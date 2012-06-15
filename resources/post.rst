@@ -49,7 +49,8 @@ Arguments
     :type: [ dashboard | local | featured | profile ] A special filter to get posts for a user's dashboard, local posts, featured posts or the profile feed posts.
     :user_id: Only valid when type is dashboard or profile. Specifies the id of the user who's dashboard posts should be returned.
     :limit: Max feed items to return (default=20)
-    :offset: Feed item index to start with (default=0)
+    :earlier_than: A post id. Tells the API to return posts that are older than the post with this id.
+    :later_than: A post id. Tells the API to return posts that are newer than the post with this id.
 
 Response
 
@@ -66,10 +67,9 @@ Example Response
     {
       "meta": {
         "limit": 20,
-        "next": null,
-        "offset": 0,
-        "previous": null,
-        "total_count": 3
+        "newer": "/api/v1/post/?later_than=40&limit=20",
+        "older": "/api/v1/post/?limit=20&earlier_than=24",
+        "total_count": 38
       },
       "objects": [
         {

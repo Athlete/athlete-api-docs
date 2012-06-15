@@ -67,23 +67,19 @@
 </table>
 </div></blockquote>
 <p>Response</p>
-<blockquote>
-<div><p>Not implemented yet. Needs to contain the following:</p>
-<ul class="simple">
-<li>Static map image URL</li>
-<li>Distance in meters</li>
-<li>Duration in seconds</li>
-<li>Run Type</li>
-<li>Run title</li>
-<li>Run date</li>
-</ul>
-<p>Also, if there is an associated Post then include the following data about that post:</p>
-<ul class="simple">
-<li>Post body</li>
-<li>Comment count</li>
-<li>Like count</li>
-</ul>
-</div></blockquote>
+<div class="highlight-python"><pre>{
+  "distance_in_meters": "8046.72",
+  "duration_in_seconds": 1500,
+  "id": 2,
+  "post_body": "great",
+  "resource_uri": "/api/v1/workout/2/",
+  "route_points_data": "",
+  "run_date": "2012-05-22T00:00:00",
+  "run_type": "Endurance",
+  "static_map_url": "http://some.domain/super-long-url",  // &lt;-- this will sometimes be null
+  "title": "Running"
+}</pre>
+</div>
 </div>
 <div class="section" id="create-a-workout">
 <h2>Create a workout<a class="headerlink" href="#create-a-workout" title="Permalink to this headline">¶</a></h2>

@@ -1,6 +1,10 @@
 ChangeLog
 =========
 
+**June 15**
+
+- Removed facebook registration. facebook login now performs both login and registration.
+
 **June 6**
 
 - All times from the API are now in UTC timezone. We previously had some timezone issues.
