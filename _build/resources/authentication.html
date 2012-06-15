@@ -83,37 +83,6 @@
 </table>
 </div></blockquote>
 </div>
-<div class="section" id="login-with-facebook">
-<span id="resource-login-facebook"></span><h2>Login with Facebook<a class="headerlink" href="#login-with-facebook" title="Permalink to this headline">¶</a></h2>
-<p><strong>POST /account/facebook/login/</strong></p>
-<p>Arguments</p>
-<blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">token:</th><td class="field-body">The token received from Facebook. Must have been acquired using athlete.com&#8217;s
-FB developer account. (required)
-<strong>IMPORTANT: The token granted from facebook must have the &#8220;email&#8221;, &#8220;user_birthday&#8221; and
-&#8220;user_photos&#8221; privileges.</strong></td>
-</tr>
-</tbody>
-</table>
-</div></blockquote>
-<p>Response</p>
-<blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">username:</th><td class="field-body">The user&#8217;s username. This is different from their email.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">api_key:</th><td class="field-body">The api key for this user.</td>
-</tr>
-</tbody>
-</table>
-</div></blockquote>
-</div>
 <div class="section" id="register">
 <span id="resource-register"></span><h2>Register<a class="headerlink" href="#register" title="Permalink to this headline">¶</a></h2>
 <p><strong>POST /account/register/</strong></p>
@@ -150,9 +119,14 @@ FB developer account. (required)
 <p>If a user already exists with the provided email address, the response will have a 400
 status code and the body will say <tt class="docutils literal"><span class="pre">The</span> <span class="pre">email</span> <span class="pre">address</span> <span class="pre">already</span> <span class="pre">exists</span></tt>.</p>
 </div>
-<div class="section" id="register-with-facebook">
-<span id="resource-register-facebook"></span><h2>Register with Facebook<a class="headerlink" href="#register-with-facebook" title="Permalink to this headline">¶</a></h2>
-<p><strong>POST /account/facebook/register/</strong></p>
+<div class="section" id="login-or-register-with-facebook">
+<span id="resource-login-facebook"></span><h2>Login or Register with Facebook<a class="headerlink" href="#login-or-register-with-facebook" title="Permalink to this headline">¶</a></h2>
+<p><strong>POST /account/facebook/login/</strong></p>
+<p>This will either login or register the user, depending on if the user is already
+registered. If ther user is already registered, but not through facebook, it will
+attempt to match the account by email and link the facebook id to this account.
+So it pretty must just always works no matter what. Give it a token and the user
+will be ready to go.</p>
 <p>Arguments</p>
 <blockquote>
 <div><table class="docutils field-list" frame="void" rules="none">
@@ -177,11 +151,11 @@ FB developer account. (required)
 </tr>
 <tr class="field-even field"><th class="field-name">api_key:</th><td class="field-body">The api key for this user.</td>
 </tr>
+<tr class="field-odd field"><th class="field-name">created:</th><td class="field-body">True if the user was created, False if it was an existing user who was just logged in.</td>
+</tr>
 </tbody>
 </table>
 </div></blockquote>
-<p>If an account already exists with the email address we receive from Facebook, the accounts will
-be automatically merged without an error.</p>
 </div>
 <div class="section" id="forgot-password">
 <h2>Forgot password<a class="headerlink" href="#forgot-password" title="Permalink to this headline">¶</a></h2>
@@ -216,9 +190,8 @@ password. The response will be a 200 response if successful.</p>
   <ul>
 <li><a class="reference internal" href="#">Authentication</a><ul>
 <li><a class="reference internal" href="#login">Login</a></li>
-<li><a class="reference internal" href="#login-with-facebook">Login with Facebook</a></li>
 <li><a class="reference internal" href="#register">Register</a></li>
-<li><a class="reference internal" href="#register-with-facebook">Register with Facebook</a></li>
+<li><a class="reference internal" href="#login-or-register-with-facebook">Login or Register with Facebook</a></li>
 <li><a class="reference internal" href="#forgot-password">Forgot password</a></li>
 </ul>
 </li>

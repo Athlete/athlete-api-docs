@@ -116,7 +116,9 @@
 </tr>
 <tr class="field-odd field"><th class="field-name">limit:</th><td class="field-body">Max feed items to return (default=20)</td>
 </tr>
-<tr class="field-even field"><th class="field-name">offset:</th><td class="field-body">Feed item index to start with (default=0)</td>
+<tr class="field-even field"><th class="field-name">earlier_than:</th><td class="field-body">A post id. Tells the API to return posts that are older than the post with this id.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">later_than:</th><td class="field-body">A post id. Tells the API to return posts that are newer than the post with this id.</td>
 </tr>
 </tbody>
 </table>
@@ -132,10 +134,9 @@ a normal response with 0 results.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
   <span class="s">&quot;meta&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="s">&quot;limit&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-    <span class="s">&quot;next&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-    <span class="s">&quot;offset&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s">&quot;previous&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-    <span class="s">&quot;total_count&quot;</span><span class="p">:</span> <span class="mi">3</span>
+    <span class="s">&quot;newer&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/post/?later_than=40&amp;limit=20&quot;</span><span class="p">,</span>
+    <span class="s">&quot;older&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/post/?limit=20&amp;earlier_than=24&quot;</span><span class="p">,</span>
+    <span class="s">&quot;total_count&quot;</span><span class="p">:</span> <span class="mi">38</span>
   <span class="p">},</span>
   <span class="s">&quot;objects&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>

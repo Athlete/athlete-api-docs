@@ -4,6 +4,7 @@ ChangeLog
 **June 15**
 
 - Removed facebook registration. facebook login now performs both login and registration.
+- Fixed docs. To update the profile picture the correct path is /user/picture/
 
 **June 6**
 

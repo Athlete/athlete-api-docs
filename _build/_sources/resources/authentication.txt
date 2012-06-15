@@ -19,27 +19,6 @@ Response
     :api_key: The api key for this user.
 
 
-.. _resource_login_facebook:
-
-Login with Facebook
--------------------
-
-**POST /account/facebook/login/**
-
-Arguments
-
-    :token:
-        The token received from Facebook. Must have been acquired using athlete.com's
-        FB developer account. (required)
-        **IMPORTANT: The token granted from facebook must have the "email", "user_birthday" and
-        "user_photos" privileges.**
-
-Response
-
-    :username: The user's username. This is different from their email.
-    :api_key: The api key for this user.
-
-
 .. _resource_register:
 
 Register
@@ -63,12 +42,18 @@ If a user already exists with the provided email address, the response will have
 status code and the body will say ``The email address already exists``.
 
 
-.. _resource_register_facebook:
+.. _resource_login_facebook:
 
-Register with Facebook
-----------------------
+Login or Register with Facebook
+-------------------------------
 
-**POST /account/facebook/register/**
+**POST /account/facebook/login/**
+
+This will either login or register the user, depending on if the user is already
+registered. If ther user is already registered, but not through facebook, it will
+attempt to match the account by email and link the facebook id to this account.
+So it pretty must just always works no matter what. Give it a token and the user
+will be ready to go.
 
 Arguments
 
@@ -82,9 +67,8 @@ Response
 
     :username: The user's username. This is different from their email.
     :api_key: The api key for this user.
+    :created: True if the user was created, False if it was an existing user who was just logged in.
 
-If an account already exists with the email address we receive from Facebook, the accounts will
-be automatically merged without an error.
 
 Forgot password
 ---------------

@@ -67,23 +67,19 @@
 </table>
 </div></blockquote>
 <p>Response</p>
-<blockquote>
-<div><p>Not implemented yet. Needs to contain the following:</p>
-<ul class="simple">
-<li>Static map image URL</li>
-<li>Distance in meters</li>
-<li>Duration in seconds</li>
-<li>Run Type</li>
-<li>Run title</li>
-<li>Run date</li>
-</ul>
-<p>Also, if there is an associated Post then include the following data about that post:</p>
-<ul class="simple">
-<li>Post body</li>
-<li>Comment count</li>
-<li>Like count</li>
-</ul>
-</div></blockquote>
+<div class="highlight-python"><pre>{
+  "distance_in_meters": "8046.72",
+  "duration_in_seconds": 1500,
+  "id": 2,
+  "post_body": "great",
+  "resource_uri": "/api/v1/workout/2/",
+  "route_points_data": "",
+  "run_date": "2012-05-22T00:00:00",
+  "run_type": "Endurance",
+  "static_map_url": "http://some.domain/super-long-url",  // &lt;-- this will sometimes be null
+  "title": "Running"
+}</pre>
+</div>
 </div>
 <div class="section" id="create-a-workout">
 <h2>Create a workout<a class="headerlink" href="#create-a-workout" title="Permalink to this headline">¶</a></h2>
@@ -154,8 +150,8 @@ content type.</p>
 <div>Not sure. Nothing of importance.
 You will get a 401 UNAUTHORIZED response if the current logged in user does not own the workout.</div></blockquote>
 </div>
-<div class="section" id="upload-rout-data-to-a-workout">
-<h2>Upload rout data to a workout<a class="headerlink" href="#upload-rout-data-to-a-workout" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="upload-route-data-to-a-workout">
+<h2>Upload route data to a workout<a class="headerlink" href="#upload-route-data-to-a-workout" title="Permalink to this headline">¶</a></h2>
 <p>This method allows you to send GPX files containing routes data for some Workout. You must specify the Workout ID. You must own that workout in order to update the route data. Right now the only file suported is GPX, we might add support to other formats in the future. Stay in touch for updates on this topic.</p>
 <p><strong>PATCH /workout/[workout_id]/</strong></p>
 <p>You must send the Content-Type of the file (see below) and the entire file as the request body.</p>
@@ -182,7 +178,7 @@ You will get a 401 UNAUTHORIZED response if the current logged in user does not 
 <li><a class="reference internal" href="#fetch-all-workouts-for-a-user">Fetch all workouts for a user</a></li>
 <li><a class="reference internal" href="#create-a-workout">Create a workout</a></li>
 <li><a class="reference internal" href="#delete-a-workout">Delete a workout</a></li>
-<li><a class="reference internal" href="#upload-rout-data-to-a-workout">Upload rout data to a workout</a></li>
+<li><a class="reference internal" href="#upload-route-data-to-a-workout">Upload route data to a workout</a></li>
 <li><a class="reference internal" href="#content-types">Content Types</a></li>
 </ul>
 </li>
