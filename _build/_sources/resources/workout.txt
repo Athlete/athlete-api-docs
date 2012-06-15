@@ -10,20 +10,20 @@ Fetch all workouts for a user
 
 Response
 
-::
+    Not implemented yet. Needs to contain the following:
 
-    {
-      "distance_in_meters": "8046.72",
-      "duration_in_seconds": 1500,
-      "id": 2,
-      "post_body": "great",
-      "resource_uri": "/api/v1/workout/2/",
-      "route_points_data": "",
-      "run_date": "2012-05-22T00:00:00",
-      "run_type": "Endurance",
-      "static_map_url": "http://some.domain/super-long-url",  // <-- this will sometimes be null
-      "title": "Running"
-    }
+    - Static map image URL
+    - Distance in meters
+    - Duration in seconds
+    - Run Type
+    - Run title
+    - Run date
+
+    Also, if there is an associated Post then include the following data about that post:
+
+    - Post body
+    - Comment count
+    - Like count
 
 
 Create a workout
@@ -87,7 +87,7 @@ Response
     Not sure. Nothing of importance.
     You will get a 401 UNAUTHORIZED response if the current logged in user does not own the workout.
 
-Upload route data to a workout
+Upload rout data to a workout
 ------------------------------
 
 This method allows you to send GPX files containing routes data for some Workout. You must specify the Workout ID. You must own that workout in order to update the route data. Right now the only file suported is GPX, we might add support to other formats in the future. Stay in touch for updates on this topic.

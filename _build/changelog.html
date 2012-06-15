@@ -1,0 +1,131 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ChangeLog &mdash; Athlete.com API 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Athlete.com API 0.1.0 documentation" href="index.html" />
+    <link rel="next" title="Authentication" href="resources/authentication.html" />
+    <link rel="prev" title="Errors" href="getting_started/errors.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="resources/authentication.html" title="Authentication"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="getting_started/errors.html" title="Errors"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="changelog">
+<h1>ChangeLog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<p><strong>June 6</strong></p>
+<ul class="simple">
+<li>All times from the API are now in UTC timezone. We previously had some timezone issues.</li>
+</ul>
+<p><strong>May 29</strong></p>
+<ul class="simple">
+<li><strong>IMPORTANT</strong> Changed parameters on Post resource. The way to specify a user changed, from &#8220;user&#8221; to &#8220;user_id&#8221;. Take a look at Post resource docs.</li>
+<li>Added profile type for posts. You can get a user&#8217;s profile feed specifying the profile type and user_id.</li>
+<li>Added Back to first_name and last_name in User Resource</li>
+<li>Removed full_name from User Resource</li>
+<li>Added likers to comment list response</li>
+</ul>
+<p><strong>May 28</strong></p>
+<ul class="simple">
+<li>Added post filters for comments.</li>
+<li>MD5 content fully tested. You can upload profile pics now.</li>
+<li>Updated comment POST.</li>
+<li>Updated docs: Comment, User.</li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="getting_started/errors.html"
+                        title="previous chapter">Errors</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="resources/authentication.html"
+                        title="next chapter">Authentication</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/changelog.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="resources/authentication.html" title="Authentication"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="getting_started/errors.html" title="Errors"
+             >previous</a> |</li>
+        <li><a href="index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Athlete.com.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
