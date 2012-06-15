@@ -82,6 +82,25 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="paginating-posts">
+<h2>Paginating Posts<a class="headerlink" href="#paginating-posts" title="Permalink to this headline">¶</a></h2>
+<p>We&#8217;ve built some custom pagination for browsing posts. The way pagination works is through specifying a temporal ordering of the posts. It means that you can ask for posts &#8220;earlier than&#8221; post n° 1001, or posts later than post n° 289.</p>
+<p>By default you get a list of posts 20 posts. For example, from post id n° 40 to post n° 20. If you want to browse more posts you can ask for posts earlier than 20, or posts later than 40. Here are the parameters you can specify in your URL in order to get pagination working:</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">earlier_than:</th><td class="field-body">A post ID.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">later_than:</th><td class="field-body">A post ID.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">limit:</th><td class="field-body">The amount of posts.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
 <div class="section" id="get-list-of-posts">
 <h2>Get List of Posts<a class="headerlink" href="#get-list-of-posts" title="Permalink to this headline">¶</a></h2>
 <p><strong>GET /post/</strong></p>
@@ -191,6 +210,7 @@ a normal response with 0 results.</p>
   <ul>
 <li><a class="reference internal" href="#">Posts (a.k.a. Feed)</a><ul>
 <li><a class="reference internal" href="#get-one-post">Get One Post</a></li>
+<li><a class="reference internal" href="#paginating-posts">Paginating Posts</a></li>
 <li><a class="reference internal" href="#get-list-of-posts">Get List of Posts</a></li>
 </ul>
 </li>

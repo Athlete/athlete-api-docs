@@ -87,7 +87,7 @@ Response
     Not sure. Nothing of importance.
     You will get a 401 UNAUTHORIZED response if the current logged in user does not own the workout.
 
-Upload rout data to a workout
+Upload route data to a workout
 ------------------------------
 
 This method allows you to send GPX files containing routes data for some Workout. You must specify the Workout ID. You must own that workout in order to update the route data. Right now the only file suported is GPX, we might add support to other formats in the future. Stay in touch for updates on this topic.
