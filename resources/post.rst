@@ -140,3 +140,16 @@ Example Response
       ]
     }
 
+
+Delete a Post
+--------------
+
+**DELETE /post/[post_id]/**
+
+Arguments
+
+    :post_id: The id of the post you want to delete. The post must belong to your user, in other case you'll get a 404.
+
+Response
+
+    204 No content.
