@@ -52,8 +52,8 @@ Delete a comment
 
 Arguments
 
-    :comment_id: The id of the comment you want to get. Is important to note that you user can delete his/her own comments and comments that belong to him or her. If you make an attempt to remove a comment that is beyond you're user scope, a 404 will be returned.
+    :comment_id: The id of the comment you want to delete. Is important to note that your user can delete his/her own comments and comments that belong to him or her post. If you make an attempt to remove a comment that is beyond you're user scope, a 404 will be returned.
 
 Response
 
-    204 OK. No content.
+    204 No content.
