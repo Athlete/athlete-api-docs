@@ -18,6 +18,7 @@ Get One Conversation
 **GET /conversation/[id]/**
 
 You get some important fields:
+    :has_unread_messages: shows if the currently logged in user have read all messages (true, false).
     :last_message: The last message from this conversation.
     :created_date: Date created this conversation.
     :recipients: A list of users, with all their information.
