@@ -45,7 +45,7 @@
             
   <div class="section" id="conversations">
 <h1>Conversations<a class="headerlink" href="#conversations" title="Permalink to this headline">¶</a></h1>
-<p>A user might be involved in a conversation. You can only fetch the conversations that your user is involved in.</p>
+<p>A user might be involved in a conversation. You can only fetch the conversations that your user is involved in. You might want to display information to your user informing the status of the conversations (read/unread). It&#8217;s important to mark the conversation as read when you your user reads it.</p>
 <div class="section" id="get-conversations">
 <h2>Get Conversations<a class="headerlink" href="#get-conversations" title="Permalink to this headline">¶</a></h2>
 <p><strong>GET /conversation/</strong></p>
@@ -54,6 +54,64 @@
 </div>
 <div class="section" id="get-one-conversation">
 <h2>Get One Conversation<a class="headerlink" href="#get-one-conversation" title="Permalink to this headline">¶</a></h2>
+<p><strong>GET /conversation/[id]/</strong></p>
+<dl class="docutils">
+<dt>You get some important fields:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">has_unread_messages:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">shows if the currently logged in user have read all messages (true, false).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">last_message:</th><td class="field-body">The last message from this conversation.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">created_date:</th><td class="field-body">Date created this conversation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">recipients:</th><td class="field-body">A list of users, with all their information.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">started_by:</th><td class="field-body">The user that started the conversation.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div>
+<div class="section" id="mark-conversations-as-read">
+<h2>Mark conversations as read<a class="headerlink" href="#mark-conversations-as-read" title="Permalink to this headline">¶</a></h2>
+<p>We don&#8217;t mark conversation as read when you fetch the messages for that particular conversation. This is really important. You have to explicitly inform us when the user has read the conversation. To do so, you must issue this request:</p>
+<p><strong>PATCH /conversation/[ID]/read/</strong></p>
+<p>Arguments</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ID:</th><td class="field-body">is the ID of the conversation you want to mark as read</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">last_message_read_timestamp:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">A timestamp informing the timestamp of the last message read.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>The &#8220;last_message_read_timestamp&#8221; must be provided becouse in the midtime between you fetch the messages and the time you issued this request, new messages might be created. The response for this method is:</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">200 Ok:</th><td class="field-body">if there are no new messages since the time you informed. You can safetly inform your user that he/she has read the conversation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">409 CONFLICT:</th><td class="field-body">New messages have been created. At this point you can fetch the messages again and reissue this request.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>You can also use this method to know if there are new messages to display to your user.</p>
+</div>
+<div class="section" id="id1">
+<h2>Get One Conversation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p><strong>GET /conversation/[id]/</strong></p>
 <dl class="docutils">
 <dt>You get some important fields:</dt>
@@ -137,6 +195,8 @@
 <li><a class="reference internal" href="#">Conversations</a><ul>
 <li><a class="reference internal" href="#get-conversations">Get Conversations</a></li>
 <li><a class="reference internal" href="#get-one-conversation">Get One Conversation</a></li>
+<li><a class="reference internal" href="#mark-conversations-as-read">Mark conversations as read</a></li>
+<li><a class="reference internal" href="#id1">Get One Conversation</a></li>
 <li><a class="reference internal" href="#start-a-new-conversation">Start a new Conversation</a></li>
 <li><a class="reference internal" href="#get-all-messages">Get all Messages</a></li>
 <li><a class="reference internal" href="#post-a-new-message">Post a new Message</a></li>
