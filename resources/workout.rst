@@ -26,6 +26,40 @@ Response
     }
 
 
+You can also get a workout in GPX format. To accomplish this, you must specify the right "Accept" header:
+
+**GET /workout/**
+**Accept: application/X.athlete-GPX+xml**
+
+You'll get some headers and the content in the response body:
+
+    200 Ok
+    Content-Type: application/X.athlete-GPX+xml; charset=utf-8
+
+    <?xml version='1.0' encoding='utf-8'?>
+    <gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="Athlete.com">
+        <metadata>
+            <author>
+                <name>Athlete.com</name>
+            </author>
+            <time>2012-06-27T12:12:39Z</time>
+        </metadata>
+        <trk>
+            <name>Endurance - Running</name>
+            <trkseg>
+                <trkpt lon="-111.94151446223259" lat="40.855995789170265">
+                    <ele>1291.0</ele>
+                    <time>2012-03-11T00:33:47.000Z</time>
+                </trkpt>
+                <trkpt lon="-111.94152887910604" lat="40.85599763318896">
+                    <ele>1291.0</ele>
+                    <time>2012-03-11T00:33:48.000Z</time>
+                </trkpt>
+                ...
+            <trkseg>
+        <trk>
+    </gpx>
+
 Create a workout
 ----------------
 

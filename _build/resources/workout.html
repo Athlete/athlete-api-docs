@@ -80,6 +80,51 @@
   "title": "Running"
 }</pre>
 </div>
+<p>You can also get a workout in GPX format. To accomplish this, you must specify the right &#8220;Accept&#8221; header:</p>
+<p><strong>GET /workout/</strong>
+<strong>Accept: application/X.athlete-GPX+xml</strong></p>
+<p>You&#8217;ll get some headers and the content in the response body:</p>
+<blockquote>
+<div><p>200 Ok
+Content-Type: application/X.athlete-GPX+xml; charset=utf-8</p>
+<p>&lt;?xml version=&#8216;1.0&#8217; encoding=&#8217;utf-8&#8217;?&gt;
+&lt;gpx xmlns=&#8221;<a class="reference external" href="http://www.topografix.com/GPX/1/1">http://www.topografix.com/GPX/1/1</a>&#8221; version=&#8221;1.1&#8221; creator=&#8221;Athlete.com&#8221;&gt;</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>&lt;metadata&gt;</dt>
+<dd><dl class="first docutils">
+<dt>&lt;author&gt;</dt>
+<dd>&lt;name&gt;Athlete.com&lt;/name&gt;</dd>
+</dl>
+<p class="last">&lt;/author&gt;
+&lt;time&gt;2012-06-27T12:12:39Z&lt;/time&gt;</p>
+</dd>
+</dl>
+<p>&lt;/metadata&gt;
+&lt;trk&gt;</p>
+<blockquote>
+<div><p>&lt;name&gt;Endurance - Running&lt;/name&gt;
+&lt;trkseg&gt;</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>&lt;trkpt lon=&#8221;-111.94151446223259&#8221; lat=&#8221;40.855995789170265&#8221;&gt;</dt>
+<dd>&lt;ele&gt;1291.0&lt;/ele&gt;
+&lt;time&gt;2012-03-11T00:33:47.000Z&lt;/time&gt;</dd>
+</dl>
+<p>&lt;/trkpt&gt;
+&lt;trkpt lon=&#8221;-111.94152887910604&#8221; lat=&#8221;40.85599763318896&#8221;&gt;</p>
+<blockquote>
+<div>&lt;ele&gt;1291.0&lt;/ele&gt;
+&lt;time&gt;2012-03-11T00:33:48.000Z&lt;/time&gt;</div></blockquote>
+<p>&lt;/trkpt&gt;
+...</p>
+</div></blockquote>
+<p>&lt;trkseg&gt;</p>
+</div></blockquote>
+<p>&lt;trk&gt;</p>
+</div></blockquote>
+<p>&lt;/gpx&gt;</p>
+</div></blockquote>
 </div>
 <div class="section" id="create-a-workout">
 <h2>Create a workout<a class="headerlink" href="#create-a-workout" title="Permalink to this headline">¶</a></h2>
