@@ -187,6 +187,64 @@ content type.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="create-a-workout-from-gpx-file">
+<h2>Create a workout from GPX file<a class="headerlink" href="#create-a-workout-from-gpx-file" title="Permalink to this headline">¶</a></h2>
+<p>You can create a new workout (and it&#8217;s relative post) from a GPX file. In order to do that you must provide a well formated GPX file, according to GPX schema (<a class="reference external" href="http://www.topografix.com/GPX/1/1/gpx.xsd">http://www.topografix.com/GPX/1/1/gpx.xsd</a>).</p>
+<p>Here&#8217;s an example:</p>
+<blockquote>
+<div><p>&lt;?xml version=&#8221;1.0&#8221; encoding=&#8221;UTF-8&#8221;?&gt;
+&lt;gpx version=&#8221;1.1&#8221; creator=&#8221;Athlete Mobile App (Not important)&#8221;</p>
+<blockquote>
+<div><p>xsi:schemaLocation=&#8221;http://www.topografix.com/GPX/1/1&#8221;
+xmlns=&#8221;http://www.topografix.com/GPX/1/1&#8221;&gt;
+&lt;metadata&gt;</p>
+<blockquote>
+<div>&lt;desc&gt;Run description&lt;/desc&gt;
+&lt;time&gt;2012-07-02T12:03:38Z&lt;/time&gt;</div></blockquote>
+<p>&lt;/metadata&gt;
+&lt;trk&gt;</p>
+<blockquote>
+<div><p>&lt;name&gt;Run around the park&lt;/name&gt;
+&lt;type&gt;Endurance&lt;/type&gt;
+&lt;time&gt;2012-07-01T17:00:00Z&lt;/time&gt;
+&lt;trkseg&gt;</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>&lt;trkpt lon=&#8221;-113.635201&#8221; lat=&#8221;37.1570545&#8221;&gt;</dt>
+<dd>&lt;time&gt;2012-07-01T17:00:00Z&lt;/time&gt;
+&lt;ele&gt;900.567032295&lt;/ele&gt;</dd>
+</dl>
+<p>&lt;/trkpt&gt;
+... More Points ...</p>
+</div></blockquote>
+<p>&lt;trkseg&gt;</p>
+</div></blockquote>
+<p>&lt;/trk&gt;</p>
+</div></blockquote>
+<p>&lt;/gpx&gt;</p>
+</div></blockquote>
+<p>I&#8217;ll describe the most important data there:</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">metadata/desc:</th><td class="field-body">The post body. The description to the workout (it&#8217;s going to be saved as Post information).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">metadata/time:</th><td class="field-body">The time when the file was created. Not used.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">trk/name:</th><td class="field-body">The name of the workout. The title the user assigned to it.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">trk/time:</th><td class="field-body">The datetime where the workout was created. This filed is mandatory! And is very important. The format is like the example. [YEAR]-[MONTH]-[DAY]T[HOUR]:[MINUTE]:[SECONDS]Z.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">trk/type:</th><td class="field-body">The type of the run as described above. (Endurance, Indoor, Beach, etc.)</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Of course, as &lt;trkpt&gt; elements you must provide the route data.</p>
+<p>GPX Documentation: <a class="reference external" href="http://www.topografix.com/GPX/1/1/">http://www.topografix.com/GPX/1/1/</a></p>
+</div>
 <div class="section" id="delete-a-workout">
 <h2>Delete a workout<a class="headerlink" href="#delete-a-workout" title="Permalink to this headline">¶</a></h2>
 <p><strong>DELETE /workout/[workout_id]/</strong></p>
@@ -222,6 +280,7 @@ You will get a 401 UNAUTHORIZED response if the current logged in user does not 
 <li><a class="reference internal" href="#">Workouts</a><ul>
 <li><a class="reference internal" href="#fetch-all-workouts-for-a-user">Fetch all workouts for a user</a></li>
 <li><a class="reference internal" href="#create-a-workout">Create a workout</a></li>
+<li><a class="reference internal" href="#create-a-workout-from-gpx-file">Create a workout from GPX file</a></li>
 <li><a class="reference internal" href="#delete-a-workout">Delete a workout</a></li>
 <li><a class="reference internal" href="#upload-route-data-to-a-workout">Upload route data to a workout</a></li>
 <li><a class="reference internal" href="#content-types">Content Types</a></li>
