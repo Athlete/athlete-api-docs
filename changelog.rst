@@ -4,6 +4,7 @@ ChangeLog
 **July 11**
 
 - Added "privacy" to workout resource.
+- static_map_url will sometimes be missing from workout resource if the user does not have privileges to see it.
 
 **June 15**
 
