@@ -99,12 +99,13 @@ Example of a Workout document to POST
         "duration_in_seconds": 3600,
         "distance_in_meters": 1000,
         "post_body": "This is the body, in order to provide a full description of your run",
+        "privacy": "public",
         "points": [
             {
                 "lng":"-111.5373066",
                 "lat":"40.7231711",
                 "time": "2012-01-01T00:00:04Z",
-                "ele": "1942.1789265256325"
+                "elev": "1942.1789265256325"
             },
             {
                 "lng":"-111.5372056",
