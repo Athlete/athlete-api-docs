@@ -33,6 +33,8 @@ You can also get a workout in GPX format. To accomplish this, you must specify t
 
 You'll get some headers and the content in the response body:
 
+::
+
     200 Ok
     Content-Type: application/X.athlete-GPX+xml; charset=utf-8
 
@@ -59,6 +61,7 @@ You'll get some headers and the content in the response body:
             <trkseg>
         <trk>
     </gpx>
+
 
 Create a workout
 ----------------
@@ -118,6 +121,8 @@ Create a workout from GPX file
 You can create a new workout (and it's relative post) from a GPX file. In order to do that you must provide a well formated GPX file, according to GPX schema (http://www.topografix.com/GPX/1/1/gpx.xsd).
 
 Here's an example:
+
+::
 
     <?xml version="1.0" encoding="UTF-8"?>
     <gpx version="1.1" creator="Athlete Mobile App (Not important)"

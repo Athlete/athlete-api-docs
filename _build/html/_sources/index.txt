@@ -38,6 +38,7 @@ Resources
    resources/friendship
    resources/like
    resources/post
+   resources/messages
 
 
 Indices and tables
