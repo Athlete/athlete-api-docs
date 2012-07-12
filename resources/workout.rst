@@ -44,6 +44,7 @@ Note that workouts (and posts) can also have attached images. Those must be post
     :run_type: Must be one of Endurance, Tempo, Slow, Interval, Group, Elevation, Race
     :duration_in_seconds: The duration of the run, in seconds. If the user paused during that run, that time should not be included.
     :distance_in_meters: The distance of the run in meters.
+    :privacy: The privacy level for this workout. Options: "public", "private", "friends"
     :points: An optional array of objects, each containing the following attributes:
         :lat: The latitude
         :lng: The longitude

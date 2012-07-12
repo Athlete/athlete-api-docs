@@ -1,6 +1,10 @@
 ChangeLog
 =========
 
+**July 11**
+
+- Added "privacy" to workout resource.
+
 **June 15**
 
 - Removed facebook registration. facebook login now performs both login and registration.
