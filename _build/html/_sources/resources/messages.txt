@@ -73,6 +73,13 @@ You get the Location header with the URI for the recently created resource.
 
     Location: https://athlete.com/api/v1/conversation/[ID]/
 
+Hide a Conversation
+---------------------
+
+**PATCH /conversation/[id]/hide/**
+
+Super easy. Just that. You won't get the conversation the next time you query for that.
+
 Get all Messages
 -----------------
 

@@ -39,6 +39,7 @@ Resources
    resources/like
    resources/post
    resources/messages
+   resources/stats
 
 
 Indices and tables
