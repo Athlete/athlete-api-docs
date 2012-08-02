@@ -103,7 +103,7 @@ Change profile picture
 
 This resource is exposed in order to change the profile picture of the current logged in user. [PRE PROCESSING NOTES]
 
-**POST /user/profile/**
+**POST /user/picture/**
 
 Arguments
 

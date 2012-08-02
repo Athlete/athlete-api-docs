@@ -140,3 +140,51 @@ Example Response
       ]
     }
 
+
+Delete a Post
+--------------
+
+**DELETE /post/[post_id]/**
+
+Arguments
+
+    :post_id: The id of the post you want to delete. The post must belong to your user, in other case you'll get a 404.
+
+Response
+
+    204 No content.
+
+
+Uploading a picture to a Post
+-----------------------------
+
+In order to upload a picture to a post (or to its relative workout) you should issue a POST request similar to this. As always, it's very important to specify the correct content type:
+
+**POST /picture/?post_id=[id]**
+
+Arguments
+    :post_id: The id of the post you want to attach that picture to.
+
+Response:
+
+    201 Created
+
+Headers:
+
+    You must specify the content type of the image. The content types allowed are: "image/jpeg" and "image/png".
+
+
+Get pictures from a given post
+-------------------------------
+
+It's as simple as:
+
+**GET /picture/?post_id=[id]**
+
+There you'll get 4 sizes:
+
+    :thumbnail: Size 140 x 110 aprox.
+    :feed: 400px wide aprox.
+    :detail: 900px wide aprox.
+    :original: The original picture, we don't make any changes to the picture.
+
