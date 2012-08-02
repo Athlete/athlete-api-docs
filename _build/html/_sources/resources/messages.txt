@@ -3,14 +3,24 @@ Conversations
 
 A user might be involved in a conversation. You can only fetch the conversations that your user is involved in. You might want to display information to your user informing the status of the conversations (read/unread). It's important to mark the conversation as read when you your user reads it.
 
-Get Conversations
-------------------
+Get Conversations for Inbox
+---------------------------
 
-**GET /conversation/**
+**GET /conversation/inbox/**
 
 Arguments - None
 
-Returns all the conversations, sorted by last active.
+Returns all the conversations for the current user's inbox, sorted by last active.
+Results are paginated.
+
+Get Conversations for Archive
+-----------------------------
+
+**GET /conversation/archive/**
+
+Arguments - None
+
+Returns the current user's archived messages, sorted by last active. Results are paginated.
 
 Get One Conversation
 ---------------------
