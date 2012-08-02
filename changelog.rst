@@ -1,6 +1,10 @@
 ChangeLog
 =========
 
+**August 2**
+- Changed ordering for conversations. See "GET /conversations/".
+
+
 **June 15**
 
 - Removed facebook registration. facebook login now performs both login and registration.

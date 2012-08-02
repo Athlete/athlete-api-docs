@@ -10,7 +10,7 @@ Get Conversations
 
 Arguments - None
 
-Returns all the conversations, sorted by last active.
+Returns all the conversations for the logged in user. You can see it as the "Inbox" for that user. The first conversations will be the ones with unread messages. After that it's ordered just by date.
 
 Get One Conversation
 ---------------------
