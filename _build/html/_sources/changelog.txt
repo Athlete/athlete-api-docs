@@ -1,6 +1,9 @@
 ChangeLog
 =========
 
+**August 2**
+- Changed ordering for conversations. See "GET /conversations/".
+
 **July 11**
 
 - Added "privacy" to workout resource.

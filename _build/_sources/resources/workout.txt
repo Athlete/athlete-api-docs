@@ -33,6 +33,8 @@ You can also get a workout in GPX format. To accomplish this, you must specify t
 
 You'll get some headers and the content in the response body:
 
+::
+
     200 Ok
     Content-Type: application/X.athlete-GPX+xml; charset=utf-8
 
@@ -60,6 +62,7 @@ You'll get some headers and the content in the response body:
         <trk>
     </gpx>
 
+
 Create a workout
 ----------------
 
@@ -78,6 +81,7 @@ Note that workouts (and posts) can also have attached images. Those must be post
     :run_type: Must be one of Endurance, Tempo, Slow, Interval, Group, Elevation, Race
     :duration_in_seconds: The duration of the run, in seconds. If the user paused during that run, that time should not be included.
     :distance_in_meters: The distance of the run in meters.
+    :privacy: The privacy level for this workout. Options: "public", "private", "friends"
     :points: An optional array of objects, each containing the following attributes:
         :lat: The latitude
         :lng: The longitude
@@ -95,12 +99,13 @@ Example of a Workout document to POST
         "duration_in_seconds": 3600,
         "distance_in_meters": 1000,
         "post_body": "This is the body, in order to provide a full description of your run",
+        "privacy": "public",
         "points": [
             {
                 "lng":"-111.5373066",
                 "lat":"40.7231711",
                 "time": "2012-01-01T00:00:04Z",
-                "ele": "1942.1789265256325"
+                "elev": "1942.1789265256325"
             },
             {
                 "lng":"-111.5372056",
@@ -117,6 +122,8 @@ Create a workout from GPX file
 You can create a new workout (and it's relative post) from a GPX file. In order to do that you must provide a well formated GPX file, according to GPX schema (http://www.topografix.com/GPX/1/1/gpx.xsd).
 
 Here's an example:
+
+::
 
     <?xml version="1.0" encoding="UTF-8"?>
     <gpx version="1.1" creator="Athlete Mobile App (Not important)"
