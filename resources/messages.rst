@@ -73,12 +73,22 @@ You get the Location header with the URI for the recently created resource.
 
     Location: https://athlete.com/api/v1/conversation/[ID]/
 
+Archive a Conversation
+----------------------
+
+**PATCH /conversation/[id]/archive/**
+
+There is no response. This conversation will no longer show up in the current user's inbox,
+but it will show in their archive. It will also be searchable.
+
 Hide a Conversation
 ---------------------
 
 **PATCH /conversation/[id]/hide/**
 
-Super easy. Just that. You won't get the conversation the next time you query for that.
+There is no response. This conversation will no longer show up in the current user's inbox
+or archive and it will not be included in search results. If a new message is written in the
+conversation, it will again show up in the user's inbox.
 
 Get all Messages
 -----------------
