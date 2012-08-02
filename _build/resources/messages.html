@@ -25,7 +25,9 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Athlete.com API 0.1.0 documentation" href="../index.html" /> 
+    <link rel="top" title="Athlete.com API 0.1.0 documentation" href="../index.html" />
+    <link rel="next" title="Stats" href="stats.html" />
+    <link rel="prev" title="Posts (a.k.a. Feed)" href="post.html" /> 
   </head>
   <body>
     <div class="related">
@@ -34,6 +36,12 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="stats.html" title="Stats"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="post.html" title="Posts (a.k.a. Feed)"
+             accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
@@ -50,7 +58,7 @@
 <h2>Get Conversations<a class="headerlink" href="#get-conversations" title="Permalink to this headline">¶</a></h2>
 <p><strong>GET /conversation/</strong></p>
 <p>Arguments - None</p>
-<p>Returns all the conversations, sorted by last active.</p>
+<p>Returns all the conversations for the logged in user. You can see it as the &#8220;Inbox&#8221; for that user. The first conversations will be the ones with unread messages. After that it&#8217;s ordered just by date.</p>
 </div>
 <div class="section" id="get-one-conversation">
 <h2>Get One Conversation<a class="headerlink" href="#get-one-conversation" title="Permalink to this headline">¶</a></h2>
@@ -147,6 +155,19 @@
 <blockquote>
 <div>Location: <a class="reference external" href="https://athlete.com/api/v1/conversation/[ID]/">https://athlete.com/api/v1/conversation/[ID]/</a></div></blockquote>
 </div>
+<div class="section" id="archive-a-conversation">
+<h2>Archive a Conversation<a class="headerlink" href="#archive-a-conversation" title="Permalink to this headline">¶</a></h2>
+<p><strong>PATCH /conversation/[id]/archive/</strong></p>
+<p>There is no response. This conversation will no longer show up in the current user&#8217;s inbox,
+but it will show in their archive. It will also be searchable.</p>
+</div>
+<div class="section" id="hide-a-conversation">
+<h2>Hide a Conversation<a class="headerlink" href="#hide-a-conversation" title="Permalink to this headline">¶</a></h2>
+<p><strong>PATCH /conversation/[id]/hide/</strong></p>
+<p>There is no response. This conversation will no longer show up in the current user&#8217;s inbox
+or archive and it will not be included in search results. If a new message is written in the
+conversation, it will again show up in the user&#8217;s inbox.</p>
+</div>
 <div class="section" id="get-all-messages">
 <h2>Get all Messages<a class="headerlink" href="#get-all-messages" title="Permalink to this headline">¶</a></h2>
 <p>To get all messages for a given conversation, you must issue this request:</p>
@@ -198,12 +219,20 @@
 <li><a class="reference internal" href="#mark-conversations-as-read">Mark conversations as read</a></li>
 <li><a class="reference internal" href="#id1">Get One Conversation</a></li>
 <li><a class="reference internal" href="#start-a-new-conversation">Start a new Conversation</a></li>
+<li><a class="reference internal" href="#archive-a-conversation">Archive a Conversation</a></li>
+<li><a class="reference internal" href="#hide-a-conversation">Hide a Conversation</a></li>
 <li><a class="reference internal" href="#get-all-messages">Get all Messages</a></li>
 <li><a class="reference internal" href="#post-a-new-message">Post a new Message</a></li>
 </ul>
 </li>
 </ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="post.html"
+                        title="previous chapter">Posts (a.k.a. Feed)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="stats.html"
+                        title="next chapter">Stats</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/resources/messages.txt"
@@ -232,6 +261,12 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="stats.html" title="Stats"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="post.html" title="Posts (a.k.a. Feed)"
+             >previous</a> |</li>
         <li><a href="../index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
