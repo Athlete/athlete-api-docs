@@ -112,13 +112,62 @@ Content-Type: application/X.athlete-GPX+xml; charset=utf-8
 &lt;/gpx&gt;</pre>
 </div>
 </div>
-<div class="section" id="create-a-workout">
-<h2>Create a workout<a class="headerlink" href="#create-a-workout" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-a-workout-with-gpx-data">
+<h2>Create a workout with GPX data<a class="headerlink" href="#create-a-workout-with-gpx-data" title="Permalink to this headline">¶</a></h2>
 <p><strong>POST /workout/</strong></p>
+<p>The prefered method to POST (create a new workout) is with a throught a GPX representation. You must specify the Content-Type header as &#8220;application/X.athlete-GPX+xml&#8221; (See below for details about content types).</p>
+<p>Here&#8217;s an example of a POST request containing a GPX representation (Headers removed for brevity):</p>
+<div class="highlight-python"><pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;gpx version="1.1" creator="Athlete Mobile App (Not important)"
+    xsi:schemaLocation="http://www.topografix.com/GPX/1/1"
+    xmlns="http://www.topografix.com/GPX/1/1"&gt;
+    &lt;metadata&gt;
+        &lt;desc&gt;Run description&lt;/desc&gt;
+        &lt;time&gt;2012-07-02T12:03:38Z&lt;/time&gt;
+    &lt;/metadata&gt;
+    &lt;trk&gt;
+        &lt;name&gt;Run around the park&lt;/name&gt;
+        &lt;type&gt;Endurance&lt;/type&gt;
+        &lt;trkseg&gt;
+            &lt;trkpt lon="-113.635201" lat="37.1570545"&gt;
+                &lt;time&gt;2012-07-01T17:00:00Z&lt;/time&gt;
+                &lt;ele&gt;900.567032295&lt;/ele&gt;
+            &lt;/trkpt&gt;
+            ... More Points ...
+        &lt;trkseg&gt;
+    &lt;/trk&gt;
+&lt;/gpx&gt;</pre>
+</div>
+<p>I&#8217;ll describe the most important data there:</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">metadata/desc:</th><td class="field-body">The post body. The description to the workout (it&#8217;s going to be saved as Post information).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">metadata/time:</th><td class="field-body">The datetime when the workout was created. The format is like the example. [YEAR]-[MONTH]-[DAY]T[HOUR]:[MINUTE]:[SECONDS]Z.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">trk/name:</th><td class="field-body">The name of the workout. The title the user assigned to it.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">trk/type:</th><td class="field-body">The type of the run as described above. (Endurance, Indoor, Beach, etc.)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">trk/trkseg:</th><td class="field-body">Here you put the points!</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Each &lt;trkpt&gt; element contains the route data.</p>
+<p>GPX Documentation: <a class="reference external" href="http://www.topografix.com/GPX/1/1/">http://www.topografix.com/GPX/1/1/</a></p>
+</div>
+<div class="section" id="create-a-workout-with-json-data">
+<h2>Create a workout with JSON data<a class="headerlink" href="#create-a-workout-with-json-data" title="Permalink to this headline">¶</a></h2>
+<p><strong>POST /workout/</strong></p>
+<p>You can also upload a workout from a JSON document. You must use the Content-type header &#8220;application/json&#8221;.</p>
 <p>Arguments</p>
 <p>These arguments contain hierarchical data (see <em>points</em>) so you&#8217;ll need to use an application/xml or application/json
 content type.</p>
-<p>Note that workouts (and posts) can also have attached images. Those must be posted separately. <strong>This is not implemented yet</strong></p>
+<p>Note that workouts (and posts) can also have attached images. Those must be posted separately.</p>
 <blockquote>
 <div><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -150,79 +199,41 @@ content type.</p>
 </table>
 </div></blockquote>
 <p>Example of a Workout document to POST</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-    <span class="s">&quot;run_date&quot;</span><span class="p">:</span> <span class="s">&quot;1970-01-01T00:00:00Z&quot;</span><span class="p">,</span>
-    <span class="s">&quot;title&quot;</span><span class="p">:</span> <span class="s">&quot;Run Title!&quot;</span><span class="p">,</span>
-    <span class="s">&quot;run_type&quot;</span><span class="p">:</span> <span class="s">&quot;Endurance&quot;</span><span class="p">,</span>
-    <span class="s">&quot;duration_in_seconds&quot;</span><span class="p">:</span> <span class="mi">3600</span><span class="p">,</span>
-    <span class="s">&quot;distance_in_meters&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
-    <span class="s">&quot;post_body&quot;</span><span class="p">:</span> <span class="s">&quot;This is the body, in order to provide a full description of your run&quot;</span><span class="p">,</span>
-    <span class="s">&quot;privacy&quot;</span><span class="p">:</span> <span class="s">&quot;public&quot;</span><span class="p">,</span>
-    <span class="s">&quot;points&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="s">&quot;lng&quot;</span><span class="p">:</span><span class="s">&quot;-111.5373066&quot;</span><span class="p">,</span>
-            <span class="s">&quot;lat&quot;</span><span class="p">:</span><span class="s">&quot;40.7231711&quot;</span><span class="p">,</span>
-            <span class="s">&quot;time&quot;</span><span class="p">:</span> <span class="s">&quot;2012-01-01T00:00:04Z&quot;</span><span class="p">,</span>
-            <span class="s">&quot;elev&quot;</span><span class="p">:</span> <span class="s">&quot;1942.1789265256325&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="s">&quot;lng&quot;</span><span class="p">:</span><span class="s">&quot;-111.5372056&quot;</span><span class="p">,</span>
-            <span class="s">&quot;lat&quot;</span><span class="p">:</span><span class="s">&quot;40.7228762&quot;</span><span class="p">,</span>
-            <span class="s">&quot;time&quot;</span><span class="p">:</span> <span class="s">&quot;2012-01-01T00:00:07Z&quot;</span><span class="p">,</span>
-            <span class="s">&quot;elev&quot;</span><span class="p">:</span> <span class="s">&quot;1942.109892409177&quot;</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="create-a-workout-from-gpx-file">
-<h2>Create a workout from GPX file<a class="headerlink" href="#create-a-workout-from-gpx-file" title="Permalink to this headline">¶</a></h2>
-<p>You can create a new workout (and it&#8217;s relative post) from a GPX file. In order to do that you must provide a well formated GPX file, according to GPX schema (<a class="reference external" href="http://www.topografix.com/GPX/1/1/gpx.xsd">http://www.topografix.com/GPX/1/1/gpx.xsd</a>).</p>
-<p>Here&#8217;s an example:</p>
-<div class="highlight-python"><pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;gpx version="1.1" creator="Athlete Mobile App (Not important)"
-    xsi:schemaLocation="http://www.topografix.com/GPX/1/1"
-    xmlns="http://www.topografix.com/GPX/1/1"&gt;
-    &lt;metadata&gt;
-        &lt;desc&gt;Run description&lt;/desc&gt;
-        &lt;time&gt;2012-07-02T12:03:38Z&lt;/time&gt;
-    &lt;/metadata&gt;
-    &lt;trk&gt;
-        &lt;name&gt;Run around the park&lt;/name&gt;
-        &lt;type&gt;Endurance&lt;/type&gt;
-        &lt;time&gt;2012-07-01T17:00:00Z&lt;/time&gt;
-        &lt;trkseg&gt;
-            &lt;trkpt lon="-113.635201" lat="37.1570545"&gt;
-                &lt;time&gt;2012-07-01T17:00:00Z&lt;/time&gt;
-                &lt;ele&gt;900.567032295&lt;/ele&gt;
-            &lt;/trkpt&gt;
-            ... More Points ...
-        &lt;trkseg&gt;
-    &lt;/trk&gt;
-&lt;/gpx&gt;</pre>
-</div>
-<p>I&#8217;ll describe the most important data there:</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd><dl class="first docutils">
+<dt>{</dt>
+<dd><p class="first">&#8220;run_date&#8221;: &#8220;1970-01-01T00:00:00Z&#8221;,
+&#8220;title&#8221;: &#8220;Run Title!&#8221;,
+&#8220;run_type&#8221;: &#8220;Endurance&#8221;,
+&#8220;duration_in_seconds&#8221;: 3600,
+&#8220;distance_in_meters&#8221;: 1000,
+&#8220;post_body&#8221;: &#8220;This is the body, in order to provide a full description of your run&#8221;,
+&#8220;privacy&#8221;: &#8220;public&#8221;,
+&#8220;points&#8221;: [</p>
 <blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">metadata/desc:</th><td class="field-body">The post body. The description to the workout (it&#8217;s going to be saved as Post information).</td>
-</tr>
-<tr class="field-even field"><th class="field-name">metadata/time:</th><td class="field-body">The time when the file was created. Not used.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">trk/name:</th><td class="field-body">The name of the workout. The title the user assigned to it.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">trk/time:</th><td class="field-body">The datetime where the workout was created. This filed is mandatory! And is very important. The format is like the example. [YEAR]-[MONTH]-[DAY]T[HOUR]:[MINUTE]:[SECONDS]Z.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">trk/type:</th><td class="field-body">The type of the run as described above. (Endurance, Indoor, Beach, etc.)</td>
-</tr>
-</tbody>
-</table>
+<div><dl class="docutils">
+<dt>{</dt>
+<dd>&#8220;lng&#8221;:&#8221;-111.5373066&#8221;,
+&#8220;lat&#8221;:&#8221;40.7231711&#8221;,
+&#8220;time&#8221;: &#8220;2012-01-01T00:00:04Z&#8221;,
+&#8220;elev&#8221;: &#8220;1942.1789265256325&#8221;</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div>&#8220;lng&#8221;:&#8221;-111.5372056&#8221;,
+&#8220;lat&#8221;:&#8221;40.7228762&#8221;,
+&#8220;time&#8221;: &#8220;2012-01-01T00:00:07Z&#8221;,
+&#8220;elev&#8221;: &#8220;1942.109892409177&#8221;</div></blockquote>
+<p>}</p>
 </div></blockquote>
-<p>Of course, as &lt;trkpt&gt; elements you must provide the route data.</p>
-<p>GPX Documentation: <a class="reference external" href="http://www.topografix.com/GPX/1/1/">http://www.topografix.com/GPX/1/1/</a></p>
+<p class="last">]</p>
+</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="delete-a-workout">
 <h2>Delete a workout<a class="headerlink" href="#delete-a-workout" title="Permalink to this headline">¶</a></h2>
@@ -258,8 +269,8 @@ You will get a 401 UNAUTHORIZED response if the current logged in user does not 
   <ul>
 <li><a class="reference internal" href="#">Workouts</a><ul>
 <li><a class="reference internal" href="#fetch-all-workouts-for-a-user">Fetch all workouts for a user</a></li>
-<li><a class="reference internal" href="#create-a-workout">Create a workout</a></li>
-<li><a class="reference internal" href="#create-a-workout-from-gpx-file">Create a workout from GPX file</a></li>
+<li><a class="reference internal" href="#create-a-workout-with-gpx-data">Create a workout with GPX data</a></li>
+<li><a class="reference internal" href="#create-a-workout-with-json-data">Create a workout with JSON data</a></li>
 <li><a class="reference internal" href="#delete-a-workout">Delete a workout</a></li>
 <li><a class="reference internal" href="#upload-route-data-to-a-workout">Upload route data to a workout</a></li>
 <li><a class="reference internal" href="#content-types">Content Types</a></li>
