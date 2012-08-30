@@ -124,6 +124,9 @@ Content-Type: application/X.athlete-GPX+xml; charset=utf-8
     &lt;metadata&gt;
         &lt;desc&gt;Run description&lt;/desc&gt;
         &lt;time&gt;2012-07-02T12:03:38Z&lt;/time&gt;
+        &lt;extensions&gt;
+            &lt;privacy&gt;private&lt;/privacy&gt;
+        &lt;/extensions&gt;
     &lt;/metadata&gt;
     &lt;trk&gt;
         &lt;name&gt;Run around the park&lt;/name&gt;
@@ -148,11 +151,14 @@ Content-Type: application/X.athlete-GPX+xml; charset=utf-8
 </tr>
 <tr class="field-even field"><th class="field-name">metadata/time:</th><td class="field-body">The datetime when the workout was created. The format is like the example. [YEAR]-[MONTH]-[DAY]T[HOUR]:[MINUTE]:[SECONDS]Z.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">trk/name:</th><td class="field-body">The name of the workout. The title the user assigned to it.</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">metadata/extensions/privacy:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">The privacy of the workout. Allowed values are [public, friends, private]. This field is optional, if you don&#8217;t provide a privacy value, &#8220;public&#8221; will be used.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">trk/type:</th><td class="field-body">The type of the run as described above. (Endurance, Indoor, Beach, etc.)</td>
+<tr class="field-even field"><th class="field-name">trk/name:</th><td class="field-body">The name of the workout. The title the user assigned to it.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">trk/trkseg:</th><td class="field-body">Here you put the points!</td>
+<tr class="field-odd field"><th class="field-name">trk/type:</th><td class="field-body">The type of the run as described above. (Endurance, Indoor, Beach, etc.)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">trk/trkseg:</th><td class="field-body">Here you put the points!</td>
 </tr>
 </tbody>
 </table>

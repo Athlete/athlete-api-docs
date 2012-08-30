@@ -81,6 +81,9 @@ Here's an example of a POST request containing a GPX representation (Headers rem
         <metadata>
             <desc>Run description</desc>
             <time>2012-07-02T12:03:38Z</time>
+            <extensions>
+                <privacy>private</privacy>
+            </extensions>
         </metadata>
         <trk>
             <name>Run around the park</name>
@@ -99,6 +102,7 @@ I'll describe the most important data there:
 
     :metadata/desc: The post body. The description to the workout (it's going to be saved as Post information).
     :metadata/time: The datetime when the workout was created. The format is like the example. [YEAR]-[MONTH]-[DAY]T[HOUR]:[MINUTE]:[SECONDS]Z.
+    :metadata/extensions/privacy: The privacy of the workout. Allowed values are [public, friends, private]. This field is optional, if you don't provide a privacy value, "public" will be used.
     :trk/name: The name of the workout. The title the user assigned to it.
     :trk/type: The type of the run as described above. (Endurance, Indoor, Beach, etc.)
     :trk/trkseg: Here you put the points!
