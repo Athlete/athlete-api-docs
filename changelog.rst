@@ -1,6 +1,10 @@
 ChangeLog
 =========
 
+**August 30**
+- Deprecated PATCH method on Workouts
+- Added privacy to GPX representation for workouts (check workouts docs)
+
 **August 2**
 - Changed ordering for conversations. See "GET /conversations/".
 
