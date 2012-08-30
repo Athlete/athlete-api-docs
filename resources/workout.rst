@@ -134,9 +134,11 @@ Note that workouts (and posts) can also have attached images. Those must be post
         :time: The date/time that this data point was recorded in ISO 8601 format
         :elev: The elevation at this data point (if available). Synonymous with altitude.
 
-Example of a Workout document to POST
+
+Example of a Workout document to POST (https://gist.github.com/3525174)
 
 ::
+
     {
         "run_date": "1970-01-01T00:00:00Z",
         "title": "Run Title!",
@@ -160,6 +162,7 @@ Example of a Workout document to POST
             }
         ]
     }
+
 
 Delete a workout
 ----------------

@@ -198,42 +198,32 @@ content type.</p>
 </tbody>
 </table>
 </div></blockquote>
-<p>Example of a Workout document to POST</p>
-<dl class="docutils">
-<dt>::</dt>
-<dd><dl class="first docutils">
-<dt>{</dt>
-<dd><p class="first">&#8220;run_date&#8221;: &#8220;1970-01-01T00:00:00Z&#8221;,
-&#8220;title&#8221;: &#8220;Run Title!&#8221;,
-&#8220;run_type&#8221;: &#8220;Endurance&#8221;,
-&#8220;duration_in_seconds&#8221;: 3600,
-&#8220;distance_in_meters&#8221;: 1000,
-&#8220;post_body&#8221;: &#8220;This is the body, in order to provide a full description of your run&#8221;,
-&#8220;privacy&#8221;: &#8220;public&#8221;,
-&#8220;points&#8221;: [</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>{</dt>
-<dd>&#8220;lng&#8221;:&#8221;-111.5373066&#8221;,
-&#8220;lat&#8221;:&#8221;40.7231711&#8221;,
-&#8220;time&#8221;: &#8220;2012-01-01T00:00:04Z&#8221;,
-&#8220;elev&#8221;: &#8220;1942.1789265256325&#8221;</dd>
-</dl>
-<p>},
-{</p>
-<blockquote>
-<div>&#8220;lng&#8221;:&#8221;-111.5372056&#8221;,
-&#8220;lat&#8221;:&#8221;40.7228762&#8221;,
-&#8220;time&#8221;: &#8220;2012-01-01T00:00:07Z&#8221;,
-&#8220;elev&#8221;: &#8220;1942.109892409177&#8221;</div></blockquote>
-<p>}</p>
-</div></blockquote>
-<p class="last">]</p>
-</dd>
-</dl>
-<p class="last">}</p>
-</dd>
-</dl>
+<p>Example of a Workout document to POST (<a class="reference external" href="https://gist.github.com/3525174">https://gist.github.com/3525174</a>)</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;run_date&quot;</span><span class="p">:</span> <span class="s">&quot;1970-01-01T00:00:00Z&quot;</span><span class="p">,</span>
+    <span class="s">&quot;title&quot;</span><span class="p">:</span> <span class="s">&quot;Run Title!&quot;</span><span class="p">,</span>
+    <span class="s">&quot;run_type&quot;</span><span class="p">:</span> <span class="s">&quot;Endurance&quot;</span><span class="p">,</span>
+    <span class="s">&quot;duration_in_seconds&quot;</span><span class="p">:</span> <span class="mi">3600</span><span class="p">,</span>
+    <span class="s">&quot;distance_in_meters&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+    <span class="s">&quot;post_body&quot;</span><span class="p">:</span> <span class="s">&quot;This is the body, in order to provide a full description of your run&quot;</span><span class="p">,</span>
+    <span class="s">&quot;privacy&quot;</span><span class="p">:</span> <span class="s">&quot;public&quot;</span><span class="p">,</span>
+    <span class="s">&quot;points&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">&quot;lng&quot;</span><span class="p">:</span><span class="s">&quot;-111.5373066&quot;</span><span class="p">,</span>
+            <span class="s">&quot;lat&quot;</span><span class="p">:</span><span class="s">&quot;40.7231711&quot;</span><span class="p">,</span>
+            <span class="s">&quot;time&quot;</span><span class="p">:</span> <span class="s">&quot;2012-01-01T00:00:04Z&quot;</span><span class="p">,</span>
+            <span class="s">&quot;elev&quot;</span><span class="p">:</span> <span class="s">&quot;1942.1789265256325&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s">&quot;lng&quot;</span><span class="p">:</span><span class="s">&quot;-111.5372056&quot;</span><span class="p">,</span>
+            <span class="s">&quot;lat&quot;</span><span class="p">:</span><span class="s">&quot;40.7228762&quot;</span><span class="p">,</span>
+            <span class="s">&quot;time&quot;</span><span class="p">:</span> <span class="s">&quot;2012-01-01T00:00:07Z&quot;</span><span class="p">,</span>
+            <span class="s">&quot;elev&quot;</span><span class="p">:</span> <span class="s">&quot;1942.109892409177&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="delete-a-workout">
 <h2>Delete a workout<a class="headerlink" href="#delete-a-workout" title="Permalink to this headline">¶</a></h2>
