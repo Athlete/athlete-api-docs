@@ -151,6 +151,31 @@ than friendship objects. To get that, head on over to</em> <a class="reference i
 <h2>Search for friends<a class="headerlink" href="#search-for-friends" title="Permalink to this headline">¶</a></h2>
 <p>Please see <a class="reference internal" href="user.html#user"><em>Fetch a single user</em></a> for more information.</p>
 </div>
+<div class="section" id="invite-a-friend-by-email">
+<h2>Invite a friend by email<a class="headerlink" href="#invite-a-friend-by-email" title="Permalink to this headline">¶</a></h2>
+<p><strong>POST /friendship/invite/</strong></p>
+<p>Arguments</p>
+<blockquote>
+<div><blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">email:</th><td class="field-body">The email of the person to invite.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">name:</th><td class="field-body">(optional) The name of the person to invite. If included, it will be included in the email that is sent.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Response</p>
+<blockquote>
+<div>200 If successful</div></blockquote>
+<p>This will create an invitation in our system to track that current logged in user sent an invite to this email address.
+If/when the receiving user registers with athlete.com, they will automatically be made friends with the person that
+invited them. If the receiving user is already an athlete.com user, a regular friendship request will be created instead.</p>
+</div></blockquote>
+</div>
 </div>
 
 
@@ -168,6 +193,7 @@ than friendship objects. To get that, head on over to</em> <a class="reference i
 <li><a class="reference internal" href="#cancel-friendship-request-remove-friend">Cancel friendship request, Remove friend</a></li>
 <li><a class="reference internal" href="#accept-a-friend-request">Accept a friend request</a></li>
 <li><a class="reference internal" href="#search-for-friends">Search for friends</a></li>
+<li><a class="reference internal" href="#invite-a-friend-by-email">Invite a friend by email</a></li>
 </ul>
 </li>
 </ul>
