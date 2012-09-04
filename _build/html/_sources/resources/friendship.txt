@@ -97,10 +97,10 @@ Arguments
     :email: The email of the person to invite.
     :name: (optional) The name of the person to invite. If included, it will be included in the email that is sent.
 
- Response
+Response
 
     200 If successful
  
- This will create an invitation in our system to track that current logged in user sent an invite to this email address.
- If/when the receiving user registers with athlete.com, they will automatically be made friends with the person that
- invited them. If the receiving user is already an athlete.com user, a regular friendship request will be created instead.
+This will create an invitation in our system to track that current logged in user sent an invite to this email address.
+If/when the receiving user registers with athlete.com, they will automatically be made friends with the person that
+invited them. If the receiving user is already an athlete.com user, a regular friendship request will be created instead.
