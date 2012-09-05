@@ -90,12 +90,11 @@ Please see :ref:`user` for more information.
 Invite a friend by email
 ------------------------
 
-**POST /friendship/invite/**
+**POST /invitation/**
 
 Arguments
 
     :email: The email of the person to invite.
-    :name: (optional) The name of the person to invite. If included, it will be included in the email that is sent.
 
 Response
 
