@@ -95,6 +95,7 @@ Invite a friend by email
 Arguments
 
     :email: The email of the person to invite.
+    :name: (optinal) The name of the person to invite.
 
 Response
 
