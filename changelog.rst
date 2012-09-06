@@ -1,6 +1,10 @@
 ChangeLog
 =========
 
+**September 6**
+
+- Added facebook token to the workout. You can provide the token to share the workout in facebook. Check Workouts docs.
+
 **August 30**
 - Deprecated PATCH method on Workouts
 - Added privacy to GPX representation for workouts (check workouts docs)

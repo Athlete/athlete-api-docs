@@ -83,6 +83,7 @@ Here's an example of a POST request containing a GPX representation (Headers rem
             <time>2012-07-02T12:03:38Z</time>
             <extensions>
                 <privacy>private</privacy>
+		<facebook_access_token>FacebookTokenHere!</facebook_access_token>
             </extensions>
         </metadata>
         <trk>
@@ -102,10 +103,13 @@ I'll describe the most important data there:
 
     :metadata/desc: The post body. The description to the workout (it's going to be saved as Post information).
     :metadata/time: The datetime when the workout was created. The format is like the example. [YEAR]-[MONTH]-[DAY]T[HOUR]:[MINUTE]:[SECONDS]Z.
-    :metadata/extensions/privacy: The privacy of the workout. Allowed values are [public, friends, private]. This field is optional, if you don't provide a privacy value, "public" will be used.
+
     :trk/name: The name of the workout. The title the user assigned to it.
     :trk/type: The type of the run as described above. (Endurance, Indoor, Beach, etc.)
     :trk/trkseg: Here you put the points!
+
+    :metadata/extensions/privacy: The privacy of the workout. Allowed values are [public, friends, private]. This field is optional, if you don't provide a privacy value, "public" will be used.[OPTIONAL]
+    :metadata/extensions/facebook_access_token: If you provide a valid Token, this workout will be shared on facebook. [OPTIONAL]
 
 Each <trkpt> element contains the route data.
 
@@ -131,7 +135,8 @@ Note that workouts (and posts) can also have attached images. Those must be post
     :run_type: Must be one of Endurance, Tempo, Slow, Interval, Group, Elevation, Race
     :duration_in_seconds: The duration of the run, in seconds. If the user paused during that run, that time should not be included.
     :distance_in_meters: The distance of the run in meters.
-    :privacy: The privacy level for this workout. Options: "public", "private", "friends"
+    :privacy: The privacy level for this workout. Options: "public", "private", "friends". [OPTIONAL]
+    :facebook_access_token: If you provide a valid Token, this workout will be shared on facebook. [OPTIONAL]
     :points: An optional array of objects, each containing the following attributes:
         :lat: The latitude
         :lng: The longitude
