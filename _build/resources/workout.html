@@ -126,6 +126,7 @@ Content-Type: application/X.athlete-GPX+xml; charset=utf-8
         &lt;time&gt;2012-07-02T12:03:38Z&lt;/time&gt;
         &lt;extensions&gt;
             &lt;privacy&gt;private&lt;/privacy&gt;
+            &lt;facebook_access_token&gt;FacebookTokenHere!&lt;/facebook_access_token&gt;
         &lt;/extensions&gt;
     &lt;/metadata&gt;
     &lt;trk&gt;
@@ -151,14 +152,17 @@ Content-Type: application/X.athlete-GPX+xml; charset=utf-8
 </tr>
 <tr class="field-even field"><th class="field-name">metadata/time:</th><td class="field-body">The datetime when the workout was created. The format is like the example. [YEAR]-[MONTH]-[DAY]T[HOUR]:[MINUTE]:[SECONDS]Z.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">metadata/extensions/privacy:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">The privacy of the workout. Allowed values are [public, friends, private]. This field is optional, if you don&#8217;t provide a privacy value, &#8220;public&#8221; will be used.</td>
+<tr class="field-odd field"><th class="field-name">trk/name:</th><td class="field-body">The name of the workout. The title the user assigned to it.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">trk/name:</th><td class="field-body">The name of the workout. The title the user assigned to it.</td>
+<tr class="field-even field"><th class="field-name">trk/type:</th><td class="field-body">The type of the run as described above. (Endurance, Indoor, Beach, etc.)</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">trk/type:</th><td class="field-body">The type of the run as described above. (Endurance, Indoor, Beach, etc.)</td>
+<tr class="field-odd field"><th class="field-name">trk/trkseg:</th><td class="field-body">Here you put the points!</td>
 </tr>
-<tr class="field-even field"><th class="field-name">trk/trkseg:</th><td class="field-body">Here you put the points!</td>
+<tr class="field-even field"><th class="field-name" colspan="2">metadata/extensions/privacy:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">The privacy of the workout. Allowed values are [public, friends, private]. This field is optional, if you don&#8217;t provide a privacy value, &#8220;public&#8221; will be used.[OPTIONAL]</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">metadata/extensions/facebook_access_token:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">If you provide a valid Token, this workout will be shared on facebook. [OPTIONAL]</td>
 </tr>
 </tbody>
 </table>
@@ -193,9 +197,12 @@ content type.</p>
 <tr class="field-even field"><th class="field-name" colspan="2">distance_in_meters:</th></tr>
 <tr class="field-even field"><td>&nbsp;</td><td class="field-body">The distance of the run in meters.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">privacy:</th><td class="field-body">The privacy level for this workout. Options: &#8220;public&#8221;, &#8220;private&#8221;, &#8220;friends&#8221;</td>
+<tr class="field-odd field"><th class="field-name">privacy:</th><td class="field-body">The privacy level for this workout. Options: &#8220;public&#8221;, &#8220;private&#8221;, &#8220;friends&#8221;. [OPTIONAL]</td>
 </tr>
-<tr class="field-even field"><th class="field-name">points:</th><td class="field-body">An optional array of objects, each containing the following attributes:
+<tr class="field-even field"><th class="field-name" colspan="2">facebook_access_token:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">If you provide a valid Token, this workout will be shared on facebook. [OPTIONAL]</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">points:</th><td class="field-body">An optional array of objects, each containing the following attributes:
 :lat: The latitude
 :lng: The longitude
 :time: The date/time that this data point was recorded in ISO 8601 format
