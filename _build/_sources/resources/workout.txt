@@ -192,6 +192,25 @@ This method allows you to send GPX files containing routes data for some Workout
 
 You must send the Content-Type of the file (see below) and the entire file as the request body.
 
+Share a workout
+-----------------------------
+
+**POST /workout/[ID]/share/**
+
+    :social_network: The network where you want to publish this workout. Right now, it's just "facebook".
+    :token: The access token for the network you want to share this workout to.
+
+The response will be a Json Object, the response code is allways 200. You can check if the sharing was succesful by the body of the response:
+
+{'success': false}
+
+We always return a 'success' key with a true/false value to indicate if the share was sucessful. Also, depending on the network you're sharing, other fields might be included. For example, this is a response for a valid share in Facebook:
+
+{
+  "post_id": "605471098_442971085741556",
+  "success": true
+}
+
 Content Types
 --------------
 

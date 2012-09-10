@@ -252,6 +252,31 @@ You will get a 401 UNAUTHORIZED response if the current logged in user does not 
 <p><strong>PATCH /workout/[workout_id]/</strong></p>
 <p>You must send the Content-Type of the file (see below) and the entire file as the request body.</p>
 </div>
+<div class="section" id="share-a-workout">
+<h2>Share a workout<a class="headerlink" href="#share-a-workout" title="Permalink to this headline">¶</a></h2>
+<p><strong>POST /workout/[ID]/share/</strong></p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">social_network:</th><td class="field-body">The network where you want to publish this workout. Right now, it&#8217;s just &#8220;facebook&#8221;.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">token:</th><td class="field-body">The access token for the network you want to share this workout to.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>The response will be a Json Object, the response code is allways 200. You can check if the sharing was succesful by the body of the response:</p>
+<p>{&#8216;success&#8217;: false}</p>
+<p>We always return a &#8216;success&#8217; key with a true/false value to indicate if the share was sucessful. Also, depending on the network you&#8217;re sharing, other fields might be included. For example, this is a response for a valid share in Facebook:</p>
+<dl class="docutils">
+<dt>{</dt>
+<dd>&#8220;post_id&#8221;: &#8220;605471098_442971085741556&#8221;,
+&#8220;success&#8221;: true</dd>
+</dl>
+<p>}</p>
+</div>
 <div class="section" id="content-types">
 <h2>Content Types<a class="headerlink" href="#content-types" title="Permalink to this headline">¶</a></h2>
 <p>Currently, there are not official content types for the supported files, so we agree in this content types:</p>
@@ -276,6 +301,7 @@ You will get a 401 UNAUTHORIZED response if the current logged in user does not 
 <li><a class="reference internal" href="#create-a-workout-with-json-data">Create a workout with JSON data</a></li>
 <li><a class="reference internal" href="#delete-a-workout">Delete a workout</a></li>
 <li><a class="reference internal" href="#upload-route-data-to-a-workout">Upload route data to a workout</a></li>
+<li><a class="reference internal" href="#share-a-workout">Share a workout</a></li>
 <li><a class="reference internal" href="#content-types">Content Types</a></li>
 </ul>
 </li>
