@@ -4,6 +4,8 @@ ChangeLog
 **September 12**
 
 - Change user password
+- Route object includes "is_favorite"
+- Update favorite status of a route 
 
 **September 11**
 
