@@ -86,6 +86,28 @@
 You are only permitted to update data for the current logged in user. If you try
 to update another user&#8217;s profile, you&#8217;ll get a 401 UNAUTHORIZED response.</div></blockquote>
 </div>
+<div class="section" id="specifying-a-location">
+<h2>Specifying a location<a class="headerlink" href="#specifying-a-location" title="Permalink to this headline">¶</a></h2>
+<p>The fields to specify a location are these:</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">location_name:</th><td class="field-body">The name of the location</td>
+</tr>
+<tr class="field-even field"><th class="field-name">location_lat:</th><td class="field-body">The Latitude of the location</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">location_lng:</th><td class="field-body">The Longitude of the location</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>You should always try to verify that data with your user and provide a right location.</p>
+<p>If you only have a location_name, we will make our best effort to get good latitude and longitude information. It means we&#8217;ll try to get lat and lon from that name.</p>
+<p>If you only provide location_lat and location_lng we&#8217;ll try to get the name of that location.</p>
+<p>Please note that both methods describe above (just name, or just lat and lng) are not always precise. The user experience might be affected by this.</p>
+</div>
 </div>
 
 
@@ -99,6 +121,7 @@ to update another user&#8217;s profile, you&#8217;ll get a 401 UNAUTHORIZED resp
 <li><a class="reference internal" href="#">Profiles</a><ul>
 <li><a class="reference internal" href="#get-a-profile">Get a profile</a></li>
 <li><a class="reference internal" href="#update-a-profile">Update a profile</a></li>
+<li><a class="reference internal" href="#specifying-a-location">Specifying a location</a></li>
 </ul>
 </li>
 </ul>

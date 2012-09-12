@@ -32,6 +32,7 @@ Resources
    resources/preferences
    resources/post
    resources/workout
+   resources/route
    resources/photo_album
    resources/photo
    resources/comment

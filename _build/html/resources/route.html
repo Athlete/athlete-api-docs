@@ -1,0 +1,145 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Routes &mdash; Athlete.com API 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Athlete.com API 0.1.0 documentation" href="../index.html" />
+    <link rel="next" title="Photo Albums" href="photo_album.html" />
+    <link rel="prev" title="Workouts" href="workout.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="photo_album.html" title="Photo Albums"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="workout.html" title="Workouts"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="routes">
+<h1>Routes<a class="headerlink" href="#routes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="fetch-a-single-route">
+<h2>Fetch a single route<a class="headerlink" href="#fetch-a-single-route" title="Permalink to this headline">¶</a></h2>
+<p><strong>GET /route/id/</strong></p>
+<p>Response</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;distance_in_meters&quot;</span><span class="p">:</span> <span class="s">&quot;9972.24&quot;</span><span class="p">,</span>
+    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">149</span><span class="p">,</span>
+    <span class="s">&quot;is_favorite&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;6.2 mi in Danville, CA&quot;</span><span class="p">,</span>
+    <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/route/149/&quot;</span><span class="p">,</span>
+    <span class="s">&quot;source&quot;</span><span class="p">:</span> <span class="s">&quot;Athlete.com iPhone App&quot;</span><span class="p">,</span>
+    <span class="s">&quot;static_map_url&quot;</span><span class="p">:</span> <span class="s">&quot;http://maps.googleapis.com/maps/api/staticmap?path=color:0xe74d2acc|weight:3|enc:cb%7BeFdiugV</span><span class="si">%7E</span><span class="s">A%7BBdAcD%60BqCxAwC%7C%40yC%7CAsC%7CAiCzAkCtAyC</span><span class="si">%7E</span><span class="s">AsCtA_DhBqCzA%7DC%7CAyCrBu</span><span class="si">%40%</span><span class="s">60BgClA%7BCxEgH</span><span class="si">%7E</span><span class="s">%40mCiBhCaBlC%7D%40zDwBtBaB%7CC%7BBpAsA%60DeChDiDlIiDtE_A%60DeBlC%7BFvLaB%7CCcBnCkBpC%7DAnDyBbC%7DCxCqEdG_C%60BaBrC%7DBrAmAxCiB%60CiJdJyBbB%7DCfGoG</span><span class="si">%7E</span><span class="s">EuBnCaCtBiBlCkClA%7BGxEqCn</span><span class="si">%40g</span><span class="s">CbBaCrBiB%60CyBlByBfCcCvAqEzFaClBeBbCyHtLmBzBmBnCyAlDqBvBoBhC%7BAbDcCbBkCvAsCt</span><span class="si">%40g</span><span class="s">D</span><span class="si">%5E%5E</span><span class="s">c%40nDe</span><span class="si">%40%</span><span class="s">7EFeBxBgCpBsBzBoCbB_DrBkCjCkBjAiDdByC</span><span class="si">%7E</span><span class="s">CgEpB_C%7CBsBlBkBvEsG%7CBuBpBsBvBcC</span><span class="si">%7E</span><span class="s">B_BdCcAbCyA%7CBmBhC%7DAlA%7B%40&amp;sensor=false&amp;maptype=roadmap&amp;key=AIzaSyC4dBdwntTxOB-ookwMn74n3qS9lSF3ccc&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="toggle-the-favorited-status-of-this-route-for-the-current-user">
+<h2>Toggle the favorited status of this route for the current user<a class="headerlink" href="#toggle-the-favorited-status-of-this-route-for-the-current-user" title="Permalink to this headline">¶</a></h2>
+<p><strong>POST /route/id/toggle_favorite/</strong></p>
+<p>Response will contain the favorite stats after the toggle.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span> <span class="s">&quot;is_favorite&quot;</span><span class="p">:</span> <span class="n">true</span> <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Routes</a><ul>
+<li><a class="reference internal" href="#fetch-a-single-route">Fetch a single route</a></li>
+<li><a class="reference internal" href="#toggle-the-favorited-status-of-this-route-for-the-current-user">Toggle the favorited status of this route for the current user</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="workout.html"
+                        title="previous chapter">Workouts</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="photo_album.html"
+                        title="next chapter">Photo Albums</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/resources/route.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="photo_album.html" title="Photo Albums"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="workout.html" title="Workouts"
+             >previous</a> |</li>
+        <li><a href="../index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Athlete.com.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

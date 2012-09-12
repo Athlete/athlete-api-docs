@@ -168,6 +168,39 @@ to update another user, you&#8217;ll get a 401 UNAUTHORIZED response.</div></blo
 <div>Content-MD5 (OPTIONAL): Is the result of aplying MD5 digest on the content you&#8217;re sending. Based on <a class="reference external" href="http://www.ietf.org/rfc/rfc1864.txt">http://www.ietf.org/rfc/rfc1864.txt</a> It&#8217;s important to note that this method is highly used in a wide variety of APIs, being a well known case Amazon S3. If you have doubt on how implement this, you can browse some opensource library for S3 and you can find a good example.
 Content-Type (REQUIRED): This is the content type of the picture you&#8217;re sending. Right now the only content types supported are: &#8220;image/jpeg&#8221; and &#8220;image/png&#8221;</div></blockquote>
 </div>
+<div class="section" id="change-password">
+<h2>Change password<a class="headerlink" href="#change-password" title="Permalink to this headline">¶</a></h2>
+<p>To change the current logged in user&#8217;s password you need to:</p>
+<p><strong>POST /user/password/</strong></p>
+<p>Arguments:</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">old_password:</th><td class="field-body">The current user password.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">new_password:</th><td class="field-body">The new password desired by the user.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>The system checks that user&#8217;s current password matches the one provided by &#8220;old_password&#8221;. If that&#8217;s ok we change the password and return this response:</p>
+<p>204 NO CONTENT</p>
+<p>If the password provided by &#8220;old_password&#8221; doesn&#8217;t match we provide this response:</p>
+<p>400 BAD REQUEST</p>
+<dl class="docutils">
+<dt>{</dt>
+<dd><dl class="first docutils">
+<dt>&#8220;error&#8221;: {</dt>
+<dd>&#8220;code&#8221;: &#8220;100&#8221;,
+&#8220;message&#8221;: &#8220;Email or password incorrect. The password specified doesn&#8217;t match.&#8221;</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>}</p>
+</div>
 </div>
 
 
@@ -185,6 +218,7 @@ Content-Type (REQUIRED): This is the content type of the picture you&#8217;re se
 <li><a class="reference internal" href="#search-for-friends">Search for friends</a></li>
 <li><a class="reference internal" href="#update-a-user">Update a user</a></li>
 <li><a class="reference internal" href="#change-profile-picture">Change profile picture</a></li>
+<li><a class="reference internal" href="#change-password">Change password</a></li>
 </ul>
 </li>
 </ul>

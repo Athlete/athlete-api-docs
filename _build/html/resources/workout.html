@@ -26,7 +26,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Athlete.com API 0.1.0 documentation" href="../index.html" />
-    <link rel="next" title="Photo Albums" href="photo_album.html" />
+    <link rel="next" title="Routes" href="route.html" />
     <link rel="prev" title="Posts (a.k.a. Feed)" href="post.html" /> 
   </head>
   <body>
@@ -37,7 +37,7 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="photo_album.html" title="Photo Albums"
+          <a href="route.html" title="Routes"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="post.html" title="Posts (a.k.a. Feed)"
@@ -67,18 +67,20 @@
 </table>
 </div></blockquote>
 <p>Response</p>
-<div class="highlight-python"><pre>{
-  "distance_in_meters": "8046.72",
-  "duration_in_seconds": 1500,
-  "id": 2,
-  "post_body": "great",
-  "resource_uri": "/api/v1/workout/2/",
-  "route_points_data": "",
-  "run_date": "2012-05-22T00:00:00",
-  "run_type": "Endurance",
-  "static_map_url": "http://some.domain/super-long-url",  // &lt;-- this will sometimes be null
-  "title": "Running"
-}</pre>
+<div class="highlight-python"><pre>[
+    {
+      "distance_in_meters": "8046.72",
+      "duration_in_seconds": 1500,
+      "id": 2,
+      "post_body": "great",
+      "resource_uri": "/api/v1/workout/2/",
+      "route_points_data": "",
+      "run_date": "2012-05-22T00:00:00",
+      "run_type": "Endurance",
+      "static_map_url": "http://some.domain/super-long-url",  // &lt;-- this will sometimes be null
+      "title": "Running"
+    }
+]</pre>
 </div>
 <p>You can also get a workout in GPX format. To accomplish this, you must specify the right &#8220;Accept&#8221; header:</p>
 <p><strong>GET /workout/</strong>
@@ -126,6 +128,7 @@ Content-Type: application/X.athlete-GPX+xml; charset=utf-8
         &lt;time&gt;2012-07-02T12:03:38Z&lt;/time&gt;
         &lt;extensions&gt;
             &lt;privacy&gt;private&lt;/privacy&gt;
+            &lt;facebook_access_token&gt;FacebookTokenHere!&lt;/facebook_access_token&gt;
         &lt;/extensions&gt;
     &lt;/metadata&gt;
     &lt;trk&gt;
@@ -151,14 +154,17 @@ Content-Type: application/X.athlete-GPX+xml; charset=utf-8
 </tr>
 <tr class="field-even field"><th class="field-name">metadata/time:</th><td class="field-body">The datetime when the workout was created. The format is like the example. [YEAR]-[MONTH]-[DAY]T[HOUR]:[MINUTE]:[SECONDS]Z.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">metadata/extensions/privacy:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">The privacy of the workout. Allowed values are [public, friends, private]. This field is optional, if you don&#8217;t provide a privacy value, &#8220;public&#8221; will be used.</td>
+<tr class="field-odd field"><th class="field-name">trk/name:</th><td class="field-body">The name of the workout. The title the user assigned to it.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">trk/name:</th><td class="field-body">The name of the workout. The title the user assigned to it.</td>
+<tr class="field-even field"><th class="field-name">trk/type:</th><td class="field-body">The type of the run as described above. (Endurance, Indoor, Beach, etc.)</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">trk/type:</th><td class="field-body">The type of the run as described above. (Endurance, Indoor, Beach, etc.)</td>
+<tr class="field-odd field"><th class="field-name">trk/trkseg:</th><td class="field-body">Here you put the points!</td>
 </tr>
-<tr class="field-even field"><th class="field-name">trk/trkseg:</th><td class="field-body">Here you put the points!</td>
+<tr class="field-even field"><th class="field-name" colspan="2">metadata/extensions/privacy:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">The privacy of the workout. Allowed values are [public, friends, private]. This field is optional, if you don&#8217;t provide a privacy value, &#8220;public&#8221; will be used.[OPTIONAL]</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">metadata/extensions/facebook_access_token:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">If you provide a valid Token, this workout will be shared on facebook. [OPTIONAL]</td>
 </tr>
 </tbody>
 </table>
@@ -193,9 +199,12 @@ content type.</p>
 <tr class="field-even field"><th class="field-name" colspan="2">distance_in_meters:</th></tr>
 <tr class="field-even field"><td>&nbsp;</td><td class="field-body">The distance of the run in meters.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">privacy:</th><td class="field-body">The privacy level for this workout. Options: &#8220;public&#8221;, &#8220;private&#8221;, &#8220;friends&#8221;</td>
+<tr class="field-odd field"><th class="field-name">privacy:</th><td class="field-body">The privacy level for this workout. Options: &#8220;public&#8221;, &#8220;private&#8221;, &#8220;friends&#8221;. [OPTIONAL]</td>
 </tr>
-<tr class="field-even field"><th class="field-name">points:</th><td class="field-body">An optional array of objects, each containing the following attributes:
+<tr class="field-even field"><th class="field-name" colspan="2">facebook_access_token:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">If you provide a valid Token, this workout will be shared on facebook. [OPTIONAL]</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">points:</th><td class="field-body">An optional array of objects, each containing the following attributes:
 :lat: The latitude
 :lng: The longitude
 :time: The date/time that this data point was recorded in ISO 8601 format
@@ -245,6 +254,31 @@ You will get a 401 UNAUTHORIZED response if the current logged in user does not 
 <p><strong>PATCH /workout/[workout_id]/</strong></p>
 <p>You must send the Content-Type of the file (see below) and the entire file as the request body.</p>
 </div>
+<div class="section" id="share-a-workout">
+<h2>Share a workout<a class="headerlink" href="#share-a-workout" title="Permalink to this headline">¶</a></h2>
+<p><strong>POST /workout/[ID]/share/</strong></p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">social_network:</th><td class="field-body">The network where you want to publish this workout. Right now, it&#8217;s just &#8220;facebook&#8221;.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">token:</th><td class="field-body">The access token for the network you want to share this workout to.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>The response will be a Json Object, the response code is allways 200. You can check if the sharing was succesful by the body of the response:</p>
+<p>{&#8216;success&#8217;: false}</p>
+<p>We always return a &#8216;success&#8217; key with a true/false value to indicate if the share was sucessful. Also, depending on the network you&#8217;re sharing, other fields might be included. For example, this is a response for a valid share in Facebook:</p>
+<dl class="docutils">
+<dt>{</dt>
+<dd>&#8220;post_id&#8221;: &#8220;605471098_442971085741556&#8221;,
+&#8220;success&#8221;: true</dd>
+</dl>
+<p>}</p>
+</div>
 <div class="section" id="content-types">
 <h2>Content Types<a class="headerlink" href="#content-types" title="Permalink to this headline">¶</a></h2>
 <p>Currently, there are not official content types for the supported files, so we agree in this content types:</p>
@@ -269,6 +303,7 @@ You will get a 401 UNAUTHORIZED response if the current logged in user does not 
 <li><a class="reference internal" href="#create-a-workout-with-json-data">Create a workout with JSON data</a></li>
 <li><a class="reference internal" href="#delete-a-workout">Delete a workout</a></li>
 <li><a class="reference internal" href="#upload-route-data-to-a-workout">Upload route data to a workout</a></li>
+<li><a class="reference internal" href="#share-a-workout">Share a workout</a></li>
 <li><a class="reference internal" href="#content-types">Content Types</a></li>
 </ul>
 </li>
@@ -278,8 +313,8 @@ You will get a 401 UNAUTHORIZED response if the current logged in user does not 
   <p class="topless"><a href="post.html"
                         title="previous chapter">Posts (a.k.a. Feed)</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="photo_album.html"
-                        title="next chapter">Photo Albums</a></p>
+  <p class="topless"><a href="route.html"
+                        title="next chapter">Routes</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/resources/workout.txt"
@@ -309,7 +344,7 @@ You will get a 401 UNAUTHORIZED response if the current logged in user does not 
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="photo_album.html" title="Photo Albums"
+          <a href="route.html" title="Routes"
              >next</a> |</li>
         <li class="right" >
           <a href="post.html" title="Posts (a.k.a. Feed)"

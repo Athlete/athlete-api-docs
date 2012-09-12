@@ -12,18 +12,20 @@ Response
 
 ::
 
-    {
-      "distance_in_meters": "8046.72",
-      "duration_in_seconds": 1500,
-      "id": 2,
-      "post_body": "great",
-      "resource_uri": "/api/v1/workout/2/",
-      "route_points_data": "",
-      "run_date": "2012-05-22T00:00:00",
-      "run_type": "Endurance",
-      "static_map_url": "http://some.domain/super-long-url",  // <-- this will sometimes be null
-      "title": "Running"
-    }
+    [
+        {
+          "distance_in_meters": "8046.72",
+          "duration_in_seconds": 1500,
+          "id": 2,
+          "post_body": "great",
+          "resource_uri": "/api/v1/workout/2/",
+          "route_points_data": "",
+          "run_date": "2012-05-22T00:00:00",
+          "run_type": "Endurance",
+          "static_map_url": "http://some.domain/super-long-url",  // <-- this will sometimes be null
+          "title": "Running"
+        }
+    ]
 
 
 You can also get a workout in GPX format. To accomplish this, you must specify the right "Accept" header:
@@ -83,6 +85,7 @@ Here's an example of a POST request containing a GPX representation (Headers rem
             <time>2012-07-02T12:03:38Z</time>
             <extensions>
                 <privacy>private</privacy>
+		<facebook_access_token>FacebookTokenHere!</facebook_access_token>
             </extensions>
         </metadata>
         <trk>
@@ -102,10 +105,13 @@ I'll describe the most important data there:
 
     :metadata/desc: The post body. The description to the workout (it's going to be saved as Post information).
     :metadata/time: The datetime when the workout was created. The format is like the example. [YEAR]-[MONTH]-[DAY]T[HOUR]:[MINUTE]:[SECONDS]Z.
-    :metadata/extensions/privacy: The privacy of the workout. Allowed values are [public, friends, private]. This field is optional, if you don't provide a privacy value, "public" will be used.
+
     :trk/name: The name of the workout. The title the user assigned to it.
     :trk/type: The type of the run as described above. (Endurance, Indoor, Beach, etc.)
     :trk/trkseg: Here you put the points!
+
+    :metadata/extensions/privacy: The privacy of the workout. Allowed values are [public, friends, private]. This field is optional, if you don't provide a privacy value, "public" will be used.[OPTIONAL]
+    :metadata/extensions/facebook_access_token: If you provide a valid Token, this workout will be shared on facebook. [OPTIONAL]
 
 Each <trkpt> element contains the route data.
 
@@ -131,7 +137,8 @@ Note that workouts (and posts) can also have attached images. Those must be post
     :run_type: Must be one of Endurance, Tempo, Slow, Interval, Group, Elevation, Race
     :duration_in_seconds: The duration of the run, in seconds. If the user paused during that run, that time should not be included.
     :distance_in_meters: The distance of the run in meters.
-    :privacy: The privacy level for this workout. Options: "public", "private", "friends"
+    :privacy: The privacy level for this workout. Options: "public", "private", "friends". [OPTIONAL]
+    :facebook_access_token: If you provide a valid Token, this workout will be shared on facebook. [OPTIONAL]
     :points: An optional array of objects, each containing the following attributes:
         :lat: The latitude
         :lng: The longitude
@@ -186,6 +193,25 @@ This method allows you to send GPX files containing routes data for some Workout
 **PATCH /workout/[workout_id]/**
 
 You must send the Content-Type of the file (see below) and the entire file as the request body.
+
+Share a workout
+-----------------------------
+
+**POST /workout/[ID]/share/**
+
+    :social_network: The network where you want to publish this workout. Right now, it's just "facebook".
+    :token: The access token for the network you want to share this workout to.
+
+The response will be a Json Object, the response code is allways 200. You can check if the sharing was succesful by the body of the response:
+
+{'success': false}
+
+We always return a 'success' key with a true/false value to indicate if the share was sucessful. Also, depending on the network you're sharing, other fields might be included. For example, this is a response for a valid share in Facebook:
+
+{
+  "post_id": "605471098_442971085741556",
+  "success": true
+}
 
 Content Types
 --------------
