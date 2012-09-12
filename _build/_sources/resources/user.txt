@@ -113,3 +113,32 @@ There are some **headers** you might need to send. Some are optionals, other are
 
     Content-MD5 (OPTIONAL): Is the result of aplying MD5 digest on the content you're sending. Based on http://www.ietf.org/rfc/rfc1864.txt It's important to note that this method is highly used in a wide variety of APIs, being a well known case Amazon S3. If you have doubt on how implement this, you can browse some opensource library for S3 and you can find a good example.
     Content-Type (REQUIRED): This is the content type of the picture you're sending. Right now the only content types supported are: "image/jpeg" and "image/png"
+
+
+Change password
+----------------------
+
+To change the current logged in user's password you need to:
+
+**POST /user/password/**
+
+Arguments:
+
+    :old_password: The current user password.
+    :new_password: The new password desired by the user.
+
+The system checks that user's current password matches the one provided by "old_password". If that's ok we change the password and return this response:
+
+204 NO CONTENT
+
+If the password provided by "old_password" doesn't match we provide this response:
+
+400 BAD REQUEST
+
+{
+  "error": {
+    "code": "100",
+    "message": "Email or password incorrect. The password specified doesn't match."
+  }
+}
+

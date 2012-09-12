@@ -1,6 +1,19 @@
 ChangeLog
 =========
 
+**September 12**
+
+- Change user password
+
+**September 11**
+
+- Friendship exists method
+- We changed the way to specify a user location. Check out profile docs.
+
+**September 9**
+
+- Share a workout. Check out workout docs.
+
 **September 6**
 
 - Added facebook token to the workout. You can provide the token to share the workout in facebook. Check Workouts docs.
