@@ -1,6 +1,12 @@
 ChangeLog
 =========
 
+**September 17**
+
+- Changed API method for marking a conversation as read. Changed from PATCH to POST, removed unnecessary ID argument,
+  accept an ID of the last messsage read in that conversation (to check for conflicts) instead of a date, and make that
+  argument optional.
+
 **September 12**
 
 - Change user password
