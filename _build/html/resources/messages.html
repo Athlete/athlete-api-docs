@@ -103,12 +103,12 @@ Results are paginated.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">last_message_id:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">(optional) The ID of the last message in this conversation you have read</td>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">The ID of the last message in this conversation you have read</td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
-<p>If you provide the last_message_id, the API will check if any new messages have been added to this conversation since you last fetched them, so you don&#8217;t falsely mark this conversation as read when
+<p>last_message_id is used to check if any new messages have been added to this conversation since you last fetched them, so you don&#8217;t falsely mark this conversation as read when
 there are in fact messages in the conversation you have not yet seen.</p>
 <p>Response</p>
 <blockquote>

@@ -43,9 +43,9 @@ We don't mark conversation as read when you fetch the messages for that particul
 
 Arguments
 
-    :last_message_id: (optional) The ID of the last message in this conversation you have read
+    :last_message_id: The ID of the last message in this conversation you have read
 
-If you provide the last_message_id, the API will check if any new messages have been added to this conversation since you last fetched them, so you don't falsely mark this conversation as read when
+last_message_id is used to check if any new messages have been added to this conversation since you last fetched them, so you don't falsely mark this conversation as read when
 there are in fact messages in the conversation you have not yet seen.
 
 Response
