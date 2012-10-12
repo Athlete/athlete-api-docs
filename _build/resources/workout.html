@@ -26,7 +26,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Athlete.com API 0.1.0 documentation" href="../index.html" />
-    <link rel="next" title="Photo Albums" href="photo_album.html" />
+    <link rel="next" title="Routes" href="route.html" />
     <link rel="prev" title="Posts (a.k.a. Feed)" href="post.html" /> 
   </head>
   <body>
@@ -37,7 +37,7 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="photo_album.html" title="Photo Albums"
+          <a href="route.html" title="Routes"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="post.html" title="Posts (a.k.a. Feed)"
@@ -67,18 +67,20 @@
 </table>
 </div></blockquote>
 <p>Response</p>
-<div class="highlight-python"><pre>{
-  "distance_in_meters": "8046.72",
-  "duration_in_seconds": 1500,
-  "id": 2,
-  "post_body": "great",
-  "resource_uri": "/api/v1/workout/2/",
-  "route_points_data": "",
-  "run_date": "2012-05-22T00:00:00",
-  "run_type": "Endurance",
-  "static_map_url": "http://some.domain/super-long-url",  // &lt;-- this will sometimes be null
-  "title": "Running"
-}</pre>
+<div class="highlight-python"><pre>[
+    {
+      "distance_in_meters": "8046.72",
+      "duration_in_seconds": 1500,
+      "id": 2,
+      "post_body": "great",
+      "resource_uri": "/api/v1/workout/2/",
+      "route_points_data": "",
+      "run_date": "2012-05-22T00:00:00",
+      "run_type": "Endurance",
+      "static_map_url": "http://some.domain/super-long-url",  // &lt;-- this will sometimes be null
+      "title": "Running"
+    }
+]</pre>
 </div>
 <p>You can also get a workout in GPX format. To accomplish this, you must specify the right &#8220;Accept&#8221; header:</p>
 <p><strong>GET /workout/</strong>
@@ -311,8 +313,8 @@ You will get a 401 UNAUTHORIZED response if the current logged in user does not 
   <p class="topless"><a href="post.html"
                         title="previous chapter">Posts (a.k.a. Feed)</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="photo_album.html"
-                        title="next chapter">Photo Albums</a></p>
+  <p class="topless"><a href="route.html"
+                        title="next chapter">Routes</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/resources/workout.txt"
@@ -342,7 +344,7 @@ You will get a 401 UNAUTHORIZED response if the current logged in user does not 
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="photo_album.html" title="Photo Albums"
+          <a href="route.html" title="Routes"
              >next</a> |</li>
         <li class="right" >
           <a href="post.html" title="Posts (a.k.a. Feed)"

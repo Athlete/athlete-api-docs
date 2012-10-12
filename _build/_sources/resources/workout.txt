@@ -12,18 +12,20 @@ Response
 
 ::
 
-    {
-      "distance_in_meters": "8046.72",
-      "duration_in_seconds": 1500,
-      "id": 2,
-      "post_body": "great",
-      "resource_uri": "/api/v1/workout/2/",
-      "route_points_data": "",
-      "run_date": "2012-05-22T00:00:00",
-      "run_type": "Endurance",
-      "static_map_url": "http://some.domain/super-long-url",  // <-- this will sometimes be null
-      "title": "Running"
-    }
+    [
+        {
+          "distance_in_meters": "8046.72",
+          "duration_in_seconds": 1500,
+          "id": 2,
+          "post_body": "great",
+          "resource_uri": "/api/v1/workout/2/",
+          "route_points_data": "",
+          "run_date": "2012-05-22T00:00:00",
+          "run_type": "Endurance",
+          "static_map_url": "http://some.domain/super-long-url",  // <-- this will sometimes be null
+          "title": "Running"
+        }
+    ]
 
 
 You can also get a workout in GPX format. To accomplish this, you must specify the right "Accept" header:

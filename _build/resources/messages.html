@@ -95,22 +95,22 @@ Results are paginated.</p>
 <div class="section" id="mark-conversations-as-read">
 <h2>Mark conversations as read<a class="headerlink" href="#mark-conversations-as-read" title="Permalink to this headline">¶</a></h2>
 <p>We don&#8217;t mark conversation as read when you fetch the messages for that particular conversation. This is really important. You have to explicitly inform us when the user has read the conversation. To do so, you must issue this request:</p>
-<p><strong>PATCH /conversation/[ID]/read/</strong></p>
+<p><strong>POST /conversation/[ID]/read/</strong></p>
 <p>Arguments</p>
 <blockquote>
 <div><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">ID:</th><td class="field-body">is the ID of the conversation you want to mark as read</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">last_message_read_timestamp:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body">A timestamp informing the timestamp of the last message read.</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">last_message_id:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">The ID of the last message in this conversation you have read</td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
-<p>The &#8220;last_message_read_timestamp&#8221; must be provided becouse in the midtime between you fetch the messages and the time you issued this request, new messages might be created. The response for this method is:</p>
+<p>last_message_id is used to check if any new messages have been added to this conversation since you last fetched them, so you don&#8217;t falsely mark this conversation as read when
+there are in fact messages in the conversation you have not yet seen.</p>
+<p>Response</p>
 <blockquote>
 <div><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -123,7 +123,6 @@ Results are paginated.</p>
 </tbody>
 </table>
 </div></blockquote>
-<p>You can also use this method to know if there are new messages to display to your user.</p>
 </div>
 <div class="section" id="id1">
 <h2>Get One Conversation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>

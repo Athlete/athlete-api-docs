@@ -14,6 +14,7 @@ Getting Started
    :maxdepth: 2
 
    getting_started/overview
+   getting_started/patching
    getting_started/authentication
    getting_started/testing
    getting_started/errors
@@ -32,6 +33,7 @@ Resources
    resources/preferences
    resources/post
    resources/workout
+   resources/route
    resources/photo_album
    resources/photo
    resources/comment

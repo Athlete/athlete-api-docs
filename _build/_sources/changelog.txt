@@ -1,9 +1,16 @@
 ChangeLog
 =========
 
+**September 17**
+
+- Changed API method for marking a conversation as read. Changed from PATCH to POST, removed unnecessary ID argument,
+  and accept an ID of the last messsage read in that conversation (to check for conflicts) instead of a date.
+
 **September 12**
 
 - Change user password
+- Route object includes "is_favorite"
+- Update favorite status of a route 
 
 **September 11**
 

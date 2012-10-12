@@ -14,6 +14,7 @@ Getting Started
    :maxdepth: 2
 
    getting_started/overview
+   getting_started/patching
    getting_started/authentication
    getting_started/testing
    getting_started/errors

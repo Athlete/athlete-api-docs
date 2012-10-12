@@ -116,7 +116,7 @@ This is a method to query if a given user (U1) is friend of other user (U2). To 
 Arguments
 
     :with_user_id: The other user to check friendship.
-    :status. If the user provided is the same as the logged in user, you can query for pending requests.
+    :status: If the user provided is the same as the logged in user, you can query for pending requests.
 
 Returns
 
