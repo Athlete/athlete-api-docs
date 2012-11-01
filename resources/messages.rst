@@ -33,6 +33,7 @@ You get some important fields:
     :created_date: Date created this conversation.
     :recipients: A list of users, with all their information.
     :started_by: The user that started the conversation.
+    :past_users_involved: A list of names of users that participated in this conversation but deleted their accounts.
 
 Mark conversations as read
 ---------------------------
@@ -114,7 +115,8 @@ You get a list of message resources for this conversation, this parameters:
     :created_date: The date and time that the conversation was created.
     :id: The id of the message.
     :message: The actual message (Text/String).
-    :user: The user that sent the message.
+    :user: The user that sent the message. It's null if the user removed his/her account.
+    :user_deleted_name: Is the name (just a string) of the user that sent the message in the first place, just as a reference.
 
 Post a new Message
 ------------------
@@ -130,3 +132,10 @@ Arguments:
 Response Header:
 
     Location: https://athlete.com/api/v1/message/[ID]/
+
+A note regarding deleted users and messages
+-------------------------------------------
+
+Sometimes users decide to remove their account from Athlete.com. If such user is involved in some conversation, we don't want to lose his/her messages, because the conversation could lost its sense. In those cases, we provide some mechanisms for the user browsing the conversation to note that. In the case of conversation, you have a list of names (past_users_involved) that indicate all the users that wer previously involved in the conversation but decided to remove their accounts.
+
+For each message, if the user that sent the message removed his/her account, the "user" field will be null, but you'll see the name as an string in the "user_deleted_name" field.

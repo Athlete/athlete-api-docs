@@ -87,6 +87,9 @@ Results are paginated.</p>
 </tr>
 <tr class="field-odd field"><th class="field-name">started_by:</th><td class="field-body">The user that started the conversation.</td>
 </tr>
+<tr class="field-even field"><th class="field-name" colspan="2">past_users_involved:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">A list of names of users that participated in this conversation but deleted their accounts.</td>
+</tr>
 </tbody>
 </table>
 </dd>
@@ -191,7 +194,10 @@ conversation, it will again show up in the user&#8217;s inbox.</p>
 </tr>
 <tr class="field-odd field"><th class="field-name">message:</th><td class="field-body">The actual message (Text/String).</td>
 </tr>
-<tr class="field-even field"><th class="field-name">user:</th><td class="field-body">The user that sent the message.</td>
+<tr class="field-even field"><th class="field-name">user:</th><td class="field-body">The user that sent the message. It&#8217;s null if the user removed his/her account.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">user_deleted_name:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">Is the name (just a string) of the user that sent the message in the first place, just as a reference.</td>
 </tr>
 </tbody>
 </table>
@@ -208,6 +214,11 @@ conversation, it will again show up in the user&#8217;s inbox.</p>
 <p>Response Header:</p>
 <blockquote>
 <div>Location: <a class="reference external" href="https://athlete.com/api/v1/message/[ID]/">https://athlete.com/api/v1/message/[ID]/</a></div></blockquote>
+</div>
+<div class="section" id="a-note-regarding-deleted-users-and-messages">
+<h2>A note regarding deleted users and messages<a class="headerlink" href="#a-note-regarding-deleted-users-and-messages" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes users decide to remove their account from Athlete.com. If such user is involved in some conversation, we don&#8217;t want to lose his/her messages, because the conversation could lost its sense. In those cases, we provide some mechanisms for the user browsing the conversation to note that. In the case of conversation, you have a list of names (past_users_involved) that indicate all the users that wer previously involved in the conversation but decided to remove their accounts.</p>
+<p>For each message, if the user that sent the message removed his/her account, the &#8220;user&#8221; field will be null, but you&#8217;ll see the name as an string in the &#8220;user_deleted_name&#8221; field.</p>
 </div>
 </div>
 
@@ -230,6 +241,7 @@ conversation, it will again show up in the user&#8217;s inbox.</p>
 <li><a class="reference internal" href="#hide-a-conversation">Hide a Conversation</a></li>
 <li><a class="reference internal" href="#get-all-messages">Get all Messages</a></li>
 <li><a class="reference internal" href="#post-a-new-message">Post a new Message</a></li>
+<li><a class="reference internal" href="#a-note-regarding-deleted-users-and-messages">A note regarding deleted users and messages</a></li>
 </ul>
 </li>
 </ul>

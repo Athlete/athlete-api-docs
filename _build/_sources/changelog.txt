@@ -1,6 +1,9 @@
 ChangeLog
 =========
 
+**November 1**
+- Changed API for messages. Refer to the docs and to "A note regarding deleted users and messages" special part of messages docs.
+
 **September 17**
 
 - Changed API method for marking a conversation as read. Changed from PATCH to POST, removed unnecessary ID argument,
