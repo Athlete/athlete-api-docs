@@ -56,32 +56,22 @@
 <p>Because of a problem in our Load Balancer all the PATCH requests need to be handled in a special manner.</p>
 <p>Anytime we mention in our API that you&#8217;ve to send a PATCH request, you have to send a POST request instead and specify the special X-HTTP-Method-Override.</p>
 <p>For example, to update a user, this is the request in our docs:</p>
-<dl class="docutils">
-<dt>::</dt>
-<dd><p class="first">PATCH /user/[user_id]/
-Content-Type: application/json</p>
-<dl class="docutils">
-<dt>{</dt>
-<dd>&#8220;first_name&#8221;: &#8220;John&#8221;,
-&#8220;last_name&#8221;: &#8220;Doe&#8221;</dd>
-</dl>
-<p class="last">}</p>
-</dd>
-</dl>
+<div class="highlight-python"><pre>PATCH /user/[user_id]/
+Content-Type: application/json
+{
+    "first_name": "John",
+    "last_name": "Doe"
+}</pre>
+</div>
 <p>The real request you have to do is this:</p>
-<dl class="docutils">
-<dt>::</dt>
-<dd><p class="first">POST /user/[user_id]/
+<div class="highlight-python"><pre>POST /user/[user_id]/
 X-HTTP-Method-Override: PATCH
-Content-Type: application/json</p>
-<dl class="docutils">
-<dt>{</dt>
-<dd>&#8220;first_name&#8221;: &#8220;John&#8221;,
-&#8220;last_name&#8221;: &#8220;Doe&#8221;</dd>
-</dl>
-<p class="last">}</p>
-</dd>
-</dl>
+Content-Type: application/json
+{
+    "first_name": "John",
+    "last_name": "Doe"
+}</pre>
+</div>
 <p>It&#8217;s the same behavior but using a different approach.</p>
 </div>
 

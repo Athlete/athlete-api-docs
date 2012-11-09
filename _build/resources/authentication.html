@@ -153,9 +153,28 @@ FB developer account. (required)
 </tr>
 <tr class="field-odd field"><th class="field-name">created:</th><td class="field-body">True if the user was created, False if it was an existing user who was just logged in.</td>
 </tr>
+<tr class="field-even field"><th class="field-name" colspan="2">auto_created_friends:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">A list of friends that were automatically created by the site.</td>
+</tr>
 </tbody>
 </table>
 </div></blockquote>
+<p>Example Response</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">u&#39;api_key&#39;</span><span class="p">:</span> <span class="s">u&#39;1b1a74a69674ce180d78cae3fbf4e69058e973be&#39;</span><span class="p">,</span>
+ <span class="s">u&#39;auto_created_friends&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s">u&#39;email&#39;</span><span class="p">:</span> <span class="s">u&#39;example@example.com&#39;</span><span class="p">,</span>
+                            <span class="s">u&#39;first_name&#39;</span><span class="p">:</span> <span class="s">u&#39;John&#39;</span><span class="p">,</span>
+                            <span class="s">u&#39;id&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+                            <span class="s">u&#39;last_name&#39;</span><span class="p">:</span> <span class="s">u&#39;Doe&#39;</span><span class="p">,</span>
+                            <span class="s">u&#39;preferences&#39;</span><span class="p">:</span> <span class="s">u&#39;/api/v1/preferences/11/&#39;</span><span class="p">,</span>
+                            <span class="s">u&#39;profile&#39;</span><span class="p">:</span> <span class="s">u&#39;/api/v1/profile/11/&#39;</span><span class="p">,</span>
+                            <span class="s">u&#39;profile_image_225_url&#39;</span><span class="p">:</span> <span class="s">u&#39;&#39;</span><span class="p">,</span>
+                            <span class="s">u&#39;profile_image_48_url&#39;</span><span class="p">:</span> <span class="s">u&#39;&#39;</span><span class="p">,</span>
+                            <span class="s">u&#39;resource_uri&#39;</span><span class="p">:</span> <span class="s">u&#39;/api/v1/user/11/&#39;</span><span class="p">,</span>
+                            <span class="s">u&#39;stats&#39;</span><span class="p">:</span> <span class="s">u&#39;/api/v1/stats/11/&#39;</span><span class="p">}],</span>
+ <span class="s">u&#39;created&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+ <span class="s">u&#39;username&#39;</span><span class="p">:</span> <span class="s">u&#39;1352467863SnhsFgkKpB&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="forgot-password">
 <h2>Forgot password<a class="headerlink" href="#forgot-password" title="Permalink to this headline">¶</a></h2>
