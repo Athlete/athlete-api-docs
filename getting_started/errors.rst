@@ -40,6 +40,11 @@ General Errors
 
 - 001 "One or more arguments are missing." - This might happen when you don't provide all the arguments for a given API call. For example, if you don't provide an email and password when you try to log in a user you can get this error.
 - 002 "This method is not yet implemented."
+- 003 "You must send a Content-MD5 header containing the checksum of the file"
+- 004 "The checksum you provided doesn't match."
+- 005 "You must specify a content type for this method."
+- 006 "The content type you specified is not right. Please refer to the docs."
+- 007 "An error has ocurred,we are not awere of what's going on. Please retry later"
 
 Errors regarding authentication
 
@@ -53,10 +58,16 @@ Errors regarding authentication
 - 107 "The email address you provided already exists."
 - 108 "Something wrong happened. The user was successfully registered but couldn't be logged in. Try manually."
 - 109 "This user does not exist in our system."
+- 110 "The email address you provided is not valid."
 
 Content type related errors
 
 - 201 "The Content Type you provided is not valid."
+- 202 "There's a friendship created between those users."
+- 203 "Content has been created since you issued your last request."
+- 203 "The datetime field you provided doesn't have the right format."
+- 204 "The privacy value you specified is not valid"
+- 205 "The user you're tring to send a message doesn't allow it"
 
 *For more details regarding authentication see:*
 
