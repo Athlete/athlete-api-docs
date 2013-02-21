@@ -58,6 +58,7 @@
 <p><strong>GET /user/[user_id]/</strong></p>
 <p>You can also get the current authenticated user with</p>
 <p><strong>GET /me/</strong></p>
+<p>This resource will give you some summarized information as <strong>unread_messages</strong> and <strong>pending_friend_requests</strong>.</p>
 <p>Arguments</p>
 <blockquote>
 <div><table class="docutils field-list" frame="void" rules="none">
@@ -78,8 +79,10 @@
   <span class="s">&quot;preferences&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/preferences/1/&quot;</span><span class="p">,</span>
   <span class="s">&quot;profile&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/profile/1/&quot;</span><span class="p">,</span>
   <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/user/1/&quot;</span><span class="p">,</span>
-  <span class="s">&quot;profile_image_225_url&quot;</span><span class="p">:</span> <span class="s">&quot;https://s3.amazonaws.com/com.athlete.profiles.development/test1/a4018714-ac33-4bd8-8ed2-f79286e31a87/var/folders/kq/mc4mjdx5797d1cc_g0x7y8n00000gn/T/tmpmMOvsp?Signature=MP4mYdL40xHb8koO4j04XbYUjNA%3D&amp;Expires=1652635711&amp;AWSAccessKeyId=AKIAIPH52TGT42OHQBPQ&quot;</span><span class="p">,</span>
-  <span class="s">&quot;profile_image_48_url&quot;</span><span class="p">:</span> <span class="s">&quot;https://s3.amazonaws.com/com.athlete.profiles.development/test1/aabe95d7-d127-458f-8205-720eb2a16c35/var/folders/kq/mc4mjdx5797d1cc_g0x7y8n00000gn/T/tmpW_XuLr?Signature=cpGdaEQzyimEFMAq9GWNu%2BxI3m4%3D&amp;Expires=1652635712&amp;AWSAccessKeyId=AKIAIPH52TGT42OHQBPQ&quot;</span>
+  <span class="s">&quot;profile_image_225_url&quot;</span><span class="p">:</span> <span class="s">&quot;...&quot;</span><span class="p">,</span>
+  <span class="s">&quot;profile_image_48_url&quot;</span><span class="p">:</span> <span class="s">&quot;...&quot;</span><span class="p">,</span>
+  <span class="s">&quot;pending_friend_requests&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s">&quot;unread_messages&quot;</span><span class="p">:</span> <span class="mi">0</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -189,17 +192,14 @@ Content-Type (REQUIRED): This is the content type of the picture you&#8217;re se
 <p>204 NO CONTENT</p>
 <p>If the password provided by &#8220;old_password&#8221; doesn&#8217;t match we provide this response:</p>
 <p>400 BAD REQUEST</p>
-<dl class="docutils">
-<dt>{</dt>
-<dd><dl class="first docutils">
-<dt>&#8220;error&#8221;: {</dt>
-<dd>&#8220;code&#8221;: &#8220;100&#8221;,
-&#8220;message&#8221;: &#8220;Email or password incorrect. The password specified doesn&#8217;t match.&#8221;</dd>
-</dl>
-<p class="last">}</p>
-</dd>
-</dl>
-<p>}</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">&quot;error&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;100&quot;</span><span class="p">,</span>
+    <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Email or password incorrect. The password specified doesn&#39;t match.&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 </div>
 

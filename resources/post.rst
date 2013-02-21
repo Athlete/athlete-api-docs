@@ -57,7 +57,8 @@ Get List of Posts
 
 Arguments
 
-    :type: [ dashboard | local | featured | profile ] A special filter to get posts for a user's dashboard, local posts, featured posts or the profile feed posts.
+    :type: [ friends | local | featured | profile ] A special filter to get posts for a user's dashboard, local posts, featured posts or the profile feed posts. The value "dashboard" is also valid, but is deprecated. It has the same effect as "friends".
+    :fallback: [ 1 | 0 ] Defaults to 0. If set to 1, an empty feed will fallback to a more broad feed. "friends" falls back to "local" which falls back to "featured". This prevents you from having to make as many as 3 requests to handle fallbacks yourself. When using fallback, check the response (meta.feed_type) to find out what type of feed is being returned to you.
     :user_id: Only valid when type is dashboard or profile. Specifies the id of the user who's dashboard posts should be returned.
     :limit: Max feed items to return (default=20)
     :earlier_than: A post id. Tells the API to return posts that are older than the post with this id.
@@ -77,10 +78,9 @@ Example Response
 
     {
       "meta": {
-        "limit": 20,
         "newer": "/api/v1/post/?later_than=40&limit=20",
         "older": "/api/v1/post/?limit=20&earlier_than=24",
-        "total_count": 38
+        "feed_type": "featured"
       },
       "objects": [
         {
