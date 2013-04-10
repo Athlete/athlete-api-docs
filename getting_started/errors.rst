@@ -68,6 +68,7 @@ Content type related errors
 - 203 "The datetime field you provided doesn't have the right format."
 - 204 "The privacy value you specified is not valid"
 - 205 "The user you're tring to send a message doesn't allow it"
+- 206 "The workout you are trying to save already exists"
 
 *For more details regarding authentication see:*
 

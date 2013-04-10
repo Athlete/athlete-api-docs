@@ -117,6 +117,8 @@ Each <trkpt> element contains the route data.
 
 GPX Documentation: http://www.topografix.com/GPX/1/1/
 
+Duplicate workouts are not allowed and will result in the 206 error code.
+
 Create a workout with JSON data
 ------------------------------
 
@@ -173,6 +175,8 @@ Example of a Workout document to POST (https://gist.github.com/3525174)
             }
         ]
     }
+
+Duplicate workouts are not allowed and will result in the 206 error code.
 
 
 Delete a workout
