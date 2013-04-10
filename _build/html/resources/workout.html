@@ -272,14 +272,16 @@ You will get a 401 UNAUTHORIZED response if the current logged in user does not 
 </table>
 </div></blockquote>
 <p>The response will be a Json Object, the response code is allways 200. You can check if the sharing was succesful by the body of the response:</p>
-<p>{&#8216;success&#8217;: false}</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&#39;success&#39;</span><span class="p">:</span> <span class="n">false</span><span class="p">}</span>
+</pre></div>
+</div>
 <p>We always return a &#8216;success&#8217; key with a true/false value to indicate if the share was sucessful. Also, depending on the network you&#8217;re sharing, other fields might be included. For example, this is a response for a valid share in Facebook:</p>
-<dl class="docutils">
-<dt>{</dt>
-<dd>&#8220;post_id&#8221;: &#8220;605471098_442971085741556&#8221;,
-&#8220;success&#8221;: true</dd>
-</dl>
-<p>}</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;post_id&quot;</span><span class="p">:</span> <span class="s">&quot;605471098_442971085741556&quot;</span><span class="p">,</span>
+    <span class="s">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="content-types">
 <h2>Content Types<a class="headerlink" href="#content-types" title="Permalink to this headline">¶</a></h2>

@@ -120,7 +120,7 @@ GPX Documentation: http://www.topografix.com/GPX/1/1/
 Duplicate workouts are not allowed and will result in the 206 error code.
 
 Create a workout with JSON data
-------------------------------
+-------------------------------
 
 **POST /workout/**
 
@@ -208,14 +208,20 @@ Share a workout
 
 The response will be a Json Object, the response code is allways 200. You can check if the sharing was succesful by the body of the response:
 
-{'success': false}
+::
+
+    {'success': false}
+
 
 We always return a 'success' key with a true/false value to indicate if the share was sucessful. Also, depending on the network you're sharing, other fields might be included. For example, this is a response for a valid share in Facebook:
 
-{
-  "post_id": "605471098_442971085741556",
-  "success": true
-}
+::
+
+    {
+        "post_id": "605471098_442971085741556",
+        "success": true
+    }
+
 
 Content Types
 --------------
