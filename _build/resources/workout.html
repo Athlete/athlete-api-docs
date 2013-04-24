@@ -174,12 +174,11 @@ Content-Type: application/X.athlete-GPX+xml; charset=utf-8
 <h2>Duplicate workouts<a class="headerlink" href="#duplicate-workouts" title="Permalink to this headline">¶</a></h2>
 <p>Sometimes due to connection problems, mobile clients can send the same workout more that 1 time. That&#8217;s why we check for duplicates.</p>
 <p>If you POST workout that&#8217;s already present in Athlete.com you&#8217;ll get a <strong>400 HTTP response</strong>. And the following message:</p>
-<dl class="docutils">
-<dt>::</dt>
-<dd>[&#8220;206&#8221;, &#8220;The workout you are trying to save already exists&#8221;]</dd>
-</dl>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="s">&quot;206&quot;</span><span class="p">,</span> <span class="s">&quot;The workout you are trying to save already exists&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>Further. The <tt class="docutils literal"><span class="pre">Location</span></tt> header will be populated with the URI of the original workout.</p>
-<p>For more information check the <em>errors</em> section.</p>
+<p>For more information check the <a class="reference internal" href="../getting_started/errors.html"><em>Errors</em></a> section.</p>
 </div>
 <div class="section" id="create-a-workout-with-json-data">
 <h2>Create a workout with JSON data<a class="headerlink" href="#create-a-workout-with-json-data" title="Permalink to this headline">¶</a></h2>

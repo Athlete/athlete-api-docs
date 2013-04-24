@@ -125,11 +125,12 @@ Sometimes due to connection problems, mobile clients can send the same workout m
 If you POST workout that's already present in Athlete.com you'll get a **400 HTTP response**. And the following message:
 
 ::
+
     ["206", "The workout you are trying to save already exists"]
 
 Further. The ``Location`` header will be populated with the URI of the original workout.
 
-For more information check the *errors* section.
+For more information check the :doc:`/getting_started/errors` section.
 
 Create a workout with JSON data
 -------------------------------
