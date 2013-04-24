@@ -1,6 +1,9 @@
 ChangeLog
 =========
 
+**Unknown**
+- Disallow duplicate workouts. Attempting to upload a duplicate workout will result in the 206 error code.
+
 **November 1**
 - Changed API for messages. Refer to the docs and to "A note regarding deleted users and messages" special part of messages docs.
 

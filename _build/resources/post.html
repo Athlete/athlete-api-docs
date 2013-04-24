@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -114,15 +112,17 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body">[ dashboard | local | featured | profile ] A special filter to get posts for a user&#8217;s dashboard, local posts, featured posts or the profile feed posts.</td>
+<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body">[ friends | local | featured | profile ] A special filter to get posts for a user&#8217;s dashboard, local posts, featured posts or the profile feed posts. The value &#8220;dashboard&#8221; is also valid, but is deprecated. It has the same effect as &#8220;friends&#8221;.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">user_id:</th><td class="field-body">Only valid when type is dashboard or profile. Specifies the id of the user who&#8217;s dashboard posts should be returned.</td>
+<tr class="field-even field"><th class="field-name">fallback:</th><td class="field-body">[ 1 | 0 ] Defaults to 0. If set to 1, an empty feed will fallback to a more broad feed. &#8220;friends&#8221; falls back to &#8220;local&#8221; which falls back to &#8220;featured&#8221;. This prevents you from having to make as many as 3 requests to handle fallbacks yourself. When using fallback, check the response (meta.feed_type) to find out what type of feed is being returned to you.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">limit:</th><td class="field-body">Max feed items to return (default=20)</td>
+<tr class="field-odd field"><th class="field-name">user_id:</th><td class="field-body">Only valid when type is dashboard or profile. Specifies the id of the user who&#8217;s dashboard posts should be returned.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">earlier_than:</th><td class="field-body">A post id. Tells the API to return posts that are older than the post with this id.</td>
+<tr class="field-even field"><th class="field-name">limit:</th><td class="field-body">Max feed items to return (default=20)</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">later_than:</th><td class="field-body">A post id. Tells the API to return posts that are newer than the post with this id.</td>
+<tr class="field-odd field"><th class="field-name">earlier_than:</th><td class="field-body">A post id. Tells the API to return posts that are older than the post with this id.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">later_than:</th><td class="field-body">A post id. Tells the API to return posts that are newer than the post with this id.</td>
 </tr>
 </tbody>
 </table>
@@ -137,10 +137,9 @@ a normal response with 0 results.</p>
 <p>Example Response</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
   <span class="s">&quot;meta&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s">&quot;limit&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
     <span class="s">&quot;newer&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/post/?later_than=40&amp;limit=20&quot;</span><span class="p">,</span>
     <span class="s">&quot;older&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/post/?limit=20&amp;earlier_than=24&quot;</span><span class="p">,</span>
-    <span class="s">&quot;total_count&quot;</span><span class="p">:</span> <span class="mi">38</span>
+    <span class="s">&quot;feed_type&quot;</span><span class="p">:</span> <span class="s">&quot;featured&quot;</span>
   <span class="p">},</span>
   <span class="s">&quot;objects&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
@@ -331,7 +330,7 @@ a normal response with 0 results.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2012, Athlete.com.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
     </div>
   </body>
 </html>

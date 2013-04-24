@@ -117,8 +117,22 @@ Each <trkpt> element contains the route data.
 
 GPX Documentation: http://www.topografix.com/GPX/1/1/
 
+Duplicate workouts
+-------------------------------
+
+Sometimes due to connection problems, mobile clients can send the same workout more that 1 time. That's why we check for duplicates.
+
+If you POST workout that's already present in Athlete.com you'll get a **400 HTTP response**. And the following message:
+
+::
+    ["206", "The workout you are trying to save already exists"]
+
+Further. The ``Location`` header will be populated with the URI of the original workout.
+
+For more information check the *errors* section.
+
 Create a workout with JSON data
-------------------------------
+-------------------------------
 
 **POST /workout/**
 
@@ -174,6 +188,8 @@ Example of a Workout document to POST (https://gist.github.com/3525174)
         ]
     }
 
+Duplicate workouts are not allowed and will result in the 206 error code.
+
 
 Delete a workout
 ----------------
@@ -204,14 +220,20 @@ Share a workout
 
 The response will be a Json Object, the response code is allways 200. You can check if the sharing was succesful by the body of the response:
 
-{'success': false}
+::
+
+    {'success': false}
+
 
 We always return a 'success' key with a true/false value to indicate if the share was sucessful. Also, depending on the network you're sharing, other fields might be included. For example, this is a response for a valid share in Facebook:
 
-{
-  "post_id": "605471098_442971085741556",
-  "success": true
-}
+::
+
+    {
+        "post_id": "605471098_442971085741556",
+        "success": true
+    }
+
 
 Content Types
 --------------

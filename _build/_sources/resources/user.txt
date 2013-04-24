@@ -139,9 +139,11 @@ If the password provided by "old_password" doesn't match we provide this respons
 
 400 BAD REQUEST
 
-{
-  "error": {
-    "code": "100",
-    "message": "Email or password incorrect. The password specified doesn't match."
-  }
-}
+::
+
+    {
+      "error": {
+        "code": "100",
+        "message": "Email or password incorrect. The password specified doesn't match."
+      }
+    }
