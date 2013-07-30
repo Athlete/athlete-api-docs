@@ -1,10 +1,10 @@
 Events
 ========
 
-Get an Event resource
+Get an EventInstance resource
 -----------------------------
 
-**GET /event/:event_id**
+**GET /event-instance/:event_id**
 
 Response
 
@@ -12,6 +12,7 @@ Response
 
     {
       "end_date": "2013-06-30T00:00:00",
+      "event_logo": "https://com-athlete-testing-static.s3.amazonaws.com/media/event_logos/KycD4Yo3m98mcvcNSPRY3C.png",
       "home_url": "http://test.athlete.com/events/4/one-run-for-boston",
       "id": 4,
       "info_url": "http://test.athlete.com/events/4/one-run-for-boston/promo",
@@ -42,13 +43,13 @@ Event participant is the abstraction created to represent a certain user that is
       "amount_per_mile": 0.5,
       "user_goal_in_miles": 11,
 
-      "event": {
+      "event-instance": {
         "end_date": "2013-06-30T00:00:00",
         "home_url": "http://test.athlete.com/events/4/one-run-for-boston",
         "id": 4,
         "info_url": "http://test.athlete.com/events/4/one-run-for-boston/promo",
         "name": "One Run For Boston",
-        "resource_uri": "/api/v1/event/4/",
+        "resource_uri": "/api/v1/event-instance/4/",
         "start_date": "2013-06-01T00:00:00"
       },
       "user": {
@@ -65,14 +66,14 @@ Event participant is the abstraction created to represent a certain user that is
       }
     }
 
-The most important data here (I won't detail info about Event and User, refer to the docs for each resource):
+The most important data here (I won't detail info about EventInstance and User, refer to the docs for each resource):
 
-    :active: IMPORTANT! This field indicates if the event is still undergoin for this user. This means if this is True, then all workouts uploaded by this user will count toward this event.
-    :description: This is the description the user gave about his participation in this event.
+    :active: IMPORTANT! This field indicates if the event instance is still undergoin for this user. This means if this is True, then all workouts uploaded by this user will count toward this event instance.
+    :description: This is the description the user gave about his participation in this event instance.
     :participant_url: This is the full web participant URL.
     :total_miles_logged: Total miles logged by this participant (ran, walked, cycled).
-    :amount_per_mile: This is the amount of money raised by this user for this event. Each mile the user runs, he'll get this value in money for the cause he's running for. You can use this value (and total_miles_logged) to compute the total money raised by this user at this point in time.
-    :user_goal_in_miles: This is the user's goal for this event. This is set by the user and as the name implies, it's in miles.
+    :amount_per_mile: This is the amount of money raised by this user for this event instance. Each mile the user runs, he'll get this value in money for the cause he's running for. You can use this value (and total_miles_logged) to compute the total money raised by this user at this point in time.
+    :user_goal_in_miles: This is the user's goal for this event instance. This is set by the user and as the name implies, it's in miles.
 
 Some of the most prominent resources bellow:
 
@@ -93,8 +94,8 @@ Hotness
 
 This is the name we've gave to the "hot" participations for a given user. If you ask for hot participants for a given user you'll get:
 
-* Active participants. I.e: Events currently active in which the user is participating in.
-* Events finished less than a week ago: The event is already done, the event participant is no longer active. But it's still hot. Of course, if the user uploads a workout, it doesn't have to count toward this event.
+* Active participants. I.e: Event instances currently active in which the user is participating in.
+* Event instances finished less than a week ago: The event instance is already done, the event participant is no longer active. But it's still hot. Of course, if the user uploads a workout, it doesn't have to count toward this event participant.
 * All future event participants: The user is already registered for an event that has not yet started. The event participant is NOT active. Same rule than before. But you might want to show it to her/him.
 
 To query for this EventParticipants you must use the ``status`` attribute with the ``hot`` value. This is an example to query for all hot event participants for a given user:
@@ -118,13 +119,13 @@ You'll get something like:
           "active": false,
           "amount_per_mile": 0.5,
           "description": "I run because I love it",
-          "event": {
+          "event-instance": {
             "end_date": "2013-06-30T00:00:00",
             "home_url": "http://test.athlete.com/events/4/one-run-for-boston",
             "id": 4,
             "info_url": "http://test.athlete.com/events/4/one-run-for-boston/promo",
             "name": "One Run For Boston",
-            "resource_uri": "/api/v1/event/4/",
+            "resource_uri": "/api/v1/event-instance/4/",
             "start_date": "2013-06-01T00:00:00"
           },
           "id": 328,
@@ -149,13 +150,13 @@ You'll get something like:
           "active": false,
           "amount_per_mile": 0,
           "description": "",
-          "event": {
+          "event-instance": {
             "end_date": "2013-06-30T00:00:00",
             "home_url": "http://test.athlete.com/events/5/run-a-mile-for-a-special-child",
             "id": 5,
             "info_url": "http://test.athlete.com/events/5/run-a-mile-for-a-special-child/promo",
             "name": "Run a Mile for a Special Child",
-            "resource_uri": "/api/v1/event/5/",
+            "resource_uri": "/api/v1/event-instance/5/",
             "start_date": "2013-06-01T00:00:00"
           },
           "id": 335,
