@@ -67,7 +67,7 @@ Arguments
 Response
 
     You'll get a list of post objects. It will be paginated.
-    
+
     It is very possible that the user specified has provided a location in their settings that we were unable to resolve
     to get a latitude and longitude. Without that, we cannot determine who is "local" to them. In this case you will get
     a normal response with 0 results.
@@ -188,3 +188,79 @@ There you'll get 4 sizes:
     :detail: 900px wide aprox.
     :original: The original picture, we don't make any changes to the picture.
 
+
+Extra information for posts
+-------------------------------
+
+Some posts have extra information. That's because you might want to provide a richer experience for the user. Some type of Post types that have extra information are detailed below:
+
+User just registered for an event
+#################################
+
+The user registered for an event. This is how it looks in the site:
+
+.. image:: ../images/registered-for-event.png
+
+This is an example of the JSON data you get:
+
+::
+
+    {
+      "author": {
+        "email": "sanbasulto_04@hotmail.com",
+        "first_name": "Santiago",
+        "last_name": "Basulto",
+        ...
+      },
+      "body": "Santiago Basulto just registered for Run a Mile for a Special Child http://test.athlete.com/events/5/run-a-mile-for-a-special-child/promo",
+      "extra": {
+        "event_logo": "https://com-athlete-testing-static.s3.amazonaws.com/media/event_logos/asUzhUYjmC8hQtpwLeCBYm.gif",
+        "event_name": "Run a Mile for a Special Child",
+        "home_url": "http://test.athlete.com/events/5/run-a-mile-for-a-special-child",
+        "info_url": "http://test.athlete.com/events/5/run-a-mile-for-a-special-child/promo",
+        "participant_page_url": "http://test.athlete.com/events/participant/335/Santiago+Basulto"
+      },
+      "id": 10305,
+      "resource_uri": "/api/v1/post/10305/",
+      "post_type": "registered-for-event",
+      ...
+    }
+
+In ``extra`` you have some important info regarding the event and the ``body`` is intentionally enriched for older apps.
+
+An event participant got a new sponsor
+######################################
+
+A user got a new sponsor for his/her event participant. This is how it looks in the site:
+
+.. image:: ../images/got-sponsored.png
+
+This is an example of the JSON data you get:
+
+::
+
+    {
+      "author": {
+        "id": 11,
+        "email": "...",
+        "first_name": "Santiago",
+        "last_name": "Basulto",
+        ...
+      },
+      "body": "Santiago Basulto just got sponsored by Martin Zugnoni for One Run For Boston. http://test.athlete.com/events/4/one-run-for-boston/promo",
+      "extra": {
+        "amount_per_mile": "0.2500",
+        "event_logo": "https://com-athlete-testing-static.s3.amazonaws.com/media/event_logos/KycD4Yo3m98mcvcNSPRY3C.png",
+        "event_name": "One Run For Boston",
+        "home_url": "http://test.athlete.com/events/4/one-run-for-boston",
+        "info_url": "http://test.athlete.com/events/4/one-run-for-boston/promo",
+        "participant_page_url": "http://test.athlete.com/events/participant/328/Santiago+Basulto",
+        "sponsor_name": "Martin Zugnoni"
+      },
+      "id": 10304,
+      "resource_uri": "/api/v1/post/10304/",
+      "post_type": "event-participant-got-sponsor",
+      ...
+    },
+
+In ``extra`` you have some important info regarding the event and the ``body`` is intentionally enriched for older apps.
