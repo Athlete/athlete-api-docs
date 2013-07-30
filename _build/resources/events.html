@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Events &mdash; Athlete.com API 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Athlete.com API 0.1.0 documentation" href="../index.html" />
+    <link rel="next" title="Routes" href="route.html" />
+    <link rel="prev" title="Workouts" href="workout.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="route.html" title="Routes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="workout.html" title="Workouts"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="events">
+<h1>Events<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="get-an-event-resource">
+<h2>Get an Event resource<a class="headerlink" href="#get-an-event-resource" title="Permalink to this headline">¶</a></h2>
+<p><strong>GET /event/:event_id</strong></p>
+<p>Response</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">&quot;end_date&quot;</span><span class="p">:</span> <span class="s">&quot;2013-06-30T00:00:00&quot;</span><span class="p">,</span>
+  <span class="s">&quot;home_url&quot;</span><span class="p">:</span> <span class="s">&quot;http://test.athlete.com/events/4/one-run-for-boston&quot;</span><span class="p">,</span>
+  <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+  <span class="s">&quot;info_url&quot;</span><span class="p">:</span> <span class="s">&quot;http://test.athlete.com/events/4/one-run-for-boston/promo&quot;</span><span class="p">,</span>
+  <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;One Run For Boston&quot;</span><span class="p">,</span>
+  <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/event/4/&quot;</span><span class="p">,</span>
+  <span class="s">&quot;start_date&quot;</span><span class="p">:</span> <span class="s">&quot;2013-06-01T00:00:00&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Something to note</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">start_date and end_date:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">These both datetimes are not UTC. Instead, they&#8217;re based on the user&#8217;s timezone. Using datetime slang: these two are naive datetimes that must be made aware to the user&#8217;s timezone.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="event-particiapnts">
+<h2>Event Particiapnts<a class="headerlink" href="#event-particiapnts" title="Permalink to this headline">¶</a></h2>
+<p>Event participant is the abstraction created to represent a certain user that is participating in certain event. You already have some information about a particular event (se above). In this case, you will have a detail of the user participating in that event, with useful information. Here&#8217;s an example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">328</span><span class="p">,</span>
+  <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/event-participant/328/&quot;</span><span class="p">,</span>
+  <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="s">&quot;I run to support this cause&quot;</span><span class="p">,</span>
+  <span class="s">&quot;participant_url&quot;</span><span class="p">:</span> <span class="s">&quot;https://test.athlete.com/events/participant/328/Santiago+Basulto&quot;</span><span class="p">,</span>
+
+  <span class="s">&quot;total_miles_logged&quot;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span>
+  <span class="s">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+  <span class="s">&quot;amount_per_mile&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+  <span class="s">&quot;user_goal_in_miles&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+
+  <span class="s">&quot;event&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s">&quot;end_date&quot;</span><span class="p">:</span> <span class="s">&quot;2013-06-30T00:00:00&quot;</span><span class="p">,</span>
+    <span class="s">&quot;home_url&quot;</span><span class="p">:</span> <span class="s">&quot;http://test.athlete.com/events/4/one-run-for-boston&quot;</span><span class="p">,</span>
+    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="s">&quot;info_url&quot;</span><span class="p">:</span> <span class="s">&quot;http://test.athlete.com/events/4/one-run-for-boston/promo&quot;</span><span class="p">,</span>
+    <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;One Run For Boston&quot;</span><span class="p">,</span>
+    <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/event/4/&quot;</span><span class="p">,</span>
+    <span class="s">&quot;start_date&quot;</span><span class="p">:</span> <span class="s">&quot;2013-06-01T00:00:00&quot;</span>
+  <span class="p">},</span>
+  <span class="s">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s">&quot;email&quot;</span><span class="p">:</span> <span class="s">&quot;sanbasulto_04@hotmail.com&quot;</span><span class="p">,</span>
+    <span class="s">&quot;first_name&quot;</span><span class="p">:</span> <span class="s">&quot;Santiago&quot;</span><span class="p">,</span>
+    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+    <span class="s">&quot;last_name&quot;</span><span class="p">:</span> <span class="s">&quot;Basulto&quot;</span><span class="p">,</span>
+    <span class="s">&quot;preferences&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/preferences/11/&quot;</span><span class="p">,</span>
+    <span class="s">&quot;profile&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/profile/11/&quot;</span><span class="p">,</span>
+    <span class="s">&quot;profile_image_225_url&quot;</span><span class="p">:</span> <span class="s">&quot;http://com-athlete-testing-profile-images.s3.amazonaws.com/55/7ba30e2340c692647d206b7b955499/perfil.jpg&quot;</span><span class="p">,</span>
+    <span class="s">&quot;profile_image_48_url&quot;</span><span class="p">:</span> <span class="s">&quot;http://com-athlete-testing-profile-images.s3.amazonaws.com/3e/4cfd176efe1dad173f4e33d81cc570/perfil.jpg&quot;</span><span class="p">,</span>
+    <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/user/11/&quot;</span><span class="p">,</span>
+    <span class="s">&quot;stats&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/stats/11/&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The most important data here (I won&#8217;t detail info about Event and User, refer to the docs for each resource):</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">active:</th><td class="field-body">IMPORTANT! This field indicates if the event is still undergoin for this user. This means if this is True, then all workouts uploaded by this user will count toward this event.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">description:</th><td class="field-body">This is the description the user gave about his participation in this event.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">participant_url:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">This is the full web participant URL.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">total_miles_logged:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">Total miles logged by this participant (ran, walked, cycled).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">amount_per_mile:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">This is the amount of money raised by this user for this event. Each mile the user runs, he&#8217;ll get this value in money for the cause he&#8217;s running for. You can use this value (and total_miles_logged) to compute the total money raised by this user at this point in time.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">user_goal_in_miles:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">This is the user&#8217;s goal for this event. This is set by the user and as the name implies, it&#8217;s in miles.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Some of the most prominent resources bellow:</p>
+<p><strong>GET /event-participant/</strong></p>
+<p>This is the EventParticipant Resource endpoint. More following.</p>
+<p><strong>GET /event-participant/?user_id=:user_id</strong></p>
+<p>Get All event participants for the user with ID :user_id. Not really useful because contains all active and unactive events participants.</p>
+<p><strong>GET /event-participant/?user_id=:user_id</strong></p>
+<p>Get All event participants for the user with ID :user_id. Not really useful because contains all active and unactive events participants.</p>
+</div>
+<div class="section" id="hotness">
+<h2>Hotness<a class="headerlink" href="#hotness" title="Permalink to this headline">¶</a></h2>
+<p>This is the name we&#8217;ve gave to the &#8220;hot&#8221; participations for a given user. If you ask for hot participants for a given user you&#8217;ll get:</p>
+<ul class="simple">
+<li>Active participants. I.e: Events currently active in which the user is participating in.</li>
+<li>Events finished less than a week ago: The event is already done, the event participant is no longer active. But it&#8217;s still hot. Of course, if the user uploads a workout, it doesn&#8217;t have to count toward this event.</li>
+<li>All future event participants: The user is already registered for an event that has not yet started. The event participant is NOT active. Same rule than before. But you might want to show it to her/him.</li>
+</ul>
+<p>To query for this EventParticipants you must use the <tt class="docutils literal"><span class="pre">status</span></tt> attribute with the <tt class="docutils literal"><span class="pre">hot</span></tt> value. This is an example to query for all hot event participants for a given user:</p>
+<p><strong>GET /event-participant/?user_id=:user_id&amp;status=hot</strong></p>
+<p>You&#8217;ll get something like:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">&quot;meta&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s">&quot;limit&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s">&quot;next&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s">&quot;offset&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s">&quot;previous&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s">&quot;total_count&quot;</span><span class="p">:</span> <span class="mi">2</span>
+  <span class="p">},</span>
+  <span class="s">&quot;objects&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s">&quot;active&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+      <span class="s">&quot;amount_per_mile&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+      <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="s">&quot;I run because I love it&quot;</span><span class="p">,</span>
+      <span class="s">&quot;event&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;end_date&quot;</span><span class="p">:</span> <span class="s">&quot;2013-06-30T00:00:00&quot;</span><span class="p">,</span>
+        <span class="s">&quot;home_url&quot;</span><span class="p">:</span> <span class="s">&quot;http://test.athlete.com/events/4/one-run-for-boston&quot;</span><span class="p">,</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="s">&quot;info_url&quot;</span><span class="p">:</span> <span class="s">&quot;http://test.athlete.com/events/4/one-run-for-boston/promo&quot;</span><span class="p">,</span>
+        <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;One Run For Boston&quot;</span><span class="p">,</span>
+        <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/event/4/&quot;</span><span class="p">,</span>
+        <span class="s">&quot;start_date&quot;</span><span class="p">:</span> <span class="s">&quot;2013-06-01T00:00:00&quot;</span>
+      <span class="p">},</span>
+      <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">328</span><span class="p">,</span>
+      <span class="s">&quot;participant_url&quot;</span><span class="p">:</span> <span class="s">&quot;https://test.athlete.com/events/participant/328/Santiago+Basulto&quot;</span><span class="p">,</span>
+      <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/event-participant/328/&quot;</span><span class="p">,</span>
+      <span class="s">&quot;total_miles_logged&quot;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span>
+      <span class="s">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;email&quot;</span><span class="p">:</span> <span class="s">&quot;sanbasulto_04@hotmail.com&quot;</span><span class="p">,</span>
+        <span class="s">&quot;first_name&quot;</span><span class="p">:</span> <span class="s">&quot;Santiago&quot;</span><span class="p">,</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+        <span class="s">&quot;last_name&quot;</span><span class="p">:</span> <span class="s">&quot;Basulto&quot;</span><span class="p">,</span>
+        <span class="s">&quot;preferences&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/preferences/11/&quot;</span><span class="p">,</span>
+        <span class="s">&quot;profile&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/profile/11/&quot;</span><span class="p">,</span>
+        <span class="s">&quot;profile_image_225_url&quot;</span><span class="p">:</span> <span class="s">&quot;http://com-athlete-testing-profile-images.s3.amazonaws.com/55/7ba30e2340c692647d206b7b955499/perfil.jpg&quot;</span><span class="p">,</span>
+        <span class="s">&quot;profile_image_48_url&quot;</span><span class="p">:</span> <span class="s">&quot;http://com-athlete-testing-profile-images.s3.amazonaws.com/3e/4cfd176efe1dad173f4e33d81cc570/perfil.jpg&quot;</span><span class="p">,</span>
+        <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/user/11/&quot;</span><span class="p">,</span>
+        <span class="s">&quot;stats&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/stats/11/&quot;</span>
+      <span class="p">},</span>
+      <span class="s">&quot;user_goal_in_miles&quot;</span><span class="p">:</span> <span class="mi">11</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s">&quot;active&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+      <span class="s">&quot;amount_per_mile&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+      <span class="s">&quot;event&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;end_date&quot;</span><span class="p">:</span> <span class="s">&quot;2013-06-30T00:00:00&quot;</span><span class="p">,</span>
+        <span class="s">&quot;home_url&quot;</span><span class="p">:</span> <span class="s">&quot;http://test.athlete.com/events/5/run-a-mile-for-a-special-child&quot;</span><span class="p">,</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="s">&quot;info_url&quot;</span><span class="p">:</span> <span class="s">&quot;http://test.athlete.com/events/5/run-a-mile-for-a-special-child/promo&quot;</span><span class="p">,</span>
+        <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Run a Mile for a Special Child&quot;</span><span class="p">,</span>
+        <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/event/5/&quot;</span><span class="p">,</span>
+        <span class="s">&quot;start_date&quot;</span><span class="p">:</span> <span class="s">&quot;2013-06-01T00:00:00&quot;</span>
+      <span class="p">},</span>
+      <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">335</span><span class="p">,</span>
+      <span class="s">&quot;participant_url&quot;</span><span class="p">:</span> <span class="s">&quot;https://test.athlete.com/events/participant/335/Santiago+Basulto&quot;</span><span class="p">,</span>
+      <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/event-participant/335/&quot;</span><span class="p">,</span>
+      <span class="s">&quot;total_miles_logged&quot;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span>
+      <span class="s">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;email&quot;</span><span class="p">:</span> <span class="s">&quot;sanbasulto_04@hotmail.com&quot;</span><span class="p">,</span>
+        <span class="s">&quot;first_name&quot;</span><span class="p">:</span> <span class="s">&quot;Santiago&quot;</span><span class="p">,</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+        <span class="s">&quot;last_name&quot;</span><span class="p">:</span> <span class="s">&quot;Basulto&quot;</span><span class="p">,</span>
+        <span class="s">&quot;preferences&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/preferences/11/&quot;</span><span class="p">,</span>
+        <span class="s">&quot;profile&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/profile/11/&quot;</span><span class="p">,</span>
+        <span class="s">&quot;profile_image_225_url&quot;</span><span class="p">:</span> <span class="s">&quot;http://com-athlete-testing-profile-images.s3.amazonaws.com/55/7ba30e2340c692647d206b7b955499/perfil.jpg&quot;</span><span class="p">,</span>
+        <span class="s">&quot;profile_image_48_url&quot;</span><span class="p">:</span> <span class="s">&quot;http://com-athlete-testing-profile-images.s3.amazonaws.com/3e/4cfd176efe1dad173f4e33d81cc570/perfil.jpg&quot;</span><span class="p">,</span>
+        <span class="s">&quot;resource_uri&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/user/11/&quot;</span><span class="p">,</span>
+        <span class="s">&quot;stats&quot;</span><span class="p">:</span> <span class="s">&quot;/api/v1/stats/11/&quot;</span>
+      <span class="p">},</span>
+      <span class="s">&quot;user_goal_in_miles&quot;</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Events</a><ul>
+<li><a class="reference internal" href="#get-an-event-resource">Get an Event resource</a></li>
+<li><a class="reference internal" href="#event-particiapnts">Event Particiapnts</a></li>
+<li><a class="reference internal" href="#hotness">Hotness</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="workout.html"
+                        title="previous chapter">Workouts</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="route.html"
+                        title="next chapter">Routes</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/resources/events.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="route.html" title="Routes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="workout.html" title="Workouts"
+             >previous</a> |</li>
+        <li><a href="../index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Athlete.com.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
