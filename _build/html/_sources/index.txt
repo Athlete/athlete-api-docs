@@ -33,6 +33,7 @@ Resources
    resources/preferences
    resources/post
    resources/workout
+   resources/events
    resources/route
    resources/photo_album
    resources/photo
@@ -42,6 +43,7 @@ Resources
    resources/post
    resources/messages
    resources/stats
+   resources/version2
 
 
 Indices and tables
@@ -50,4 +52,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-

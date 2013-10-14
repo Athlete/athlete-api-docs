@@ -1,0 +1,183 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Version 2 &mdash; Athlete.com API 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Athlete.com API 0.1.0 documentation" href="../index.html" />
+    <link rel="prev" title="Stats" href="stats.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="stats.html" title="Stats"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="version-2">
+<h1>Version 2<a class="headerlink" href="#version-2" title="Permalink to this headline">¶</a></h1>
+<p>The new version of the API (v2) is intended to provide the functionality needed to handle workouts with type and subtype. The previous version of the app (v1) only supported &#8220;Running&#8221; workouts. We now support all these activity types:</p>
+<ul class="simple">
+<li>Running</li>
+<li>Walking</li>
+<li>Cycling</li>
+<li>Hiking</li>
+<li>Mountain Biking</li>
+<li>Wheelchair</li>
+<li>Paddling</li>
+<li>X-Country Skiing</li>
+<li>Downhill Skiing</li>
+<li>Snowboarding</li>
+<li>Swimming</li>
+</ul>
+<p>Each activity type supports different activity subtypes.</p>
+<div class="section" id="workout-resource-changes">
+<h2>Workout resource changes<a class="headerlink" href="#workout-resource-changes" title="Permalink to this headline">¶</a></h2>
+<p>Workouts have now 2 new attributes: <tt class="docutils literal"><span class="pre">activity_type</span></tt> and <tt class="docutils literal"><span class="pre">activity_subtype</span></tt>. This is the JSON representation of an example workout (with points):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;run_date&quot;</span><span class="p">:</span> <span class="s">&quot;1970-01-01T00:00:00Z&quot;</span><span class="p">,</span>
+    <span class="s">&quot;title&quot;</span><span class="p">:</span> <span class="s">&quot;Run Title!&quot;</span><span class="p">,</span>
+    <span class="s">&quot;activity_subtype&quot;</span><span class="p">:</span> <span class="s">&quot;Running&quot;</span><span class="p">,</span>
+    <span class="s">&quot;activity_subtype&quot;</span><span class="p">:</span> <span class="s">&quot;Endurance&quot;</span><span class="p">,</span>
+    <span class="s">&quot;duration_in_seconds&quot;</span><span class="p">:</span> <span class="mi">3600</span><span class="p">,</span>
+    <span class="s">&quot;distance_in_meters&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+    <span class="s">&quot;post_body&quot;</span><span class="p">:</span> <span class="s">&quot;This is the body, in order to provide a full description of your run&quot;</span><span class="p">,</span>
+    <span class="s">&quot;privacy&quot;</span><span class="p">:</span> <span class="s">&quot;public&quot;</span><span class="p">,</span>
+    <span class="s">&quot;points&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">&quot;lng&quot;</span><span class="p">:</span><span class="s">&quot;-111.5373066&quot;</span><span class="p">,</span>
+            <span class="s">&quot;lat&quot;</span><span class="p">:</span><span class="s">&quot;40.7231711&quot;</span><span class="p">,</span>
+            <span class="s">&quot;time&quot;</span><span class="p">:</span> <span class="s">&quot;2012-01-01T00:00:04Z&quot;</span><span class="p">,</span>
+            <span class="s">&quot;elev&quot;</span><span class="p">:</span> <span class="s">&quot;1942.1789265256325&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s">&quot;lng&quot;</span><span class="p">:</span><span class="s">&quot;-111.5372056&quot;</span><span class="p">,</span>
+            <span class="s">&quot;lat&quot;</span><span class="p">:</span><span class="s">&quot;40.7228762&quot;</span><span class="p">,</span>
+            <span class="s">&quot;time&quot;</span><span class="p">:</span> <span class="s">&quot;2012-01-01T00:00:07Z&quot;</span><span class="p">,</span>
+            <span class="s">&quot;elev&quot;</span><span class="p">:</span> <span class="s">&quot;1942.109892409177&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You can see the third and fourth arguments are <tt class="docutils literal"><span class="pre">activity_type</span></tt> and <tt class="docutils literal"><span class="pre">activity_subtype</span></tt>. The remaining of the representation is the same as v1.</p>
+<p>This is a GPX representation of the v2:</p>
+<div class="highlight-python"><pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;gpx version="1.1" creator="Athlete Mobile App (Not important)"
+    xsi:schemaLocation="http://www.topografix.com/GPX/1/1"
+    xmlns="http://www.topografix.com/GPX/1/1"&gt;
+    &lt;metadata&gt;
+        &lt;desc&gt;Run description&lt;/desc&gt;
+        &lt;time&gt;2012-07-02T12:03:38Z&lt;/time&gt;
+        &lt;extensions&gt;
+            &lt;privacy&gt;private&lt;/privacy&gt;
+            &lt;facebook_access_token&gt;FacebookTokenHere!&lt;/facebook_access_token&gt;
+        &lt;/extensions&gt;
+    &lt;/metadata&gt;
+    &lt;trk&gt;
+        &lt;name&gt;Run around the park&lt;/name&gt;
+        &lt;type&gt;Endurance&lt;/type&gt;
+        &lt;trkseg&gt;
+            &lt;trkpt lon="-113.635201" lat="37.1570545"&gt;
+                &lt;time&gt;2012-07-01T17:00:00Z&lt;/time&gt;
+                &lt;ele&gt;900.567032295&lt;/ele&gt;
+            &lt;/trkpt&gt;
+            ... More Points ...
+        &lt;trkseg&gt;
+    &lt;/trk&gt;
+&lt;/gpx&gt;</pre>
+</div>
+<p>&#8211;</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Version 2</a><ul>
+<li><a class="reference internal" href="#workout-resource-changes">Workout resource changes</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="stats.html"
+                        title="previous chapter">Stats</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/resources/version2.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="stats.html" title="Stats"
+             >previous</a> |</li>
+        <li><a href="../index.html">Athlete.com API 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Athlete.com.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

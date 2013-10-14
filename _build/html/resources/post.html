@@ -266,6 +266,69 @@ a normal response with 0 results.</p>
 </table>
 </div></blockquote>
 </div>
+<div class="section" id="extra-information-for-posts">
+<h2>Extra information for posts<a class="headerlink" href="#extra-information-for-posts" title="Permalink to this headline">¶</a></h2>
+<p>Some posts have extra information. That&#8217;s because you might want to provide a richer experience for the user. Some type of Post types that have extra information are detailed below:</p>
+<div class="section" id="user-just-registered-for-an-event">
+<h3>User just registered for an event<a class="headerlink" href="#user-just-registered-for-an-event" title="Permalink to this headline">¶</a></h3>
+<p>The user registered for an event. This is how it looks in the site:</p>
+<img alt="../_images/registered-for-event.png" src="../_images/registered-for-event.png" />
+<p>This is an example of the JSON data you get:</p>
+<div class="highlight-python"><pre>{
+  "author": {
+    "email": "sanbasulto_04@hotmail.com",
+    "first_name": "Santiago",
+    "last_name": "Basulto",
+    ...
+  },
+  "body": "Santiago Basulto just registered for Run a Mile for a Special Child http://test.athlete.com/events/5/run-a-mile-for-a-special-child/promo",
+  "extra": {
+    "event_logo": "https://com-athlete-testing-static.s3.amazonaws.com/media/event_logos/asUzhUYjmC8hQtpwLeCBYm.gif",
+    "event_name": "Run a Mile for a Special Child",
+    "home_url": "http://test.athlete.com/events/5/run-a-mile-for-a-special-child",
+    "info_url": "http://test.athlete.com/events/5/run-a-mile-for-a-special-child/promo",
+    "participant_page_url": "http://test.athlete.com/events/participant/335/Santiago+Basulto"
+  },
+  "id": 10305,
+  "resource_uri": "/api/v1/post/10305/",
+  "post_type": "registered-for-event",
+  ...
+}</pre>
+</div>
+<p>In <tt class="docutils literal"><span class="pre">extra</span></tt> you have some important info regarding the event and the <tt class="docutils literal"><span class="pre">body</span></tt> is intentionally enriched for older apps.</p>
+</div>
+<div class="section" id="an-event-participant-got-a-new-sponsor">
+<h3>An event participant got a new sponsor<a class="headerlink" href="#an-event-participant-got-a-new-sponsor" title="Permalink to this headline">¶</a></h3>
+<p>A user got a new sponsor for his/her event participant. This is how it looks in the site:</p>
+<img alt="../_images/got-sponsored.png" src="../_images/got-sponsored.png" />
+<p>This is an example of the JSON data you get:</p>
+<div class="highlight-python"><pre>{
+  "author": {
+    "id": 11,
+    "email": "...",
+    "first_name": "Santiago",
+    "last_name": "Basulto",
+    ...
+  },
+  "body": "Santiago Basulto just got sponsored by Martin Zugnoni for One Run For Boston. http://test.athlete.com/events/4/one-run-for-boston/promo",
+  "extra": {
+    "amount_per_mile": "0.2500",
+    "event_logo": "https://com-athlete-testing-static.s3.amazonaws.com/media/event_logos/KycD4Yo3m98mcvcNSPRY3C.png",
+    "event_name": "One Run For Boston",
+    "home_url": "http://test.athlete.com/events/4/one-run-for-boston",
+    "info_url": "http://test.athlete.com/events/4/one-run-for-boston/promo",
+    "participant_page_url": "http://test.athlete.com/events/participant/328/Santiago+Basulto",
+    "sponsor_name": "Martin Zugnoni"
+  },
+  "id": 10304,
+  "resource_uri": "/api/v1/post/10304/",
+  "post_type": "event-participant-got-sponsor",
+  ...
+},</pre>
+</div>
+<p>In <tt class="docutils literal"><span class="pre">extra</span></tt> you have some important info regarding the event and the <tt class="docutils literal"><span class="pre">body</span></tt> is intentionally enriched for older apps.</p>
+</div>
+</div>
 </div>
 
 
@@ -283,6 +346,11 @@ a normal response with 0 results.</p>
 <li><a class="reference internal" href="#delete-a-post">Delete a Post</a></li>
 <li><a class="reference internal" href="#uploading-a-picture-to-a-post">Uploading a picture to a Post</a></li>
 <li><a class="reference internal" href="#get-pictures-from-a-given-post">Get pictures from a given post</a></li>
+<li><a class="reference internal" href="#extra-information-for-posts">Extra information for posts</a><ul>
+<li><a class="reference internal" href="#user-just-registered-for-an-event">User just registered for an event</a></li>
+<li><a class="reference internal" href="#an-event-participant-got-a-new-sponsor">An event participant got a new sponsor</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

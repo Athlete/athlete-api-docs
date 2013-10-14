@@ -26,7 +26,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Athlete.com API 0.1.0 documentation" href="../index.html" />
-    <link rel="next" title="Routes" href="route.html" />
+    <link rel="next" title="Events" href="events.html" />
     <link rel="prev" title="Posts (a.k.a. Feed)" href="post.html" /> 
   </head>
   <body>
@@ -37,7 +37,7 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="route.html" title="Routes"
+          <a href="events.html" title="Events"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="post.html" title="Posts (a.k.a. Feed)"
@@ -171,7 +171,16 @@ Content-Type: application/X.athlete-GPX+xml; charset=utf-8
 </div></blockquote>
 <p>Each &lt;trkpt&gt; element contains the route data.</p>
 <p>GPX Documentation: <a class="reference external" href="http://www.topografix.com/GPX/1/1/">http://www.topografix.com/GPX/1/1/</a></p>
-<p>Duplicate workouts are not allowed and will result in the 206 error code.</p>
+</div>
+<div class="section" id="duplicate-workouts">
+<h2>Duplicate workouts<a class="headerlink" href="#duplicate-workouts" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes due to connection problems, mobile clients can send the same workout more that 1 time. That&#8217;s why we check for duplicates.</p>
+<p>If you POST workout that&#8217;s already present in Athlete.com you&#8217;ll get a <strong>400 HTTP response</strong>. And the following message:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="s">&quot;206&quot;</span><span class="p">,</span> <span class="s">&quot;The workout you are trying to save already exists&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Further. The <tt class="docutils literal"><span class="pre">Location</span></tt> header will be populated with the URI of the original workout.</p>
+<p>For more information check the <a class="reference internal" href="../getting_started/errors.html"><em>Errors</em></a> section.</p>
 </div>
 <div class="section" id="create-a-workout-with-json-data">
 <h2>Create a workout with JSON data<a class="headerlink" href="#create-a-workout-with-json-data" title="Permalink to this headline">¶</a></h2>
@@ -304,6 +313,7 @@ You will get a 401 UNAUTHORIZED response if the current logged in user does not 
 <li><a class="reference internal" href="#">Workouts</a><ul>
 <li><a class="reference internal" href="#fetch-all-workouts-for-a-user">Fetch all workouts for a user</a></li>
 <li><a class="reference internal" href="#create-a-workout-with-gpx-data">Create a workout with GPX data</a></li>
+<li><a class="reference internal" href="#duplicate-workouts">Duplicate workouts</a></li>
 <li><a class="reference internal" href="#create-a-workout-with-json-data">Create a workout with JSON data</a></li>
 <li><a class="reference internal" href="#delete-a-workout">Delete a workout</a></li>
 <li><a class="reference internal" href="#upload-route-data-to-a-workout">Upload route data to a workout</a></li>
@@ -317,8 +327,8 @@ You will get a 401 UNAUTHORIZED response if the current logged in user does not 
   <p class="topless"><a href="post.html"
                         title="previous chapter">Posts (a.k.a. Feed)</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="route.html"
-                        title="next chapter">Routes</a></p>
+  <p class="topless"><a href="events.html"
+                        title="next chapter">Events</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/resources/workout.txt"
@@ -348,7 +358,7 @@ You will get a 401 UNAUTHORIZED response if the current logged in user does not 
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="route.html" title="Routes"
+          <a href="events.html" title="Events"
              >next</a> |</li>
         <li class="right" >
           <a href="post.html" title="Posts (a.k.a. Feed)"

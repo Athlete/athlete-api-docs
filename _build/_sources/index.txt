@@ -43,6 +43,7 @@ Resources
    resources/post
    resources/messages
    resources/stats
+   resources/version2
 
 
 Indices and tables
