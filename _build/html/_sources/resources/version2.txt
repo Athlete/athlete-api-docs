@@ -65,11 +65,12 @@ This is a GPX representation of the v2:
             <extensions>
                 <privacy>private</privacy>
 		<facebook_access_token>FacebookTokenHere!</facebook_access_token>
+                <subtype>Endurance</subtype>
             </extensions>
         </metadata>
         <trk>
             <name>Run around the park</name>
-            <type>Endurance</type>
+            <type>Running</type>
             <trkseg>
                 <trkpt lon="-113.635201" lat="37.1570545">
                     <time>2012-07-01T17:00:00Z</time>
@@ -79,5 +80,3 @@ This is a GPX representation of the v2:
             <trkseg>
         </trk>
     </gpx>
-
---
