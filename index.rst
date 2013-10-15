@@ -44,6 +44,7 @@ Resources
    resources/messages
    resources/stats
    resources/version2
+   resources/activity_types
 
 
 Indices and tables

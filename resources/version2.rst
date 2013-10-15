@@ -49,9 +49,14 @@ Workouts have now 2 new attributes: ``activity_type`` and ``activity_subtype``. 
         ]
     }
 
-You can see the third and fourth arguments are ``activity_type`` and ``activity_subtype``. The remaining of the representation is the same as v1.
+You can see the third and fourth arguments are ``activity_type`` and ``activity_subtype``. The remaining of the representation is the same as v1. A basic description of the new fields for reference:
 
-This is a GPX representation of the v2:
+    :activity_type: The activity type of the workout (listed above).
+    :activity_subtype: The activity subtype. See activity types section for details.
+
+Both these attributes are mandatory. You have to provide both. We don't accept defaults.
+
+This is a **GPX representation** of the v2:
 
 ::
 
@@ -80,3 +85,6 @@ This is a GPX representation of the v2:
             <trkseg>
         </trk>
     </gpx>
+
+
+As you see there are just 1 new attrbiute ``metadata/extensions/subtype`` (which is, of course, used for the subtype of the workout). The old ``trk/type`` attribute is now used to indicate the activity type of the workout. This implies that from now on, you'll have to always specify an ``metadata/extensions/subtype`` attribute.

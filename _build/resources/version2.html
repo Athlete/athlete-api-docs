@@ -26,6 +26,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Athlete.com API 0.1.0 documentation" href="../index.html" />
+    <link rel="next" title="Detail of the activity types and subtypes" href="activity_types.html" />
     <link rel="prev" title="Stats" href="stats.html" /> 
   </head>
   <body>
@@ -35,6 +36,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="activity_types.html" title="Detail of the activity types and subtypes"
+             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="stats.html" title="Stats"
              accesskey="P">previous</a> |</li>
@@ -93,8 +97,22 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>You can see the third and fourth arguments are <tt class="docutils literal"><span class="pre">activity_type</span></tt> and <tt class="docutils literal"><span class="pre">activity_subtype</span></tt>. The remaining of the representation is the same as v1.</p>
-<p>This is a GPX representation of the v2:</p>
+<p>You can see the third and fourth arguments are <tt class="docutils literal"><span class="pre">activity_type</span></tt> and <tt class="docutils literal"><span class="pre">activity_subtype</span></tt>. The remaining of the representation is the same as v1. A basic description of the new fields for reference:</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">activity_type:</th><td class="field-body">The activity type of the workout (listed above).</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">activity_subtype:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">The activity subtype. See activity types section for details.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Both these attributes are mandatory. You have to provide both. We don&#8217;t accept defaults.</p>
+<p>This is a <strong>GPX representation</strong> of the v2:</p>
 <div class="highlight-python"><pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;gpx version="1.1" creator="Athlete Mobile App (Not important)"
     xsi:schemaLocation="http://www.topografix.com/GPX/1/1"
@@ -121,6 +139,7 @@
     &lt;/trk&gt;
 &lt;/gpx&gt;</pre>
 </div>
+<p>As you see there are just 1 new attrbiute <tt class="docutils literal"><span class="pre">metadata/extensions/subtype</span></tt> (which is, of course, used for the subtype of the workout). The old <tt class="docutils literal"><span class="pre">trk/type</span></tt> attribute is now used to indicate the activity type of the workout. This implies that from now on, you&#8217;ll have to always specify an <tt class="docutils literal"><span class="pre">metadata/extensions/subtype</span></tt> attribute.</p>
 </div>
 </div>
 
@@ -141,6 +160,9 @@
   <h4>Previous topic</h4>
   <p class="topless"><a href="stats.html"
                         title="previous chapter">Stats</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="activity_types.html"
+                        title="next chapter">Detail of the activity types and subtypes</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/resources/version2.txt"
@@ -169,6 +191,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="activity_types.html" title="Detail of the activity types and subtypes"
+             >next</a> |</li>
         <li class="right" >
           <a href="stats.html" title="Stats"
              >previous</a> |</li>
